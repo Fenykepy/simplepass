@@ -26,6 +26,7 @@
     "koa": "^1.2.1",
     "koa-compress": "^1.0.9",
     "koa-route": "^2.4.2",
+    "koa-static": "^2.0.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-redux": "^4.4.5",
@@ -57,8 +58,8 @@
   },
   "babel": {
     "plugins": [
-        "syntax-async-functions",
-        "syntax-async-generators"
+      "syntax-async-functions",
+      "syntax-async-generators"
     ],
     "presets": [
       "es2015",

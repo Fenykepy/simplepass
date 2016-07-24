@@ -48,7 +48,7 @@
 - Logout - clear encrypted json object and delete jwt
 
 
-## Encrypted json object structure
+## Encrypted json object structure (.ejson file)
 
     JSON = {
         config: {

@@ -1,5 +1,8 @@
+import path from 'path'
+
 import koa from 'koa'
 import route from 'koa-route'
+import serve from 'koa-static'
 import compress from 'koa-compress'
 
 import webpackDevMiddleware from 'koa-webpack-dev-middleware'
@@ -8,7 +11,7 @@ import webpack from 'webpack'
 import config from '../webpack.config'
 
 import home from './controllers/home' 
-
+import ejson from './controllers/ejson'
 
 
 
@@ -24,8 +27,19 @@ if (process.env.NODE_ENV != 'production') {
   app.use(webpackHotMiddleware(compiler))
 }
 
-app.use(route.get('/', home));
+app.use(route.get('/', home))
+app.use(route.get('/api/ejson/', ejson.retrieve))
+app.use(route.put('/api/ejson/', ejson.update))
+app.use(route.delete('/api/ejson/', ejson.remove))
 
+
+if (! statics_proxy) {
+  // Serve static files for development
+  app.use(serve(path.join(__dirname, 'public')))
+}
+
+// compress
+app.use(compress())
 
 app.listen(port)
 
