@@ -1,0 +1,22 @@
+{
+  "name": "simplepass",
+  "version": "0.0.1",
+  "private": true,
+  "description": "A simple password manager with cli and web backends",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "start_prod": "NODE_ENV=production node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Fenykepy/simplepass.git"
+  },
+  "author": "Lavilotte-Rolle Frédéric",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Fenykepy/simplepass/issues"
+  },
+  "homepage": "https://github.com/Fenykepy/simplepass#readme"
+}
