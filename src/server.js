@@ -12,6 +12,7 @@ import config from '../webpack.config'
 
 import home from './controllers/home' 
 import ejson from './controllers/ejson'
+import { responseTime } from './helpers'
 
 
 
@@ -26,12 +27,18 @@ if (process.env.NODE_ENV != 'production') {
   app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath }))
   app.use(webpackHotMiddleware(compiler))
 }
+// set x-response-time header
+app.use(responseTime)
 
+// home
 app.use(route.get('/', home))
+
+// ejson api endpoint
 app.use(route.get('/api/ejson/', ejson.retrieve))
 app.use(route.put('/api/ejson/', ejson.update))
 app.use(route.delete('/api/ejson/', ejson.remove))
 
+// user api endpoint
 
 if (! statics_proxy) {
   // Serve static files for development
