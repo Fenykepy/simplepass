@@ -18,9 +18,12 @@ import { responseTime } from './helpers'
 
 
 
-import { statics_proxy, port } from '../config'
+import { statics_proxy, port, db_path } from '../config'
 
 var app = koa()
+
+// set db_path as context
+app.context.db_path = db_path
 
 // we are in development mode
 if (process.env.NODE_ENV != 'production') {
