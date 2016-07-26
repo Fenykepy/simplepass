@@ -10,8 +10,8 @@ import webpackHotMiddleware from 'koa-webpack-hot-middleware'
 import webpack from 'webpack'
 import config from '../webpack.config'
 
-import home from './controllers/home' 
-import ejson from './controllers/ejson'
+import home from './home/controllers' 
+import ejson from './ejson/controllers'
 import { responseTime } from './helpers'
 
 
