@@ -9,6 +9,15 @@ export function readFileThunk(src) {
   })
 }
 
+export function writeFileThunk(src, data) {
+  return new Promise((resolve, reject) => {
+    fs.writeFile(src, data, 'utf8', error => {
+      if (error) return reject(error)
+      resolve()
+    })
+  })
+}
+
 export function * responseTime(next) {
   let start = new Date;
   yield next
