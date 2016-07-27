@@ -13,7 +13,6 @@ ejson.retrieve = function* (next) {
   if ('GET' != this.method) return yield next
     let ejson = yield readFileThunk(path.join(this.db_path, 'fred.ejson'))
     this.body = {ejson: ejson}
-    this.status = 200
 }
 
 
@@ -25,7 +24,6 @@ ejson.update = function* (next) {
       typeof(this.request.body.ejson) == 'string') {
     yield writeFileThunk(path.join(this.db_path, 'fred.ejson'), 
         this.request.body.ejson)
-    this.status = 200
     return this.body = {ejson: this.request.body.ejson}
   }
   // if no ejson or if it's not a string
