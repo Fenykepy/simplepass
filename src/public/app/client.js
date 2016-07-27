@@ -9,7 +9,7 @@ import { render } from 'react-dom'
 
 import { Provider } from 'react-redux'
 import { createStoreWithMiddleware } from './store'
-import rootReducer from './reducers/main'
+import rootReducer from './reducers'
 
 let store = createStoreWithMiddleware(rootReducer)
 

@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 
-import ejson from './ejson'
+import ejson from '../ejson/reducers'
 
 const rootReducer = combineReducers({
   ejson,

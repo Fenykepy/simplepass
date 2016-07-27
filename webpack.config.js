@@ -19,7 +19,7 @@ var config = {
     app: [
     'babel-polyfill',
     'webpack-hot-middleware/client',
-    './src/public/client'
+    './src/public/app/client'
     ]
   },
   output: {

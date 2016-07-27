@@ -4,8 +4,10 @@ import {
   REQUEST_EJSON,
   REQUEST_EJSON_SUCCESS,
   REQUEST_EJSON_FAILURE,
-  LOGOUT,
-} from '../constants/actionsTypes'
+} from './actionsTypes'
+import {
+  LOGOUT
+} from '../users/actionsTypes'
 
 function ejson(state={}, action) {
   switch (action.type) {
