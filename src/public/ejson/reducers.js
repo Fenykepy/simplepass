@@ -7,7 +7,7 @@ import {
 } from './actionsTypes'
 import {
   LOGOUT
-} from '../users/actionsTypes'
+} from '../user/actionsTypes'
 
 function ejson(state={}, action) {
   switch (action.type) {
