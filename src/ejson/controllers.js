@@ -11,7 +11,7 @@ let ejson = {}
 // retrieve file content as json
 ejson.retrieve = function* (next) {
   if ('GET' != this.method) return yield next
-    let ejson = yield readFileThunk(path.join(this.db_path, 'fred.ejson'))
+    let ejson = yield readFileThunk(path.join(this.EJSON_DIR, 'fred.ejson'))
     this.body = {ejson: ejson}
 }
 
@@ -22,7 +22,7 @@ ejson.update = function* (next) {
   // if we got ejson, save it in file
   if (this.request.body.ejson && 
       typeof(this.request.body.ejson) == 'string') {
-    yield writeFileThunk(path.join(this.db_path, 'fred.ejson'), 
+    yield writeFileThunk(path.join(this.EJSON_DIR, 'fred.ejson'), 
         this.request.body.ejson)
     return this.body = {ejson: this.request.body.ejson}
   }
