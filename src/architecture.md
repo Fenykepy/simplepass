@@ -62,7 +62,7 @@
         ],
         entries: [
             {id: "hash of name", name: "my password name", type: "password", url: "http://my_site", content: "my password", group: "group's hash"},
-            {id: "hash of name", name: "my note name", type: "note", url: "http://my_site", content: "my note", group: "group's hash"},
+            {id: "hash of name", name: "my note name", type: "note", url: "http://my_site", content: "my note", group: "group's hash", date_created: date, date_updated: date},
         ]
     }
 
