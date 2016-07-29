@@ -14,7 +14,8 @@ import config from '../webpack.config'
 
 import home from './home/controllers' 
 import ejson from './ejson/controllers'
-import { responseTime } from './helpers'
+//import user from './user/controllers'
+import responseTime from './utils/response-time'
 
 import settings from '../config'
 import mongo from './mongo'

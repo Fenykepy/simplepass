@@ -1,9 +1,7 @@
 import path from 'path'
 
-import {
-  readFileThunk,
-  writeFileThunk,
-} from '../helpers'
+import readFileThunk from '../utils/read-file-thunk'
+import writeFileThunk from '../utils/write-file-thunk'
 
 let ejson = {}
 
