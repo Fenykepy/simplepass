@@ -17,6 +17,7 @@ import ejson from './ejson/controllers'
 import { responseTime } from './helpers'
 
 import settings from '../config'
+import mongo from './mongo'
 
 var app = koa()
 
@@ -33,6 +34,7 @@ if (process.env.NODE_ENV != 'production') {
 // set x-response-time header
 app.use(responseTime)
 
+
 // parse body
 app.use(bodyParser())
 
@@ -41,6 +43,10 @@ app.use(json({pretty: false}))
 
 // home
 app.use(route.get('/', home))
+
+// connect to mongodb
+// from now db is accessible as this.db
+app.use(mongo(settings.DB.uri, settings.DB.options))
 
 // ejson api endpoint
 app.use(route.get('/api/ejson/', ejson.retrieve))

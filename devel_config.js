@@ -24,4 +24,17 @@ settings.STATICS_PROXY = false
 settings.PORT = 3000
 
 
+/*
+ * Mongo database parameters object
+ * read koa-mongo docs for more info
+ * https://www.npmjs.com/package/koa-mongo
+ * uri is required
+ * options can be any MongoClient Option
+ */
+settings.DB = {
+  uri: "mongodb://localhost",
+  options: {}
+}
+
+
 export default settings
