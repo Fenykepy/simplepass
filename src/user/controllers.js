@@ -1,23 +1,9 @@
-import objectValidator from '../utils/validator'
+import { create_user_scheme } from './models'
+import validate_object from '../utils/validator'
 
 let user = {}
 
 
-user_validation_scheme = {
-  username: {
-    type: 'string',
-    max_length: 254
-  },
-  email: {
-    type: 'email',
-  },
-  // TODO add regex to ensure there is at least one number
-  password: {
-    type: 'string',
-    max_length: 800,
-    min_length: 8,
-  }
-}
 
 
 // create a new user
@@ -33,16 +19,26 @@ user.create = function* (next) {
     ]}
   }
   // check form for errors
+  try {
+      this.validated_data = validate_object(
+      this.request.body, create_user_scheme)
+  }
+  catch (errors) {
+    this.status = 400
+    return this.body = errors
+  }
   // check if email is free
-  this.status = 400
-  errors.
+  
 
   // insert new user in db
   // create a default ejson for user
   // log new user in
   // get user jwt
-  // send ejson file
   this.status = 201
+  this.body = {
+    username: this.validated_data.username,
+    email: this.validated_data.email
+  }
 }
 
 export default user

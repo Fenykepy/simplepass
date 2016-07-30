@@ -45,15 +45,16 @@ app.use(json({pretty: false}))
 // home
 app.use(route.get('/', home))
 
-// connect to mongodb
-// from now db is accessible as this.db
-app.use(mongo(settings.DB.uri, settings.DB.options))
-
 // ejson api endpoint
 app.use(route.get('/api/ejson/', ejson.retrieve))
 app.use(route.put('/api/ejson/', ejson.update))
 
+// connect to mongodb
+// from now db is accessible as this.db
+app.use(mongo(settings.DB.uri, settings.DB.options))
+
 // user api endpoint
+app.use(route.post('/api/user/', user.create))
 
 if (! settings.STATICS_PROXY) {
   // Serve static files for development
