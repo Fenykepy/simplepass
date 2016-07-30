@@ -197,10 +197,8 @@ function validate_object(data, validation_scheme) {
       errors[key] = error
     }
   })
-  console.log(errors)
 
   if (Object.keys(errors).length > 0) throw errors
-  console.log('no errors, return validated data')
     
   return validated_data
 
