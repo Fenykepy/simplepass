@@ -27,6 +27,7 @@ user.create = function* (next) {
     this.status = 400
     return this.body = errors
   }
+  let users = this.db.collection('users')
   // check if email is free
   
 

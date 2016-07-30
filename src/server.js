@@ -18,12 +18,23 @@ import user from './user/controllers'
 import responseTime from './utils/response-time'
 
 import settings from '../config'
-import mongo from './mongo'
+import monk from 'monk'
 
 var app = koa()
 
 // set settings.DB_PATH as context
 app.context.EJSON_DIR = settings.EJSON_DIR
+
+// connect to mongodb via monk
+monk(settings.DB)
+  .then(db =>
+    // add db to context
+    app.context.db = db
+  )
+  .catch(error => {
+    throw 'Database connection error'
+  })
+
 
 // we are in development mode
 if (process.env.NODE_ENV != 'production') {
@@ -49,9 +60,6 @@ app.use(route.get('/', home))
 app.use(route.get('/api/ejson/', ejson.retrieve))
 app.use(route.put('/api/ejson/', ejson.update))
 
-// connect to mongodb
-// from now db is accessible as this.db
-app.use(mongo(settings.DB.uri, settings.DB.options))
 
 // user api endpoint
 app.use(route.post('/api/user/', user.create))
