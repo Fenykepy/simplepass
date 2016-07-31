@@ -62,12 +62,18 @@ app.use(json({pretty: false}))
 // home
 app.use(route.get('/', home))
 
+
+// REST API
+
+// we try to authenticate user
+app.use(user.authenticate)
+
 // public user api endpoints
 app.use(route.post('/api/user/', user.create))
 app.use(route.post('/api/user/login/', user.login))
 
 // from here user needs to be authenticated
-app.use(user.authenticate)
+app.use(user.authenticationRequired)
 
 // private user api endpoints
 // insert profile management middlewares here.

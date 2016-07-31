@@ -8,58 +8,101 @@ import settings from '../../config'
 
 let user = {}
 
-
+function setAuthCookie(token) {
+}
 
 user.authenticate = function* (next) {
   /*
    * Login user if token is present in cookies,
-   * otherwise return 401
    * Set new token if cookie expiration date is soon
+   * set context.user
    */
 
   let token = this.cookies.get('auth_token')
   
-  // if we have no token, retun 401
+  // if we have no token, we pass next
   if (! token) {
-    this.status = 401
-    return this.body = {
-      detail: "Authentication credentials were not provided."
-    }
+    return yield next
   }
+
+  // if we have a token, we verify it
   try {
     // verify token and refresh it if necessairy
-    this.user = yield jwt.verify(token)
-    jwt.needRefresh(this.user)
+    this.state.user = yield jwt.verify(token)
+    if (jwt.needRefresh(this.state.user)) {
+      // compute new token
+      let token = yield jwt.sign(this.state.user)
+      // set auth cookie
+      this.cookies.set('auth_token', token, {
+        expires: timespan(settings.JWT_OPTIONS.expiresIn)
+      })
+    }
   }
   catch (error) {
-    this.status = 401
-    console.log(error)
-    return this.body = {
-      detail: "Invalid token"
-    }
+    this.throw('Authentication credentials were not valid.', 401)
   }
 
   yield next
 }
 
+user.authenticationRequired = function* (next) {
+  /*
+   * Throw a 401 error if user isn't loogued in
+   * this.state.user must be set
+   * you must call authenticate middleware first
+   */
+  this.assert(this.state.user, 401, 'Authentication credentials were not provided.')
 
+  yield next
+}
 
-user.login = function* () {
+user.login = function* (next) {
   /*
    * Login user with given credentials
    *
    */
+
+  // we only accept POST method
+  if ('POST' != this.method) return yield next
+
+  // loggued in users must logout first
+  if (this.state.user) {
+    this.status = 400
+    return this.body = { non_field_errors:
+      'Loggued in users must logout before logging in'
+    }
+  }
+
+  // check form from errors
+  try {
+    this.state.validated_data = validate_object(
+      this.request.body, login_user_scheme)
+  }
+  catch (errors) {
+    this.status = 400
+    return this.body = errors
+  }
+
+  // get users collection
+  let users = this.db.get('users')
+  // get user to login
+  // compare passwords
+  // set
+
 }
 
 
 
-// create a new user
-user.create = function* () {
+user.create = function* (next) {
+  /*
+   * Create a new user from posted datas
+   */
+
   // we only accept POST method
   if ('POST' != this.method) return yield next
     
   // loggued in users can't create accounts
-  if (this.user) {
+  if (this.state.user) {
     this.status = 400
     return this.body = { non_field_errors:
       'Loggued in users can\'t create new accounts'
@@ -67,7 +110,7 @@ user.create = function* () {
   }
   // check form for errors
   try {
-      this.validated_data = validate_object(
+    this.state.validated_data = validate_object(
       this.request.body, create_user_scheme)
   }
   catch (errors) {
@@ -80,10 +123,10 @@ user.create = function* () {
   
   // check if email and username are free
   let used_mail = yield users.count(
-    {email: this.validated_data.email}
+    {email: this.state.validated_data.email}
   )
   let used_username = yield users.count(
-    {username: this.validated_data.username}
+    {username: this.state.validated_data.username}
   )
 
   // if mail or username are used, return 400 with error message
@@ -100,31 +143,31 @@ user.create = function* () {
   }
 
   // get hash from password
-  let hash = yield bcrypt.hash(this.validated_data.password, 4)
+  let hash = yield bcrypt.hash(this.state.validated_data.password, 4)
 
   // get filename for ejson (sha1 of username + email)
-  let s = this.validated_data.username + this.validated_data.email
+  let s = this.state.validated_data.username + this.state.validated_data.email
   let ejson = crypto.createHash('sha1').update(s).digest("hex") + '.ejson'
 
   // create new user object
   let user = {
-    username: this.validated_data.username,
-    email: this.validated_data.email,
+    username: this.state.validated_data.username,
+    email: this.state.validated_data.email,
     email_validated: false,
     password: hash,
     ejson: ejson
   }
 
   // insert new user in db
-  this.user = yield users.insert(user)
+  this.state.user = yield users.insert(user)
   
   // we don't store password in token nor in context
-  delete this.user.password
+  delete this.state.user.password
 
   // TODO send email validation mail
   
   // set user jwt
-  let token = yield jwt.sign(this.user)
+  let token = yield jwt.sign(this.state.user)
 
   // set jwt as cookie
   this.cookies.set('auth_token', token, {
@@ -134,8 +177,8 @@ user.create = function* () {
   // send response
   this.status = 201
   this.body = {
-    username: this.user.username,
-    email: this.user.email,
+    username: this.state.user.username,
+    email: this.state.user.email,
     ejson: ""
   }
 }

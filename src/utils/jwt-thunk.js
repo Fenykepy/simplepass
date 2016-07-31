@@ -33,9 +33,11 @@ jwtThunk.verify = function (token) {
 jwtThunk.needRefresh = function (payload) {
   /*
    * Return true if token is at more than half than
-   * it's life
+   * it's life time
    */
   console.log(payload)
+  let now = Math.floor(Date.now() / 1000)
+  return (payload.exp - payload.iat) / 2 < now - payload.iat
 }
 
 export default jwtThunk
