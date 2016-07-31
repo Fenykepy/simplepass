@@ -29,5 +29,20 @@ settings.PORT = 3000
  */
 settings.DB = "mongodb://localhost/simplepass"
 
+/*
+ * Secret key, used to sign jwt, must be complex and unique
+ */
+settings.SECRET_KEY = "foo"
+
+/*
+ * JWT signing options, see:
+ * https://github.com/auth0/node-jsonwebtoken
+ * for more info
+ * you must set expiresIn, as there is no default
+ */
+settings.JWT_OPTIONS = {
+  expiresIn: "7d"
+}
+
 
 export default settings

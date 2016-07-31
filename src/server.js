@@ -43,9 +43,15 @@ if (process.env.NODE_ENV != 'production') {
   app.use(webpackDevMiddleware(compiler, {noInfo: true, publicPath: config.output.publicPath }))
   app.use(webpackHotMiddleware(compiler))
 }
+
+
+if (! settings.STATICS_PROXY) {
+  // Serve static files for development
+  app.use(serve(path.join(__dirname, 'public')))
+}
+
 // set x-response-time header
 app.use(responseTime)
-
 
 // parse body
 app.use(bodyParser())
@@ -56,18 +62,20 @@ app.use(json({pretty: false}))
 // home
 app.use(route.get('/', home))
 
+// public user api endpoints
+app.use(route.post('/api/user/', user.create))
+app.use(route.post('/api/user/login/', user.login))
+
+// from here user needs to be authenticated
+app.use(user.authenticate)
+
+// private user api endpoints
+// insert profile management middlewares here.
+
 // ejson api endpoint
 app.use(route.get('/api/ejson/', ejson.retrieve))
 app.use(route.put('/api/ejson/', ejson.update))
 
-
-// user api endpoint
-app.use(route.post('/api/user/', user.create))
-
-if (! settings.STATICS_PROXY) {
-  // Serve static files for development
-  app.use(serve(path.join(__dirname, 'public')))
-}
 
 // compress
 app.use(compress())

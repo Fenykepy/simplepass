@@ -1,7 +1,6 @@
 import path from 'path'
 
-import readFileThunk from '../utils/read-file-thunk'
-import writeFileThunk from '../utils/write-file-thunk'
+import fsThunk from '../utils/fs-thunk'
 
 let ejson = {}
 
@@ -9,7 +8,9 @@ let ejson = {}
 // retrieve file content as json
 ejson.retrieve = function* (next) {
   if ('GET' != this.method) return yield next
-    let ejson = yield readFileThunk(path.join(this.EJSON_DIR, 'fred.ejson'))
+    this.user = {ejson: 'fred.ejson'}
+    let ejson = yield fsThunk.readFile(path.join(
+      this.EJSON_DIR, this.user.ejson))
     this.body = {ejson: ejson}
 }
 
@@ -20,7 +21,7 @@ ejson.update = function* (next) {
   // if we got ejson, save it in file
   if (this.request.body.ejson && 
       typeof(this.request.body.ejson) == 'string') {
-    yield writeFileThunk(path.join(this.EJSON_DIR, 'fred.ejson'), 
+    yield fsThunk.writeFile(path.join(this.EJSON_DIR, this.user.ejson), 
         this.request.body.ejson)
     return this.body = {ejson: this.request.body.ejson}
   }
