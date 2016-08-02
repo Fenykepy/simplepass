@@ -1,8 +1,19 @@
 import { combineReducers } from 'redux'
 
 import ejson from '../ejson/reducers'
+import { SET_STATE } from './actionsTypes'
+
+function state(state=null, action) {
+  switch (action.type) {
+    case SET_STATE:
+      return action.state
+    default:
+      return state
+  }
+}
 
 const rootReducer = combineReducers({
+  state,
   ejson,
 })
 

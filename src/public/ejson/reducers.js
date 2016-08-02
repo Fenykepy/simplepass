@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux'
-
 import {
   REQUEST_EJSON,
   REQUEST_EJSON_SUCCESS,
