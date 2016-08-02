@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux'
 
 import ejson from '../ejson/reducers'
+import user from '../user/reducers'
+
 import { SET_STATE } from './actionsTypes'
 
 function state(state=null, action) {
@@ -14,6 +16,7 @@ function state(state=null, action) {
 
 const rootReducer = combineReducers({
   state,
+  user,
   ejson,
 })
 
