@@ -4,13 +4,13 @@ import Fetch from '../app/http'
 
 // action creators
 
-export function requestEjson() {
+function requestEjson() {
   return {
     type: types.REQUEST_EJSON
   }
 }
 
-export function receiveEjson(ejson) {
+function receiveEjson(ejson) {
   return {
     type: types.REQUEST_EJSON_SUCCESS,
     ejson,
@@ -18,7 +18,7 @@ export function receiveEjson(ejson) {
   }
 }
 
-export function requestEjsonFailure(error) {
+function requestEjsonFailure(error) {
   return {
     type: types.REQUEST_EJSON_FAILURE,
     errors
@@ -35,7 +35,7 @@ function shouldFetchEjson(state) {
 export function fetchEjsonIfNeeded() {
   // fetch ejson if it's not done yet
   return (dispatch, getState) => {
-    if (shouldFetchEjson(getState()) {
+    if (shouldFetchEjson(getState())) {
       return dispatch(fetchEjson())
     }
     // else return a resolved promise
@@ -47,7 +47,7 @@ export function fetchEjsonIfNeeded() {
 
 function fetchEjson() {
   // fetch ejson for current user
-  return function(dispatch, getState()) {
+  return function(dispatch) {
     // start request
     dispatch(requestEjson())
     // return a promise
@@ -60,6 +60,7 @@ function fetchEjson() {
           // store error json in state  
           dispatch(requestEjsonFailure(json))
           throw error
+        })
       })
   }
 }

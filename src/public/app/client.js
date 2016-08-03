@@ -11,11 +11,24 @@ import { Provider } from 'react-redux'
 import { createStoreWithMiddleware } from './store'
 import rootReducer from './reducers'
 
+import App from './containers/App'
+
+import { fetchEjsonIfNeeded } from '../ejson/actions'
+
 let store = createStoreWithMiddleware(rootReducer)
+
+// every time state changes, log it
+
+let unsubscribe = store.subscribe(() =>
+  console.log('stat', store.getState())
+)
+
+// try to get user's ejson
+store.dispatch(fetchEjsonIfNeeded())
 
 render(
   <Provider store={store}>
-    <div></div>
+    <App />
   </Provider>,
   document.getElementById('root')
 )

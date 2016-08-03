@@ -50,7 +50,7 @@ class Fetch {
     return fetch(url,
       {
         method: "POST",
-        headers: this.setDefaultHeaders(headers)
+        headers: this.setDefaultHeaders(headers),
         body: body
       })
       .then(this.checkStatus)
@@ -61,7 +61,7 @@ class Fetch {
     return fetch(url,
       {
         method: "PUT",
-        headers: this.setDefaultHeaders(headers)
+        headers: this.setDefaultHeaders(headers),
         body: body
       })
       .then(this.checkStatus)
@@ -72,7 +72,7 @@ class Fetch {
     return fetch(url,
       {
         method: "PATCH",
-        headers: this.setDefaultHeaders(headers)
+        headers: this.setDefaultHeaders(headers),
         body: body
       })
       .then(this.checkStatus)
