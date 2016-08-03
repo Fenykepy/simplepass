@@ -1,5 +1,8 @@
 import crypto from 'crypto'
-import { create_user_scheme } from './models'
+import { 
+  create_user_scheme,
+  login_user_scheme,
+} from './models'
 import validate_object from '../utils/validator'
 import bcrypt from '../utils/bcrypt-thunk'
 import jwt from '../utils/jwt-thunk'
@@ -85,9 +88,23 @@ user.login = function* (next) {
 
   // get users collection
   let users = this.db.get('users')
-  // get user to login
+
+  // get user to login from db
+  let user = yield users.findOne(
+    {username: this.state.validated_data.username})
+
   // compare passwords
-  // set
+  let password_check = yield bcrypt.compare(
+    this.state.validated_data.password,
+    user.password)
+  if (! password_check) {
+    this.status = 400
+    return this.body = { non_field_errors:
+      'Wrong password or username.'
+    }
+
+  }
+  // set authentication cookie
 
 }
 
