@@ -9,7 +9,7 @@ import Login from '../../user/containers/Login'
 class App extends Component {
   
   render () {
-    return Login
+    return (<Login/>)
     // if user is not authenticated,
     // show login screen
 

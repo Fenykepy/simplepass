@@ -34,7 +34,7 @@ export default class LoginForm extends Component {
       <form
         onSubmit={this.props.handleSubmit}
       >
-        <FormRequiedFields />
+        <FormRequiredFields />
         <div className="field-wrapper">
           <FormFieldErrors
             errors_list={this.props.errors}

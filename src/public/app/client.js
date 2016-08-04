@@ -24,7 +24,7 @@ let unsubscribe = store.subscribe(() =>
 )
 
 // try to get user's ejson
-store.dispatch(fetchEjsonIfNeeded())
+//store.dispatch(fetchEjsonIfNeeded())
 
 render(
   <Provider store={store}>
