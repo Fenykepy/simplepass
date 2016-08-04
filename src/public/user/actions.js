@@ -5,22 +5,22 @@ import Fetch from '../app/http'
 // actions creators
 
 // Logging in
-function requestUser() {
+function requestLogin() {
   return {
-    type: types.REQUEST_USER
+    type: types.REQUEST_LOGIN
   }
 }
 
-function receiveUser(user) {
+function requestLoginSuccess(user) {
   return {
-    type: types.REQUEST_USER_SUCCESS,
+    type: types.REQUEST_LOGIN_SUCCESS,
     user
   }
 }
 
-function requestUserFailure(errors) {
+function requestLoginFailure(errors) {
   return {
-    type: types.REQUEST_USER_FAILURE,
+    type: types.REQUEST_LOGIN_FAILURE,
     errors
   }
 }
@@ -31,7 +31,7 @@ export function login(credentials) {
    */
   return function(dispatch) {
     // start request
-    dispatch(requestUser())
+    dispatch(requestLogin())
 
     // retun a promise
     return Fetch.post('/api/user/login/',
@@ -42,12 +42,12 @@ export function login(credentials) {
         JSON.stringify(credentials)
     )
     .then(json => {
-      dispatch(receiveUser(json))
+      dispatch(requestLoginSuccess(json))
     })
     .catch(error => {
       return error.response.json().then(json => {
         // store error in state
-        dispatch(requestUserFailure(json))
+        dispatch(requestLoginFailure(json))
         // throw error to display it later
         throw error
       })

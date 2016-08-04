@@ -1,27 +1,27 @@
 import {
-  REQUEST_USER,
-  REQUEST_USER_SUCCESS,
-  REQUEST_USER_FAILURE,
+  REQUEST_LOGIN,
+  REQUEST_LOGIN_SUCCESS,
+  REQUEST_LOGIN_FAILURE,
   LOGOUT,
 } from './actionsTypes'
 
 function user(state = {}, action) {
   switch (action.type) {
-    case REQUEST_USER:
+    case REQUEST_LOGIN:
       return Object.assign({}, state, {
         is_authenticated: false,
-        is_fetching_user: true,
+        is_logging_in: true,
       })
-    case REQUEST_USER_SUCCESS:
+    case REQUEST_LOGIN_SUCCESS:
       return Object.assign({}, state, {
         is_authenticated: true,
-        is_fetching_user: false,
+        is_logging_in: false,
         user: action.user
       })
-    case REQUEST_USER_FAILURE:
+    case REQUEST_LOGIN_FAILURE:
       return Object.assign({}, state, {
         is_authenticated: false,
-        is_fetching_user: false,
+        is_logging_in: false,
       })
     case LOGOUT:
       return {}

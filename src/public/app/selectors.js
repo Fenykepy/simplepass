@@ -1,8 +1,8 @@
 import { createStructuredSelector } from 'reselect'
 
-const stateSelector = state => state.state
+import { userSelector } from '../user/selectors'
 
 export const appSelector = createStructuredSelector({
-  state: stateSelector,
+  user: userSelector,
 })
 
