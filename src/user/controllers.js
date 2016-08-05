@@ -85,14 +85,17 @@ user.login = function* (next) {
     this.status = 400
     return this.body = errors
   }
-
+  
+  console.log('get users collection')
   // get users collection
   let users = this.db.get('users')
-
+  console.log('fetch user...')
   // get user to login from db
   let user = yield users.findOne(
     {username: this.state.validated_data.username})
+  console.log('user', user)
 
+  console.log('compare passwords...')
   // compare passwords
   let password_check = yield bcrypt.compare(
     this.state.validated_data.password,
@@ -104,6 +107,7 @@ user.login = function* (next) {
     }
 
   }
+  console.log('set cookie')
   // set authentication cookie
 
 }

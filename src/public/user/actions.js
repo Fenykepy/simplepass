@@ -47,6 +47,7 @@ export function login(credentials) {
     .catch(error => {
       return error.response.json().then(json => {
         // store error in state
+        console.log('login failure')
         dispatch(requestLoginFailure(json))
         // throw error to display it later
         throw error
