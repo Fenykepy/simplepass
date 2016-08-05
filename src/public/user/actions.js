@@ -32,8 +32,8 @@ export function login(credentials) {
   return function(dispatch) {
     // start request
     dispatch(requestLogin())
-
-    // retun a promise
+    
+    // return a promise
     return Fetch.post('/api/user/login/',
         {
           'Content-Type': 'application/json',

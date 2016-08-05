@@ -14,7 +14,7 @@ class Fetch {
     }
   }
   
-  setHeaders(headers={}) {
+  setDefaultHeaders(headers={}) {
     headers = Object.assign(
       this.default_headers,
       headers
@@ -88,3 +88,5 @@ class Fetch {
       .then(this.checkStatus)
   }
 }
+
+export default new Fetch()

@@ -11,15 +11,36 @@ import Spinner from '../../app/components/Spinner'
 
 //import { setDocumentTitleIfNeeded } from '../../app/actions'
 
+
+const LOGIN_FORM = "login-form"
+
 class Login extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      username: '',
+      password: '',
+    }
+  }
   
   componentDidMount() {
     // we set title
     //this.props.dispath(setDocumentTitleIfNeeded('Login page'))
   }
 
-  handleLogin(credentials) {
-    this.props.dispatch(login(credentials))
+  handleUsernameChange(e) {
+    this.setState({username: e.target.value})
+  }
+
+  handlePasswordChange(e) {
+    this.setState({password: e.target.value})
+  }
+
+  handleLogin(e) {
+    e.preventDefault()
+    this.props.dispatch(login(this.state))
   }
 
   render() {
@@ -41,10 +62,22 @@ class Login extends Component {
         <article>
           <h1>Sign in</h1>
           <LoginForm
-            id="login-form"
-            handleSubmit={this.handleLogin.bind(this)}
+            handleUsernameChange={this.handleUsernameChange.bind(this)}
+            handlePasswordChange={this.handlePasswordChange.bind(this)}
+            id={LOGIN_FORM}
+            username={this.state.username}
+            password={this.state.password}
             errors={this.props.user.errors}
           />
+          <footer>
+            <input
+              form={LOGIN_FORM}
+              value="Sign in"
+              onClick={this.handleLogin.bind(this)}
+              type="submit"
+            />
+            <div>No account yet ? <button>Sign up !</button></div>
+          </footer>
         </article>
       </section>
     )
