@@ -10,6 +10,6 @@ export function setState(state) {
 }
 
 export function setDocumentTitle(title) {
-  document.title = title + ' - SimplePass
+  document.title = title + ' - SimplePass'
 }
 

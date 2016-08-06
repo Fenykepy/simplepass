@@ -13,6 +13,7 @@ import {
 import { 
   LOGIN,
   REGISTER,
+  HOME,
 } from '../../app/states'
 
 import LoginForm from '../components/LoginForm'
@@ -65,8 +66,13 @@ class Login extends Component {
     } = this.props
 
     //console.log('Login', this.props)
+    
+    // redirect to home page if user is authenticated
+    if (this.props.user.is_authenticated) {
+      dispatch(setState(HOME))
+    }
 
-    // show spinner is user is logging in
+    // show spinner if user is logging in
     if (this.props.user.is_logging_in) {
       return <Spinner message="Signing in..." />
     }
@@ -76,9 +82,9 @@ class Login extends Component {
         <article>
           <h1>Sign in</h1>
           <LoginForm
+            id={LOGIN_FORM}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
             handlePasswordChange={this.handlePasswordChange.bind(this)}
-            id={LOGIN_FORM}
             username={this.state.username}
             password={this.state.password}
             errors={this.props.user.errors}
@@ -99,5 +105,6 @@ class Login extends Component {
     )
   }
 }
+
 // Wrap the component to inject dispatch and state into it
 export default connect(loginSelector)(Login)

@@ -2,9 +2,6 @@ import * as types from './actionsTypes'
 
 import Fetch from '../app/http'
 
-import { setState } from '../app/actions'
-import { HOME } from '../app/states'
-
 // actions creators
 
 // Logging in
@@ -46,8 +43,6 @@ export function login(credentials) {
     )
     .then(json => {
       dispatch(requestLoginSuccess(json))
-      // redirect home
-      dispatch(setState(HOME))
     })
     .catch(error => {
       return error.response.json().then(json => {
@@ -100,8 +95,6 @@ export function register(user) {
     )
     .then(json => {
       dispatch(requestRegisterSuccess(json))
-      // redirect home
-      dispatch(setState(HOME))
     })
     .catch(error => {
       return error.response.json().then(json => {

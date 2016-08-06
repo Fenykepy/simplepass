@@ -6,10 +6,16 @@ import { registerSelector } from '../selectors'
 
 import { register } from '../actions'
 import {
+  setState,
   setDocumentTitle,
 } from '../../app/actions'
 
-// import RegisterForm from '../../components/RegisterForm'
+import {
+  LOGIN,
+  HOME,
+} from '../../app/states'
+
+import RegisterForm from '../components/RegisterForm'
 import Spinner from '../../app/components/Spinner'
 
 
@@ -53,5 +59,74 @@ class Register extends Component {
     e.preventDefault()
     this.props.dispatch(register(this.state))
   }
+
+  handleCancel(e) {
+    e.preventDefault()
+    this.props.dispatch(setState(LOGIN))
+  }
+
+  getErrors() {
+    // if password and confirm are set and not equal, add error
+    if (this.state.password && this.state.password_confirm &&
+        this.state.password !== this.state.password_confirm) {
+          return Object.assign({}, this.props.user.errors, {
+            password_confirm: ['Password and password confirmation must match.']
+          })
+    }
+    return this.props.user.errors
+  }
+
+
+  render() {
+    // injected by connect call
+    const {
+      dispatch,
+      user,
+    } = this.props
+
+    //console.log('Register, this.props)
+
+    // redirect to home page if user is authenticated
+    if (this.props.user.is_authenticated) {
+      dispatch(setState(HOME))
+    }
+
+    // show spinner if user is registering
+    if (this.props.user.is_registering) {
+      return <Spinner message="Signing up..." />
+    }
+
+    return (
+      <section role="main">
+        <article>
+          <h1>Sign up</h1>
+          <RegisterForm
+            handleUsernameChange={this.handleUsernameChange.bind(this)}
+            handlePasswordChange={this.handlePasswordChange.bind(this)}
+            handlePasswordConfirmChange={this.handlePasswordConfirmChange.bind(this)}
+            handleEmailChange={this.handleEmailChange.bind(this)}
+            username={this.state.username}
+            password={this.state.password}
+            password_confirm={this.state.password_confirm}
+            email={this.state.email}
+            errors={this.getErrors()}
+          />
+          <footer>
+            <input
+              form={REGISTER_FORM}
+              value="Sign up"
+              onClick={this.handleRegister.bind(this)}
+              type="submit"
+            />
+            <button
+              onClick={this.handleCancel.bind(this)}
+            >Cancel</button>
+          </footer>
+        </article>
+      </section>
+    )
+  }
 }
 
+// wrap the component to inject dispatch and state into it
+export default connect (registerSelector)(Register)
