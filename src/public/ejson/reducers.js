@@ -4,7 +4,7 @@ import {
   REQUEST_EJSON_FAILURE,
 } from './actionsTypes'
 import {
-  LOGOUT
+  REQUEST_LOGOUT
 } from '../user/actionsTypes'
 
 function ejson(state={}, action) {
@@ -27,7 +27,7 @@ function ejson(state={}, action) {
         fetched: false,
         errors: action.errors
       })
-    case LOGOUT:
+    case REQUEST_LOGOUT:
       return {}
     default:
       return state

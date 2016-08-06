@@ -87,7 +87,7 @@ class Login extends Component {
             handlePasswordChange={this.handlePasswordChange.bind(this)}
             username={this.state.username}
             password={this.state.password}
-            errors={this.props.user.errors}
+            errors={this.props.user.login_errors}
           />
           <footer>
             <input

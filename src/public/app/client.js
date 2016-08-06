@@ -7,12 +7,14 @@ require('es6-promise').polyfill();
 import React from 'react'
 import { render } from 'react-dom'
 
+import { getCookie } from '../../utils/cookieManager'
 import { Provider } from 'react-redux'
 import { createStoreWithMiddleware } from './store'
 import rootReducer from './reducers'
 
 import App from './containers/App'
 
+import { fetchUserIfNeeded } from '../user/actions'
 import { fetchEjsonIfNeeded } from '../ejson/actions'
 
 let store = createStoreWithMiddleware(rootReducer)
@@ -25,9 +27,17 @@ let unsubscribe = store.subscribe(() =>
 )
 */
 
-// try to get user's ejson
-store.dispatch(fetchEjsonIfNeeded())
-console.log('cookie', document.cookie)
+// we check if user may be authenticated or not
+let authenticated = getCookie('authenticated')
+
+if (authenticated) {
+  console.log('authenticated')
+  // fetch users data if needed
+  store.dispatch(fetchUserIfNeeded())
+  // fetch ejson
+  store.dispatch(fetchEjsonIfNeeded())
+}
+
 
 render(
   <Provider store={store}>

@@ -5,11 +5,31 @@ import {
   REQUEST_REGISTER,
   REQUEST_REGISTER_SUCCESS,
   REQUEST_REGISTER_FAILURE,
-  LOGOUT,
+  REQUEST_USER,
+  REQUEST_USER_SUCCESS,
+  REQUEST_USER_FAILURE,
+  REQUEST_LOGOUT,
 } from './actionsTypes'
 
 function user(state = {}, action) {
   switch (action.type) {
+    case REQUEST_USER:
+      return {
+        is_authenticated: false,
+        is_fetching: true,
+      }
+    case REQUEST_USER_SUCCESS:
+      return {
+        is_authenticated: true,
+        is_fetching: false,
+        user: action.user
+      }
+    case REQUEST_USER_FAILURE:
+      return {
+        is_authenticated: false,
+        is_fetching: false,
+        user_errors: action.errors
+      }
     case REQUEST_LOGIN:
       return {
         is_authenticated: false,
@@ -19,13 +39,13 @@ function user(state = {}, action) {
       return {
         is_authenticated: true,
         is_logging_in: false,
-        data: action.data
+        user: action.user
       }
     case REQUEST_LOGIN_FAILURE:
       return {
         is_authenticated: false,
         is_logging_in: false,
-        errors: action.errors
+        login_errors: action.errors
       }
     case REQUEST_REGISTER:
       return {
@@ -36,15 +56,15 @@ function user(state = {}, action) {
       return {
         is_authenticated: true,
         is_registering: false,
-        data: action.data
+        user: action.user
       }
     case REQUEST_REGISTER_FAILURE:
       return {
         is_authenticated: false,
         is_registering: false,
-        errors: action.errors
+        registration_errors: action.errors
       }
-    case LOGOUT:
+    case REQUEST_LOGOUT:
       return {}
     default:
       return state

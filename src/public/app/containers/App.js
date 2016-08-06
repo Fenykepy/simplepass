@@ -15,6 +15,7 @@ import { appSelector } from '../selectors'
 
 import { setState } from '../actions'
 
+import Spinner from '../components/Spinner'
 import Login from '../../user/containers/Login'
 import Register from '../../user/containers/Register'
 
@@ -27,6 +28,11 @@ class App extends Component {
       state,
       user,
     } = this.props
+
+    // if user is authenticating, show spinner
+    if (this.props.user.is_fetching) {
+      return <Spinner message="Authenticating..." />
+    }
 
     // if user is not authenticated and state is not in authentication free states
     // redirect to login state
@@ -42,7 +48,7 @@ class App extends Component {
       case REGISTER:
         return (<Register />)
       default:
-        return (<Login />)
+        return (<div />)
     }
   }
 }

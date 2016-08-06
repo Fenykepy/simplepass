@@ -4,6 +4,67 @@ import Fetch from '../app/http'
 
 // actions creators
 
+// Fetching user
+function requestUser() {
+  return {
+    type: types.REQUEST_USER
+  }
+}
+
+function requestUserSuccess(user) {
+  return {
+    type: types.REQUEST_USER_SUCCESS,
+    user
+  }
+}
+
+function requestUserFailure(errors) {
+  return {
+    type: types.REQUEST_USER_FAILURE,
+    errors
+  }
+}
+
+function shouldFetchUser(state) {
+  let user = state.user
+  if (! user) return true
+    if (user.is_authenticated || user.is_fetching ||
+       user.is_logging_in || user.is_registering) return false
+  return true
+}
+
+export function fetchUserIfNeeded() {
+  // fetch user if it's not done yet
+  return (dispatch, getState) => {
+    if (shouldFetchUser(getState())) {
+      return dispatch(fetchUser())
+    }
+    // else return a resolved promise
+    return new Promise((resolve, reject) =>
+      resolve({user: getState().user.user}))
+  }
+}
+
+function fetchUser() {
+  // fetch current user data
+  return function(dispatch) {
+    // start request
+    dispatch(requestUser())
+    // return a promise
+    return Fetch.get('/api/user/')
+      .then(json =>
+        dispatch(requestUserSuccess(json))
+      )
+      .catch(error => {
+        // store error in state
+        dispatch(requestUserFailure(error))
+        throw error
+      })
+  }
+}
+
+
+
 // Logging in
 function requestLogin() {
   return {
@@ -11,10 +72,10 @@ function requestLogin() {
   }
 }
 
-function requestLoginSuccess(data) {
+function requestLoginSuccess(user) {
   return {
     type: types.REQUEST_LOGIN_SUCCESS,
-    data
+    user
   }
 }
 
@@ -56,6 +117,47 @@ export function login(credentials) {
 }
 
 
+// logging out
+function requestLogout() {
+  return {
+    type: types.REQUEST_LOGOUT
+  }
+}
+
+function requestLogoutSuccess() {
+  return {
+    type: types.REQUEST_LOGOUT_SUCCESS
+  }
+}
+
+function requestLogoutFailure() {
+  return {
+    type: types.REQUEST_LOGOUT_FAILURE
+  }
+}
+
+export function logout() {
+  /*
+   * We need a request to log user out
+   * as auth cookie cannot be manipulated client side
+   */
+  return function(dispatch) {
+    // start request
+    dispatch(requestLogout())
+    //return a promise
+    return Fetch.get('/api/user/logout/')
+    .then(() =>
+        dispatch(requestLogoutSuccess())
+    )
+    .catch(error => {
+      dispatch(requestLogoutFailure())
+      throw error
+    })
+  }
+}
+
+
+
 // registering
 function requestRegister() {
   return {
@@ -63,10 +165,10 @@ function requestRegister() {
   }
 }
 
-function requestRegisterSuccess(data) {
+function requestRegisterSuccess(user) {
   return {
     type: types.REQUEST_REGISTER_SUCCESS,
-    data
+    user
   }
 }
 
