@@ -27,6 +27,7 @@ let unsubscribe = store.subscribe(() =>
 
 // try to get user's ejson
 store.dispatch(fetchEjsonIfNeeded())
+console.log('cookie', document.cookie)
 
 render(
   <Provider store={store}>

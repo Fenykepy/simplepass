@@ -41,7 +41,7 @@ settings.SECRET_KEY = "foo"
  * you must set expiresIn, as there is no default
  */
 settings.JWT_OPTIONS = {
-  expiresIn: "7d"
+  expiresIn: "7d",
 }
 
 

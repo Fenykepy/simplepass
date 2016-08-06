@@ -14,11 +14,36 @@ import settings from '../../config'
 
 let user = {}
 
-function getAuthCookieOptions() {
-  return {
-    expires: new Date(timespan(settings.JWT_OPTIONS.expiresIn) * 1000),
-  }
+const AUTH_COOKIE = 'auth_token'
+const AUTH_FLAG_COOKIE = 'authenticated'
+
+
+function setAuthCookies(context, token) {
+  let expires = new Date(timespan(settings.JWT_OPTIONS.expiresIn) * 1000)
+
+  // set JWT cookie
+  context.cookies.set(AUTH_COOKIE, token, {expires: expires})
+  
+  // set authenticated flag cookie to true :
+  // as client js has no access to jwt cookie, it has no way
+  // to know if user is possibly authenticated.
+  // this cookie is not http only and indicates if token is present
+  context.cookies.set(AUTH_FLAG_COOKIE, 'true', {
+    expires: expires,
+    httpOnly: false,
+  })
 }
+
+function resetAuthCookies(context) {
+  let expires = new Date()
+
+  // reset JWT cookie
+  context.cookies.set(AUTH_COOKIE, '', {expires: expires})
+  // reset authenticated flag cookie
+  context.cookies.set(AUTH_FLAG_COOKIE, '', {expires: expires})
+}
+
+
 
 function getJWTUserData(full_user) {
   // public data about a user (stored in jwt)
@@ -30,7 +55,6 @@ function getJWTUserData(full_user) {
 }
 
 
-
 user.authenticate = function* (next) {
   /*
    * Login user if token is present in cookies,
@@ -38,7 +62,7 @@ user.authenticate = function* (next) {
    * set context.user
    */
 
-  let token = this.cookies.get('auth_token')
+  let token = this.cookies.get(AUTH_COOKIE)
   
   // if we have no token, we pass next
   if (! token) {
@@ -52,13 +76,13 @@ user.authenticate = function* (next) {
     if (jwt.needRefresh(this.state.user)) {
       // compute new token
       let token = yield jwt.sign(this.state.user)
-      // set auth cookie
-      this.cookies.set('auth_token', token, getAuthCookieOptions())
+      // set auth cookies
+      setAuthCookies(this, token)
     }
   }
   // if token is invalid, we reset auth cookie and user
   catch (e) {
-    this.cookies.set('auth_token', '')
+    resetAuthCookies(this)
     this.state.user = null
   }
 
@@ -136,8 +160,8 @@ user.login = function* (next) {
   // compute new token
   let token = yield jwt.sign(this.state.user)
 
-  // set auth cookie
-  this.cookies.set('auth_token', token, getAuthCookieOptions())
+  // set auth cookies
+  setAuthCookies(this, token)
 
   // send response
   this.status = 200
@@ -156,7 +180,7 @@ user.logout = function* (next) {
    */
 
   // reset auth cookie
-  this.cookies.set('auth_token', '')
+  resetAuthCookies(this)
   // reset context user
   this.state.user = null
   // send response
@@ -267,8 +291,8 @@ user.create = function* (next) {
   // set user jwt
   let token = yield jwt.sign(this.state.user)
 
-  // set jwt as cookie
-  this.cookies.set('auth_token', token, getAuthCookieOptions())
+  // set authentication cookiescookie
+  setAuthCookies(this, token)
 
   // send response
   this.status = 201
