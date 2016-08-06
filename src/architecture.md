@@ -66,3 +66,15 @@
         ]
     }
 
+
+## ComponentsMap
+
+- App -> state based router
+    Authentication free
+    - Home -> one page app description, links to sign in and up
+    - Login -> login form
+    - Register -> registration form
+    - Recover -> password recovering form
+    Authentication required
+    - Main -> authenticated user home page
+    - Profil -> user data modification form

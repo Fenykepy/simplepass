@@ -9,3 +9,7 @@ export const appSelector = createStructuredSelector({
   state: stateSelector,
 })
 
+export const homeSelector = createStructuredSelector({
+  user: userSelector,
+})
+
