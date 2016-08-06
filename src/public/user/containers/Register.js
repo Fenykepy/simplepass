@@ -4,16 +4,11 @@ import { connect } from 'react-redux'
 
 import { registerSelector } from '../selectors'
 
-import { register } from '../actions'
-import {
-  setState,
-  setDocumentTitle,
-} from '../../app/actions'
+import { Link } from 'react-router'
 
-import {
-  LOGIN,
-  HOME,
-} from '../../app/states'
+import { register } from '../actions'
+
+import { setDocumentTitle } from '../../app/actions'
 
 import RegisterForm from '../components/RegisterForm'
 import Spinner from '../../app/components/Spinner'
@@ -60,11 +55,6 @@ class Register extends Component {
     this.props.dispatch(register(this.state))
   }
 
-  handleCancel(e) {
-    e.preventDefault()
-    this.props.dispatch(setState(LOGIN))
-  }
-
   getErrors() {
     // if password and confirm are set and not equal, add error
     if (this.state.password && this.state.password_confirm &&
@@ -86,9 +76,10 @@ class Register extends Component {
 
     //console.log('Register, this.props)
 
-    // redirect to home page if user is authenticated
+    // redirect home if user is authenticated
     if (this.props.user.is_authenticated) {
-      dispatch(setState(HOME))
+      console.log('redirect home')
+      this.context.router.push('/')
     }
 
     // show spinner if user is registering
@@ -118,15 +109,16 @@ class Register extends Component {
               onClick={this.handleRegister.bind(this)}
               type="submit"
             />
-            <button
-              onClick={this.handleCancel.bind(this)}
-            >Cancel</button>
           </footer>
+          <div>Already have an account? <Link to={'/login/'}>Log in</Link></div>
         </article>
       </section>
     )
   }
 }
 
+Register.contextTypes = {
+  router: React.PropTypes.object.isRequired,
+}
 // wrap the component to inject dispatch and state into it
 export default connect (registerSelector)(Register)

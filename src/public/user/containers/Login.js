@@ -4,17 +4,10 @@ import { connect } from 'react-redux'
 
 import { loginSelector } from '../selectors'
 
-import { login } from '../actions'
-import {
-  setState,
-  setDocumentTitle,
-} from '../../app/actions'
+import { Link } from 'react-router'
 
-import { 
-  LOGIN,
-  REGISTER,
-  HOME,
-} from '../../app/states'
+import { login } from '../actions'
+import { setDocumentTitle } from '../../app/actions'
 
 import LoginForm from '../components/LoginForm'
 import Spinner from '../../app/components/Spinner'
@@ -36,9 +29,8 @@ class Login extends Component {
   componentDidMount() {
     // we set title
     setDocumentTitle('Sign in')
-    // we set state to LOGIN
-    this.props.dispatch(setState(LOGIN))
   }
+
 
   handleUsernameChange(e) {
     this.setState({username: e.target.value})
@@ -53,11 +45,6 @@ class Login extends Component {
     this.props.dispatch(login(this.state))
   }
 
-  handleRegister(e) {
-    e.preventDefault()
-    this.props.dispatch(setState(REGISTER))
-  }
-
   render() {
     // injected by connect call
     const {
@@ -66,21 +53,22 @@ class Login extends Component {
     } = this.props
 
     //console.log('Login', this.props)
-    
-    // redirect to home page if user is authenticated
-    if (this.props.user.is_authenticated) {
-      dispatch(setState(HOME))
-    }
 
+    // redirect home if user is authenticated
+    if (this.props.user.is_authenticated) {
+      console.log('redirect home')
+      this.context.router.push('/')
+    }
+    
     // show spinner if user is logging in
     if (this.props.user.is_logging_in) {
-      return <Spinner message="Signing in..." />
+      return <Spinner message="Logging in..." />
     }
 
     return (
       <section role="main">
         <article>
-          <h1>Sign in</h1>
+          <h1>Log in</h1>
           <LoginForm
             id={LOGIN_FORM}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
@@ -92,18 +80,20 @@ class Login extends Component {
           <footer>
             <input
               form={LOGIN_FORM}
-              value="Sign in"
+              value="Log in"
               onClick={this.handleLogin.bind(this)}
               type="submit"
             />
-            <div>No account yet ? <button
-                onClick={this.handleRegister.bind(this)}
-              >Sign up !</button></div>
+            <div>No account yet ? <Link to={"/signup/"}>Sign up</Link></div>
           </footer>
         </article>
       </section>
     )
   }
+}
+
+Login.contextTypes = {
+  router: React.PropTypes.object.isRequired,
 }
 
 // Wrap the component to inject dispatch and state into it

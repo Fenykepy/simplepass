@@ -61,6 +61,8 @@ app.use(json({pretty: false}))
 
 // home
 app.use(route.get('/', home))
+app.use(route.get('/login/', home))
+app.use(route.get('/signup/', home))
 
 
 // REST API

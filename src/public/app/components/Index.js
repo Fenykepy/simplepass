@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+import { Link } from 'react-router'
 
 export default class Index extends Component {
   render() {
@@ -8,12 +9,8 @@ export default class Index extends Component {
         <header>
           <h1>SimplePass</h1>
           <h2>A simple password manager</h2>
-          <button
-            onClick={this.props.login}
-          >Sign in</button>
-          <button
-            onClick={this.props.register}
-          >Sign up</button>
+          <Link to={'/login/'}>Log in</Link>
+          <Link to={'/signup/'}>Sign up</Link>
         </header>
           <article>
             <h1>One word, to manage them all</h1>
