@@ -40,6 +40,7 @@ class Fetch {
     return fetch(url,
       {
         method: "GET",
+        credentials: 'same-origin',
         headers: this.setDefaultHeaders(headers)
       })
       .then(this.checkStatus)
@@ -50,6 +51,7 @@ class Fetch {
     return fetch(url,
       {
         method: "POST",
+        credentials: 'same-origin',
         headers: this.setDefaultHeaders(headers),
         body: body
       })
@@ -61,6 +63,7 @@ class Fetch {
     return fetch(url,
       {
         method: "PUT",
+        credentials: 'same-origin',
         headers: this.setDefaultHeaders(headers),
         body: body
       })
@@ -72,6 +75,7 @@ class Fetch {
     return fetch(url,
       {
         method: "PATCH",
+        credentials: 'same-origin',
         headers: this.setDefaultHeaders(headers),
         body: body
       })
@@ -83,6 +87,7 @@ class Fetch {
     return fetch(url,
       {
         method: "DELETE",
+        credentials: 'same-origin',
         headers: this.setDefaultHeaders(headers)
       })
       .then(this.checkStatus)

@@ -11,7 +11,10 @@ import settings from '../../config'
 
 let user = {}
 
-function setAuthCookie(token) {
+function getAuthCookieOptions() {
+  return {
+    expires: new Date(timespan(settings.JWT_OPTIONS.expiresIn) * 1000),
+  }
 }
 
 function getJWTUserData(full_user) {
@@ -47,9 +50,7 @@ user.authenticate = function* (next) {
       // compute new token
       let token = yield jwt.sign(this.state.user)
       // set auth cookie
-      this.cookies.set('auth_token', token, {
-        expires: timespan(settings.JWT_OPTIONS.expiresIn)
-      })
+      this.cookies.set('auth_token', token, getAuthCookieOptions())
     }
   }
   catch (error) {
@@ -131,10 +132,7 @@ user.login = function* (next) {
   let token = yield jwt.sign(this.state.user)
 
   // set auth cookie
-  console.log('cookie date', settings.JWT_OPTIONS.expiresIn)
-  this.cookies.set('auth_token', token, {
-    expires: new Date(timespan(settings.JWT_OPTIONS.expiresIn) * 1000)
-  })
+  this.cookies.set('auth_token', token, getAuthCookieOptions())
 
   // send response
   this.status = 200
@@ -220,9 +218,7 @@ user.create = function* (next) {
   let token = yield jwt.sign(this.state.user)
 
   // set jwt as cookie
-  this.cookies.set('auth_token', token, {
-    expires: timespan(settings.JWT_OPTIONS.expiresIn)
-  })
+  this.cookies.set('auth_token', token, getAuthCookieOptions())
 
   // send response
   this.status = 201
