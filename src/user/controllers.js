@@ -1,4 +1,5 @@
 import crypto from 'crypto'
+import path from 'path'
 import { 
   create_user_scheme,
   login_user_scheme,
@@ -72,7 +73,7 @@ user.authenticationRequired = function* (next) {
    * this.state.user must be set
    * you must call authenticate middleware first
    */
-  this.assert(this.state.user, 401, 'Authentication credentials were not provided.')
+  this.assert(this.state.user, 401, JSON.stringify({error: 'Authentication credentials were not provided.'}))
 
   yield next
 }
@@ -139,6 +140,43 @@ user.login = function* (next) {
   this.cookies.set('auth_token', token, getAuthCookieOptions())
 
   // send response
+  this.status = 200
+  this.body = this.state.user
+}
+
+
+
+user.logout = function* (next) {
+  /*
+   * We need an API endpoint to logout
+   * because we can't simply delete cookie
+   * client side as it is http only
+   *
+   * must be call after authenticationRequired middleware
+   */
+
+  // reset auth cookie
+  this.cookies.set('auth_token', '')
+  // reset context user
+  this.state.user = null
+  // send response
+  this.status = 200
+  this.body = {message: 'Successfully loggued out'}
+
+}
+
+
+
+user.retrieve = function* (next) {
+  /*
+   * Return current user object
+   * Necessairy as content of jwt can't be
+   * read client side because cookie is http only
+   *
+   * must be call after authenticationRequired middleware
+   */
+  
+  // send response with current user
   this.status = 200
   this.body = this.state.user
 }
@@ -216,12 +254,12 @@ user.create = function* (next) {
   // we don't store password in token nor in context
   this.state.user = getJWTUserData(new_user)
 
-  // we write file with empty string
   try {
+    // we write file with empty string
     yield fsThunk.writeFile(path.join(this.EJSON_DIR, this.state.user.ejson_path), '')
   }
-  catch(e) {
-    this.throw('An error occured reading ejson file.', 500)
+  catch (e) {
+    this.throw({error: 'An error occured writing ejson file.'}, 500)
   }
 
   // TODO send email validation mail

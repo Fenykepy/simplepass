@@ -13,7 +13,7 @@ ejson.retrieve = function* (next) {
       this.EJSON_DIR, this.state.user.ejson_path))
   }
   catch (e) {
-    this.throw('An error occured reading ejson file.', 500)
+    this.throw({error: 'An error occured reading ejson file.'}, 500)
   }
   this.body = {ejson: ejson}
 }
@@ -25,7 +25,7 @@ ejson.update = function* (next) {
   if (! this.request.body.ejson && 
       ! typeof(this.request.body.ejson) == 'string') {
         // if no ejson or if it's not a string
-        this.throw('Ejson must be provided as a string.', 400)
+        this.throw({error: 'Ejson must be provided as a string.'}, 400)
   }
   // if we got ejson, save it in file
   try {
@@ -33,7 +33,7 @@ ejson.update = function* (next) {
         this.request.body.ejson)
   }
   catch (e) {
-    this.throw('An error occured writing ejson file.', 500)
+    this.throw({error: 'An error occured writing ejson file.'}, 500)
   }
   return this.body = {ejson: this.request.body.ejson}
 }

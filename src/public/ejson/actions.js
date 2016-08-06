@@ -18,7 +18,7 @@ function receiveEjson(ejson) {
   }
 }
 
-function requestEjsonFailure(error) {
+function requestEjsonFailure(errors) {
   return {
     type: types.REQUEST_EJSON_FAILURE,
     errors

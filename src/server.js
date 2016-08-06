@@ -75,6 +75,8 @@ app.use(route.post('/api/user/login/', user.login))
 app.use(user.authenticationRequired)
 
 // private user api endpoints
+app.use(route.get('/api/user/logout/', user.logout))
+app.use(route.get('/api/user/', user.retrieve))
 // insert profile management middlewares here.
 
 // ejson api endpoint
