@@ -16,7 +16,7 @@ function user(state = {}, action) {
       return Object.assign({}, state, {
         is_authenticated: true,
         is_logging_in: false,
-        user: action.user
+        data: action.data
       })
     case REQUEST_LOGIN_FAILURE:
       return Object.assign({}, state, {

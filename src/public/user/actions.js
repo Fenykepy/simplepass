@@ -11,10 +11,10 @@ function requestLogin() {
   }
 }
 
-function requestLoginSuccess(user) {
+function requestLoginSuccess(data) {
   return {
     type: types.REQUEST_LOGIN_SUCCESS,
-    user
+    data
   }
 }
 
@@ -42,8 +42,10 @@ export function login(credentials) {
         JSON.stringify(credentials)
     )
     .then(json => {
+      console.log('login success', json)
       dispatch(requestLoginSuccess(json))
       // set state to Home
+
     })
     .catch(error => {
       return error.response.json().then(json => {

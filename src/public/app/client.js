@@ -19,9 +19,11 @@ let store = createStoreWithMiddleware(rootReducer)
 
 // every time state changes, log it
 
+/*
 let unsubscribe = store.subscribe(() =>
-  console.log('stat', store.getState())
+  console.log('state', store.getState())
 )
+*/
 
 // try to get user's ejson
 //store.dispatch(fetchEjsonIfNeeded())

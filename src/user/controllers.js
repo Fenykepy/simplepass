@@ -14,6 +14,17 @@ let user = {}
 function setAuthCookie(token) {
 }
 
+function getJWTUserData(full_user) {
+  // public data about a user (stored in jwt)
+  let user = Object.assign({}, full_user)
+  // we don't store password hash in jwt
+  delete user.password
+
+  return user
+}
+
+
+
 user.authenticate = function* (next) {
   /*
    * Login user if token is present in cookies,
@@ -48,6 +59,8 @@ user.authenticate = function* (next) {
   yield next
 }
 
+
+
 user.authenticationRequired = function* (next) {
   /*
    * Throw a 401 error if user isn't loogued in
@@ -58,6 +71,8 @@ user.authenticationRequired = function* (next) {
 
   yield next
 }
+
+
 
 user.login = function* (next) {
   /*
@@ -89,10 +104,10 @@ user.login = function* (next) {
   // get users collection
   let users = this.db.get('users')
   // get user to login from db
-  let user = yield users.findOne(
+  let full_user = yield users.findOne(
     {username: this.state.validated_data.username})
 
-  if (! user) {
+  if (! full_user) {
     this.status = 400
     return this.body = { non_field_errors:
       ['Wrong password or username.']
@@ -101,16 +116,29 @@ user.login = function* (next) {
   // compare passwords
   let password_check = yield bcrypt.compare(
     this.state.validated_data.password,
-    user.password)
+    full_user.password)
   if (! password_check) {
     this.status = 400
     return this.body = { non_field_errors:
       ['Wrong password or username.']
     }
   }
-  console.log('set cookie')
-  // set authentication cookie
 
+  // set user
+  this.state.user = getJWTUserData(full_user)
+  
+  // compute new token
+  let token = yield jwt.sign(this.state.user)
+
+  // set auth cookie
+  console.log('cookie date', settings.JWT_OPTIONS.expiresIn)
+  this.cookies.set('auth_token', token, {
+    expires: new Date(timespan(settings.JWT_OPTIONS.expiresIn) * 1000)
+  })
+
+  // send response
+  this.status = 200
+  this.body = this.state.user
 }
 
 
@@ -181,10 +209,10 @@ user.create = function* (next) {
   }
 
   // insert new user in db
-  this.state.user = yield users.insert(user)
+  let new_user = yield users.insert(user)
   
   // we don't store password in token nor in context
-  delete this.state.user.password
+  this.state.user = getJWTUserData(new_user)
 
   // TODO send email validation mail
   
@@ -198,11 +226,7 @@ user.create = function* (next) {
 
   // send response
   this.status = 201
-  this.body = {
-    username: this.state.user.username,
-    email: this.state.user.email,
-    ejson: ""
-  }
+  this.body = this.state.user
 }
 
 export default user
