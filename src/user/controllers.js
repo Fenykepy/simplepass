@@ -3,9 +3,11 @@ import {
   create_user_scheme,
   login_user_scheme,
 } from './models'
+
 import validate_object from '../utils/validator'
 import bcrypt from '../utils/bcrypt-thunk'
 import jwt from '../utils/jwt-thunk'
+import fsThunk from '../utils/fs-thunk'
 import timespan from '../utils/timespan'
 import settings from '../../config'
 
@@ -53,8 +55,10 @@ user.authenticate = function* (next) {
       this.cookies.set('auth_token', token, getAuthCookieOptions())
     }
   }
-  catch (error) {
-    this.throw('Authentication credentials were not valid.', 401)
+  // if token is invalid, we reset auth cookie and user
+  catch (e) {
+    this.cookies.set('auth_token', '')
+    this.state.user = null
   }
 
   yield next
@@ -195,7 +199,7 @@ user.create = function* (next) {
 
   // get filename for ejson (sha1 of username + email)
   let s = this.state.validated_data.username + this.state.validated_data.email
-  let ejson = crypto.createHash('sha1').update(s).digest("hex") + '.ejson'
+  let ejson_path = crypto.createHash('sha1').update(s).digest("hex") + '.ejson'
 
   // create new user object
   let user = {
@@ -203,7 +207,7 @@ user.create = function* (next) {
     email: this.state.validated_data.email,
     email_validated: false,
     password: hash,
-    ejson: ejson
+    ejson_path: ejson_path
   }
 
   // insert new user in db
@@ -211,6 +215,14 @@ user.create = function* (next) {
   
   // we don't store password in token nor in context
   this.state.user = getJWTUserData(new_user)
+
+  // we write file with empty string
+  try {
+    yield fsThunk.writeFile(path.join(this.EJSON_DIR, this.state.user.ejson_path), '')
+  }
+  catch(e) {
+    this.throw('An error occured reading ejson file.', 500)
+  }
 
   // TODO send email validation mail
   

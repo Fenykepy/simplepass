@@ -72,7 +72,6 @@ app.use(user.authenticate)
 app.use(route.post('/api/user/', user.create))
 app.use(route.post('/api/user/login/', user.login))
 
-// from here user needs to be authenticated
 app.use(user.authenticationRequired)
 
 // private user api endpoints
