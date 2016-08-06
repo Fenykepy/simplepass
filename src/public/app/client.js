@@ -12,7 +12,8 @@ import { Provider } from 'react-redux'
 import { createStoreWithMiddleware } from './store'
 import rootReducer from './reducers'
 
-import App from './containers/App'
+import { Router, browserHistory } from 'react-router'
+import getRoutes from './routes'
 
 import { fetchUserIfNeeded } from '../user/actions'
 import { fetchEjsonIfNeeded } from '../ejson/actions'
@@ -38,10 +39,11 @@ if (authenticated) {
   store.dispatch(fetchEjsonIfNeeded())
 }
 
+const routes = <Router history={browserHistory} routes={getRoutes()} />
 
 render(
   <Provider store={store}>
-    <App />
+    {routes}
   </Provider>,
   document.getElementById('root')
 )
