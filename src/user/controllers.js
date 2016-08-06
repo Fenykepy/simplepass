@@ -72,7 +72,7 @@ user.login = function* (next) {
   if (this.state.user) {
     this.status = 400
     return this.body = { non_field_errors:
-      'Loggued in users must logout before logging in'
+      ['Loggued in users must logout before logging in']
     }
   }
 
@@ -86,16 +86,18 @@ user.login = function* (next) {
     return this.body = errors
   }
   
-  console.log('get users collection')
   // get users collection
   let users = this.db.get('users')
-  console.log('fetch user...')
   // get user to login from db
   let user = yield users.findOne(
     {username: this.state.validated_data.username})
-  console.log('user', user)
 
-  console.log('compare passwords...')
+  if (! user) {
+    this.status = 400
+    return this.body = { non_field_errors:
+      ['Wrong password or username.']
+    }
+  }
   // compare passwords
   let password_check = yield bcrypt.compare(
     this.state.validated_data.password,
@@ -103,9 +105,8 @@ user.login = function* (next) {
   if (! password_check) {
     this.status = 400
     return this.body = { non_field_errors:
-      'Wrong password or username.'
+      ['Wrong password or username.']
     }
-
   }
   console.log('set cookie')
   // set authentication cookie
@@ -126,7 +127,7 @@ user.create = function* (next) {
   if (this.state.user) {
     this.status = 400
     return this.body = { non_field_errors:
-      'Loggued in users can\'t create new accounts'
+      ['Loggued in users can\'t create new accounts']
     }
   }
   // check form for errors
@@ -155,10 +156,10 @@ user.create = function* (next) {
     this.status = 400
     let errors = {}
     if (used_mail) {
-      errors.email = 'A user with that email already exists.'
+      errors.email = ['A user with that email already exists.']
     }
     if (used_username) {
-      errors.username = 'A user with that username already exists.'
+      errors.username = ['A user with that username already exists.']
     }
     return this.body = errors
   }

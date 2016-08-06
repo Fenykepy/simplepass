@@ -27,7 +27,7 @@ class Fetch {
     /*if (response.status == 401) {
       console.log(401)
       }*/
-    if (request.status >= 200 && response.status < 300) {
+    if (response.status >= 200 && response.status < 300) {
       return response
     } else {
       let error = new Error(response.status)

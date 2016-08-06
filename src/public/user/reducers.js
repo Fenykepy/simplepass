@@ -22,6 +22,7 @@ function user(state = {}, action) {
       return Object.assign({}, state, {
         is_authenticated: false,
         is_logging_in: false,
+        errors: action.errors
       })
     case LOGOUT:
       return {}

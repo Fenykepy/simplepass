@@ -5,7 +5,7 @@ function test_regex(value, regex, error_message) {
   if (regex.test(value)) {
     return value
   }
-  throw error_message
+  throw [error_message]
 }
 
 function test_email(value) {
@@ -30,7 +30,7 @@ function test_choices(value, choices) {
   }
   let repr_choices = choices.reduce((prev, cur) =>
         prev + ', ' + JSON.stringify(cur))
-  throw `This field must be one of ${repr_choices}.`
+  throw [`This field must be one of ${repr_choices}.`]
 }
 
 function test_undefined(value, required, default_value) {
@@ -38,7 +38,7 @@ function test_undefined(value, required, default_value) {
   // return default, undefined or raise error if it's required
   if (typeof(default_value) !== 'undefined') return default_value
   if (! required) return value
-  throw 'This field is required.'
+  throw ['This field is required.']
 }
 
 
@@ -97,24 +97,24 @@ export function validate_field(value, options) {
 
   // we check javascript default types
   if (typeof(value) != options.type) {
-    throw `This field must be of type ${options.type}.`
+    throw [`This field must be of type ${options.type}.`]
   }
 
   // we check null values
   if (value === null && ! options.allow_null) {
-    throw 'This field cannot be null.'
+    throw ['This field cannot be null.']
   }
 
   // special checks for numbers
   if (typeof(value) == 'number') {
     // check max length
     if (options.max_length && value > options.max_length) {
-      throw `This field cannot be greater than ${options.max_length}.`
+      throw [`This field cannot be greater than ${options.max_length}.`]
 
     }
     // check min length
     if (options.min_length && value < options.min_length) {
-      throw `This field cannot be smaller than ${options.min_length}.`
+      throw [`This field cannot be smaller than ${options.min_length}.`]
     }
   }
 
@@ -122,15 +122,15 @@ export function validate_field(value, options) {
   if (typeof(value) == 'string') {
     // check empty strings
     if(value == "" && ! options.allow_blank) {
-      throw 'This field cannot be blank.'
+      throw ['This field cannot be blank.']
     }
     // check max length
     if (options.max_length && value.length > options.max_length) {
-      throw `This field cannot be longer than ${options.max_length} characters.`
+      throw [`This field cannot be longer than ${options.max_length} characters.`]
     }
     // check for min length
     if (options.min_length && value.length < options.min_length) {
-      throw `This field cannot be less than ${options.min_length} characters.`
+      throw [`This field cannot be less than ${options.min_length} characters.`]
     }
     // check against regex
     if (options.regex) {
