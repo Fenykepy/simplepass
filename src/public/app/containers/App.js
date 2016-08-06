@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
+import { arrayContains } from '../../../utils/helpers'
+
 import {
   LOGIN,
   REGISTER,
@@ -12,7 +14,9 @@ import {
 import { appSelector } from '../selectors'
 
 import { setState } from '../actions'
+
 import Login from '../../user/containers/Login'
+import Register from '../../user/containers/Register'
 
 class App extends Component {
   
@@ -26,12 +30,20 @@ class App extends Component {
 
     // if user is not authenticated and state is not in authentication free states
     // redirect to login state
-
-    return (<Login/>)
-    // if user is not authenticated,
-    // show login screen
-
-    // else 
+    if (! this.props.user.is_authenticated && 
+        ! arrayContains(this.props.state, AUTH_FREE_STATES)) {
+      this.props.dispatch(setState(LOGIN))
+      return (<Login />)
+    }
+    
+    switch (this.props.state) {
+      case LOGIN:
+        return (<Login />)
+      case REGISTER:
+        return (<Register />)
+      default:
+        return (<Login />)
+    }
   }
 }
 

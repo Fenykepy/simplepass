@@ -2,6 +2,9 @@ import * as types from './actionsTypes'
 
 import Fetch from '../app/http'
 
+import { setState } from '../app/actions'
+import { HOME } from '../app/states'
+
 // actions creators
 
 // Logging in
@@ -42,15 +45,13 @@ export function login(credentials) {
         JSON.stringify(credentials)
     )
     .then(json => {
-      console.log('login success', json)
       dispatch(requestLoginSuccess(json))
-      // set state to Home
-
+      // redirect home
+      dispatch(setState(HOME))
     })
     .catch(error => {
       return error.response.json().then(json => {
         // store error in state
-        console.log('login failure', json)
         dispatch(requestLoginFailure(json))
         // throw error to display it later
         throw error
@@ -60,6 +61,58 @@ export function login(credentials) {
 }
 
 
+// registering
+function requestRegister() {
+  return {
+    type: types.REQUEST_REGISTER
+  }
+}
+
+function requestRegisterSuccess(data) {
+  return {
+    type: types.REQUEST_REGISTER_SUCCESS,
+    data
+  }
+}
+
+function requestRegisterFailure(errors) {
+  return {
+    type: types.REQUEST_REGISTER_FAILURE,
+    errors
+  }
+}
+
+export function register(user) {
+  /*
+   * Try to create new user with given data
+   */
+  return function(dispatch) {
+    // start request
+    dispatch(requestRegister())
+
+    // return a promise
+    return Fetch.post('/api/user/',
+        {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        JSON.stringify(user)
+    )
+    .then(json => {
+      dispatch(requestRegisterSuccess(json))
+      // redirect home
+      dispatch(setState(HOME))
+    })
+    .catch(error => {
+      return error.response.json().then(json => {
+        // store error in state
+        dispatch(requestRegisterFailure(json))
+        // throw error to display it later
+        throw error
+      })
+    })
+  }
+}
 
 
 

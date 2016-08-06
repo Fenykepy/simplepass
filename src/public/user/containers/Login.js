@@ -5,11 +5,18 @@ import { connect } from 'react-redux'
 import { loginSelector } from '../selectors'
 
 import { login } from '../actions'
+import {
+  setState,
+  setDocumentTitle,
+} from '../../app/actions'
+
+import { 
+  LOGIN,
+  REGISTER,
+} from '../../app/states'
 
 import LoginForm from '../components/LoginForm'
 import Spinner from '../../app/components/Spinner'
-
-//import { setDocumentTitleIfNeeded } from '../../app/actions'
 
 
 const LOGIN_FORM = "login-form"
@@ -27,7 +34,9 @@ class Login extends Component {
   
   componentDidMount() {
     // we set title
-    //this.props.dispath(setDocumentTitleIfNeeded('Login page'))
+    setDocumentTitle('Sign in')
+    // we set state to LOGIN
+    this.props.dispatch(setState(LOGIN))
   }
 
   handleUsernameChange(e) {
@@ -43,6 +52,11 @@ class Login extends Component {
     this.props.dispatch(login(this.state))
   }
 
+  handleRegister(e) {
+    e.preventDefault()
+    this.props.dispatch(setState(REGISTER))
+  }
+
   render() {
     // injected by connect call
     const {
@@ -50,7 +64,7 @@ class Login extends Component {
       user
     } = this.props
 
-    console.log('Login', this.props)
+    //console.log('Login', this.props)
 
     // show spinner is user is logging in
     if (this.props.user.is_logging_in) {
@@ -76,7 +90,9 @@ class Login extends Component {
               onClick={this.handleLogin.bind(this)}
               type="submit"
             />
-            <div>No account yet ? <button>Sign up !</button></div>
+            <div>No account yet ? <button
+                onClick={this.handleRegister.bind(this)}
+              >Sign up !</button></div>
           </footer>
         </article>
       </section>

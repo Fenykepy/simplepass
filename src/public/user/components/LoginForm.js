@@ -7,7 +7,7 @@ import FormRequiredFields from '../../app/components/FormRequiredFields'
 export default class LoginForm extends Component {
 
   render() {
-    console.log('LoginForm', this.props)
+    //console.log('LoginForm', this.props)
     return (
       <form
         id={this.props.id}
