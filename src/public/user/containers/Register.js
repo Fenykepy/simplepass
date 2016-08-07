@@ -12,6 +12,7 @@ import { setDocumentTitle } from '../../app/actions'
 
 import RegisterForm from '../components/RegisterForm'
 import Spinner from '../../app/components/Spinner'
+import Header from '../../app/components/Header'
 
 
 const REGISTER_FORM = "register-form"
@@ -89,8 +90,11 @@ class Register extends Component {
 
     return (
       <section role="main">
-        <article>
-          <h1>Sign up</h1>
+        <Header
+          user={this.props.user}
+        />
+        <article id="column-form">
+          <h1>Join SimplePass</h1>
           <RegisterForm
             handleUsernameChange={this.handleUsernameChange.bind(this)}
             handlePasswordChange={this.handlePasswordChange.bind(this)}
@@ -103,13 +107,15 @@ class Register extends Component {
             errors={this.getErrors()}
           />
           <footer>
-            <input
-              className="primary"
-              form={REGISTER_FORM}
-              value="Sign up"
-              onClick={this.handleRegister.bind(this)}
-              type="submit"
-            />
+            <div className="field-wrapper">
+              <input
+                className="primary max"
+                form={REGISTER_FORM}
+                value="Sign up"
+                onClick={this.handleRegister.bind(this)}
+                type="submit"
+              />
+            </div>
           </footer>
           <div>Already have an account? <Link to={'/login/'}>Log in</Link></div>
         </article>

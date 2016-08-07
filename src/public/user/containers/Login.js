@@ -71,7 +71,7 @@ class Login extends Component {
         <Header
           user={this.props.user}
         />
-        <article className="column-form">
+        <article id="column-form">
           <h1>Log In to SimplePass</h1>
           <LoginForm
             id={LOGIN_FORM}
@@ -82,14 +82,16 @@ class Login extends Component {
             errors={this.props.user.login_errors}
           />
           <footer>
-            <input
-              className="primary"
-              form={LOGIN_FORM}
-              value="Log in"
-              onClick={this.handleLogin.bind(this)}
-              type="submit"
-            />
-            <div>No account yet ? <Link to={"/signup/"}>Sign up</Link></div>
+            <div className="field-wrapper">
+              <input
+                className="primary max"
+                form={LOGIN_FORM}
+                value="Log in"
+                onClick={this.handleLogin.bind(this)}
+                type="submit"
+              />
+            </div>
+            <div>No account yet? <Link to={"/signup/"}>Sign up</Link></div>
           </footer>
         </article>
       </section>

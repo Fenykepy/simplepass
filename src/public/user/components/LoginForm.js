@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react'
 
 
 import FormFieldErrors from '../../app/components/FormFieldErrors'
-import FormRequiredFields from '../../app/components/FormRequiredFields'
 
 export default class LoginForm extends Component {
 
@@ -12,7 +11,6 @@ export default class LoginForm extends Component {
       <form
         id={this.props.id}
       >
-        <FormRequiredFields />
         <div className="field-wrapper">
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -20,8 +18,7 @@ export default class LoginForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-username">Username:<span
-              className="red"> *</span></label>
+          <label htmlFor="id-username">Username:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'username'}
@@ -36,8 +33,7 @@ export default class LoginForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-password">Password:<span
-              className="red"> *</span></label>
+          <label htmlFor="id-password">Password:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'password'}

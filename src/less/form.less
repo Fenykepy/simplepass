@@ -1,3 +1,118 @@
+
+// Invalid forms
+form:invalid, form:invalid:hover, form:invalid:focus, :invalid {
+    box-shadow: none;
+}
+input, textarea, select, option, :invalid, :valid {
+    outline: none;
+}
+
+// space betwen form elements
+div.field-wrapper, p.required-fields{
+    margin-bottom: 1.5em;
+}
+
+input, option, select, textarea, ul.error-list li, ul.warning-list li {
+    font-family: @sans;
+    width: 100%;
+    border-radius: 2px;
+    background: @inputs-bg;
+    border: 1px solid @inputs-border;
+    font-size: 1em;
+    color: @inputs;
+    text-align: left;
+    padding: 6px 12px;
+    margin-top: 5px;
+    box-sizing: border-box;
+}
+
+// errors display
+ul.error-list li, ul.warning-list li {
+        display: block;
+        min-height: 34px;
+        line-height: 20px;
+        vertical-align: middle;
+}
+ul.error-list, ul.warning-list {
+    padding: 0;
+}
+ul.error-list li {
+    color: @error;
+    border: 1px solid @error;
+    background: @error-background;
+}
+ul.warning-list li {
+    color: @warning;
+    border: 1px solid @warning;
+    background: @warning-background;
+
+}
+
+input[type="checkbox"] {
+    height: 13px;
+    width: 13px;
+    margin: 3px 8px 0 0;
+    float: left;
+}
+input[type="radio"], input[type="checkbox"] {
+    margin: 6px 0 0;
+    line-height: normal;
+    box-sizing: border-box;
+    padding: 0;
+    height: auto;
+    width: auto;
+    position: absolute;
+    margin-left: -20px;
+    &:hover, &:active, &:focus {
+        box-shadow: none;
+        outline: none;
+    }
+}
+.radio, .checkbox {
+    margin: 10px 0;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    label {
+        font-weight: normal;
+        min-height: 24px;
+        padding: 0 0 0 20px;
+        cursor: pointer;
+        margin-bottom: 0;
+    }
+}
+.radio-inline, .checkbox-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: normal;
+    vertical-align: middle;
+    cursor: pointer;
+}
+.radio-inline + .radio-inline, .checkbox-inline + .checkbox-inline {
+    margin-left: 20px;
+}
+
+
+input:hover, textarea:hover, select:hover {
+    border-color: @inputs-border-hover;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: @inputs-border-focus;
+}
+
+textarea {
+    resize: vertical;
+    line-height: 1.5em;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
 // buttons, input type=submit, a role=button
 
 // general buttons, grey border and text, white background
@@ -7,6 +122,7 @@ button, a[role="button"], input[type="submit"] {
     font-weight: bold;
     display: inline-flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     border-radius: 2px;
     box-shadow: none;
@@ -26,9 +142,12 @@ button, a[role="button"], input[type="submit"] {
     }
 }
 
+// primary buttons, blue background, white text
+// darker on focus
 button.primary, a[role="button"].primary, input[type="submit"].primary {
     color: @buttons-primary;
     border: none;
+    border-radius: 4px;
     background: @buttons-primary-bg;
     &:hover, &:focus, &:active {
         text-decoration: none;
@@ -36,6 +155,8 @@ button.primary, a[role="button"].primary, input[type="submit"].primary {
     }
 }
 
+// secondary buttons, blue border and text,
+// blue background and white text on focus
 button.secondary, a[role="button"].secondary, input[type="submit"].secondary {
     color: @buttons-secondary;
     border: 1px solid @buttons-secondary-border;
@@ -46,6 +167,8 @@ button.secondary, a[role="button"].secondary, input[type="submit"].secondary {
     }
 }
 
+// reversed buttons, for blue background, white border and text,
+// white background and blue text on focus
 button.reversed, a[role="button"].reversed, input[type="submit"].reversed {
     color: @buttons-reversed;
     border: 1px solid @buttons-reversed-border;
@@ -55,4 +178,9 @@ button.reversed, a[role="button"].reversed, input[type="submit"].reversed {
         color: @buttons-reversed-hover;
         background: @buttons-reversed-bg-hover;
     }
+}
+
+// fill width buttons
+button.max, a[role="button"].max, input[type="submit"].max {
+    width: 100%;
 }

@@ -6,7 +6,7 @@ export default class FormRequiredFields extends Component {
     return (
       <p
         className="required-fields"
-      ><span className="red">*</span> : required fields.</p>
+      ><span className="colored">*</span> : required fields.</p>
     )
   }
 }

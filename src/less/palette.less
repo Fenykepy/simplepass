@@ -2,6 +2,7 @@
 // from lighter to darker per colors
 
 /* blues */
+@lighter-blue: #4074B7;
 @main-blue: #284A74; 
 @darker-blue: #213E60;
 
@@ -20,10 +21,16 @@
 
 /* others */
 @red: #970000;
+@error: @red;
+@error-background: rgba(150, 0, 0, 0.08);   // form's error lists background
+@warning: #D69019;           // Orange
+@warning-background: rgba(214, 144, 25, 0.08);        // form's warning lists background
 
 
 
 // Places
+/* normal text */
+@text: @grey7;
 
 /* headers */
 @header-bg: @main-blue; // banner headers background
@@ -58,7 +65,15 @@
 @buttons-reversed-bg: @main-blue; // reversed buttons background
 @buttons-reversed-bg-hover: @white; // revered buttons background on hover
 
+/* inputs */
+@inputs: @grey7; // inputs text
+@inputs-bg: @white; // inputs background
+@inputs-border: @grey3; // inputs borders
+@inputs-border-hover: @grey4; // inputs borders on hover
+@inputs-border-focus: @lighter-blue; // inputs borders on focus
 
+
+@form-title: @grey7; // form titles
 
 
 

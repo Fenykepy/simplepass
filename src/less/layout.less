@@ -3,7 +3,8 @@ html {
 }
 body {
     font-size: 100%;
-    font-family: @sans
+    font-family: @sans;
+    color: @text;
 }
 
 // paragraphs
@@ -112,3 +113,23 @@ header#main-header {
     }
 }
 
+.red {
+    color: @red;
+}
+.colored {
+    color: @main-blue;
+}
+
+article#column-form {
+    box-sizing: border-box;
+    width: 400px;
+    margin: 80px auto;
+    padding: 0 60px;
+    h1 {
+        text-align: center;
+        padding-bottom: 20px;
+    }
+    footer {
+        text-align: center;
+    }
+}
