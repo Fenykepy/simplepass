@@ -8,10 +8,12 @@ export default class AuthLinks extends Component {
     return (
       <ul className="top-links">
         <li><Link
-            activeClassName="selected"
-            to={'/login/'}
+          className="top-link"
+          activeClassName="selected"
+          to={'/login/'}
         >Log in</Link></li>
         <li><Link
+          className="top-link"
           activeClassName="selected"
           to={'/signup/'}
         >Sign up</Link></li>

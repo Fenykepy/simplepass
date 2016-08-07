@@ -93,25 +93,37 @@ header[role="banner"] {
         top: 0;
         right: 40px;
         display: flex;
-        a {
-            display: inline-flex;
-            justify-content: center;
-            flex-direction: column;
-            width: auto;
-            height: 38px;
-            padding: 8px 25px;
-            color: @header-text;
-            &:hover, &:active, &:focus {
-                text-decoration: none;
-                background: @header-links-bg-hover;
-            }
-            &.selected {
-                background: @header-links-bg-hover;
-            }
+    }
+    // we target first level links or buttons
+    // to do not apply style to children
+    .top-link {
+        display: inline-flex;
+        justify-content: center;
+        flex-direction: column;
+        width: auto;
+        height: 38px;
+        padding: 8px 25px;
+        color: @header-text;
+        &:hover, &:active, &:focus {
+            text-decoration: none;
+            background: @header-links-bg-hover;
         }
-
+        &.selected {
+            background: @header-links-bg-hover;
+        }
+    }
+    // we reset buttons style
+    button.top-link {
+        border: none;
+        background: none;
+        font-weight: normal;
+        border-radius: 0;
+        font-size: 100%;
+        box-sizing: content-box;
+        margin: 0;
     }
 }
+
 header#main-header {
     height: 100vh;
     min-height: 400px;
@@ -180,6 +192,7 @@ article#column-form {
 }
 
 .dropdown-link {
+    position: relative;
     div {
         padding-left: 25px;
     }
@@ -193,8 +206,9 @@ article#column-form {
     z-index: 1000; // we place it upon overlay
     padding: 0;
     position: absolute;
-    top: 45px;
+    top: 60px;
     right: 10px;
+    min-width: 200px;
     display: block;
     background-color: @context-bg;
     border: 1px solid @context-border;
@@ -213,7 +227,7 @@ article#column-form {
             padding: 5px 20px;
             height: auto;
             &:hover, &:focus, &:active {
-                color: @context-text;
+                color: @context-item-hover;
                 background: @context-item-bg-hover;
             }
         }

@@ -52,13 +52,12 @@ class UserMenuButton extends Component {
     } = this.props
 
     return (
-      <a
-        href=""
-        className="dropdown-link"
+      <button
+        className="top-link dropdown-link"
         onClick={this.toogleMenu.bind(this)}
       ><div>{this.props.user.username}</div>
         {this.getMenu()}
-      </a>
+      </button>
     )
   }
 }

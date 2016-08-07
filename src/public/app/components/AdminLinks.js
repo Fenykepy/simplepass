@@ -9,6 +9,7 @@ export default class AdminLinks extends Component {
   render() {
     return (
       <ul className="top-links">
+        <li><a href="" className="top-link">Test</a></li>
         <li><UserMenuButton /></li>
       </ul>
     )
