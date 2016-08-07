@@ -4,6 +4,8 @@ import Link from 'react-router/lib/Link'
 
 import AuthLinks from './AuthLinks'
 
+import arrow_svg from '../../../graphics/svg/arrow.svg'
+
 export default class Index extends Component {
 
   render() {

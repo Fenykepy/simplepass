@@ -44,6 +44,7 @@ class Home extends Component {
         <Header
           authenticated={this.props.user.is_authenticated}
         />
+        {child}
       </section>
     )
   }

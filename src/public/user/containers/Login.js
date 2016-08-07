@@ -57,20 +57,16 @@ class Login extends Component {
 
     // redirect home if user is authenticated
     if (this.props.user.is_authenticated) {
-      console.log('redirect home')
+      console.log('user authenticated, redirect home')
       this.context.router.push('/')
     }
     
+    let child
     // show spinner if user is logging in
     if (this.props.user.is_logging_in) {
-      return <Spinner message="Logging in..." />
-    }
-
-    return (
-      <section role="main">
-        <Header
-          authenticated={this.props.user.is_authenticated}
-        />
+      child = <Spinner message="Logging in..." />
+    } else  {
+      child = (
         <article id="column-form">
           <h1>Log In to SimplePass</h1>
           <LoginForm
@@ -94,6 +90,15 @@ class Login extends Component {
             <div>No account yet? <Link to={"/signup/"}>Sign up</Link></div>
           </footer>
         </article>
+      )
+    }
+
+    return (
+      <section role="main">
+        <Header
+          authenticated={this.props.user.is_authenticated}
+        />
+        {child}
       </section>
     )
   }

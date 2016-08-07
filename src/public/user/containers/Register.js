@@ -83,16 +83,12 @@ class Register extends Component {
       this.context.router.push('/')
     }
 
+    let child
     // show spinner if user is registering
     if (this.props.user.is_registering) {
-      return <Spinner message="Signing up..." />
-    }
-
-    return (
-      <section role="main">
-        <Header
-          authenticated={this.props.user.is_authenticated}
-        />
+      child = <Spinner message="Signing up..." />
+    } else {
+      child = (
         <article id="column-form">
           <h1>Join SimplePass</h1>
           <RegisterForm
@@ -116,9 +112,18 @@ class Register extends Component {
                 type="submit"
               />
             </div>
+            <div>Already have an account? <Link to={'/login/'}>Log in</Link></div>
           </footer>
-          <div>Already have an account? <Link to={'/login/'}>Log in</Link></div>
         </article>
+      )
+    }
+
+    return (
+      <section role="main">
+        <Header
+          authenticated={this.props.user.is_authenticated}
+        />
+        {child}
       </section>
     )
   }
