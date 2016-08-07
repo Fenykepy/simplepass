@@ -1,0 +1,67 @@
+import React, { Component, PropTypes } from 'react'
+
+import { connect } from 'react-redux'
+
+import { userMenuSelector } from '../selectors'
+
+import { logout } from '../actions'
+
+import UserMenu from '../components/UserMenu'
+
+class UserMenuButton extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      menu: false
+    }
+  }
+
+  toogleMenu(e) {
+    e.preventDefault()
+    this.setState({menu: ! this.state.menu})
+  }
+
+  closeMenu() {
+    this.setState({menu: false})
+  }
+
+  logout(e) {
+    e.preventDefault()
+    this.props.dispatch(logout())
+  }
+
+  getMenu() {
+    if (this.state.menu) {
+      return (
+        <UserMenu
+          close={this.closeMenu.bind(this)}
+          logout={this.logout.bind(this)}
+        />
+      )
+    }
+    return null
+  }
+
+  render() {
+    // injected by connect call
+    const {
+      dispatch,
+      user,
+    } = this.props
+
+    return (
+      <a
+        href=""
+        className="dropdown-link"
+        onClick={this.toogleMenu.bind(this)}
+      ><div>{this.props.user.username}</div>
+        {this.getMenu()}
+      </a>
+    )
+  }
+}
+
+// wrap the component to inject dispatch and state into it
+export default connect (userMenuSelector)(UserMenuButton)

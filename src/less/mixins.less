@@ -1,0 +1,17 @@
+
+// Arrows
+.arrow {
+    content:"";
+    position: absolute;
+    height: 0;
+    width: 0;
+}
+
+.arrow-down(@color: #444, @height: 9px, @width: 11px) {
+    .arrow;
+    border-top: @width solid @color;
+    border-right: @height solid transparent;
+    border-left: @height solid transparent;
+}
+
+

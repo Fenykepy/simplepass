@@ -69,7 +69,7 @@ class Login extends Component {
     return (
       <section role="main">
         <Header
-          user={this.props.user}
+          authenticated={this.props.user.is_authenticated}
         />
         <article id="column-form">
           <h1>Log In to SimplePass</h1>

@@ -8,6 +8,7 @@ import { fetchEjsonIfNeeded } from '../../ejson/actions'
 import { homeSelector } from '../selectors'
 
 
+import Header from '../../app/components/Header'
 import Spinner from '../components/Spinner'
 
 class Home extends Component {
@@ -27,17 +28,22 @@ class Home extends Component {
       dispatch,
       user
     } = this.props
+
+    let child
+    // we show spinner while ejson fetches
+    if (! this.props.ejson || ! this.props.ejson.fetched) {
+      child = <Spinner message="Fetching ejson..." />
+    } else {
+      child = <div />
+    }
+
+
+
     return (
-      <section>
-        <header>
-          <h1>SimplePass</h1>
-          <button
-            onClick={this.logout.bind(this)}
-          >Logout</button>
-          <Spinner />
-        </header>
-        <aside>
-        </aside>
+      <section role="main">
+        <Header
+          authenticated={this.props.user.is_authenticated}
+        />
       </section>
     )
   }

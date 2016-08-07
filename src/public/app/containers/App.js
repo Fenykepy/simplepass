@@ -11,11 +11,14 @@ import Spinner from '../components/Spinner'
 class App extends Component {
   
   render () {
+
     // injected by connect call
     const {
       dispatch,
       user,
     } = this.props
+    
+    console.log('App', this.props)
     
     // if user is authenticating, show spinner
     if (this.props.user.is_fetching) {

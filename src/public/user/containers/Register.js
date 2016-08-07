@@ -91,7 +91,7 @@ class Register extends Component {
     return (
       <section role="main">
         <Header
-          user={this.props.user}
+          authenticated={this.props.user.is_authenticated}
         />
         <article id="column-form">
           <h1>Join SimplePass</h1>

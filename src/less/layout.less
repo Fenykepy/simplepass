@@ -51,6 +51,24 @@ h5 {
     font-size: 1.1em;
 }
 
+#overlay, #modal-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, 0.8) ;
+    z-index: 999;
+    &.transparent {
+        background-color: rgba(0, 0, 0, 0) ;
+    }
+    &.opaque {
+        background-color: rgba(0, 0, 0, 1) ;
+    }
+}
+
 header[role="banner"] {
     background: @header-bg;
     color: @header-text;
@@ -158,5 +176,46 @@ article#column-form {
         border: none;
         margin-bottom: 30px;
         animation: rotating .6s steps(12) infinite;
+    }
+}
+
+.dropdown-link {
+    div {
+        padding-left: 25px;
+    }
+    &:before {
+        left: 25px;
+        top: 25px;
+        .arrow-down(@header-text, 6px, 6px)
+    }
+}
+.dropdown-menu {
+    z-index: 1000; // we place it upon overlay
+    padding: 0;
+    position: absolute;
+    top: 45px;
+    right: 10px;
+    display: block;
+    background-color: @context-bg;
+    border: 1px solid @context-border;
+    border-radius: 3px;
+    text-align: left;
+    li {
+        margin: 10px 0;
+        padding: 0;
+        width: auto;
+        white-space: nowrap;
+        position: relative;
+        a {
+            text-decoration: none;
+            color: @context-text;
+            display: block;
+            padding: 5px 20px;
+            height: auto;
+            &:hover, &:focus, &:active {
+                color: @context-text;
+                background: @context-item-bg-hover;
+            }
+        }
     }
 }
