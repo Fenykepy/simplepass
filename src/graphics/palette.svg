@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.45254834"
-     inkscape:cx="789.26072"
-     inkscape:cy="614.43754"
+     inkscape:zoom="0.32"
+     inkscape:cx="1202.9314"
+     inkscape:cy="734.96918"
      inkscape:document-units="px"
      inkscape:current-layer="g4924"
      showgrid="false"
@@ -396,7 +396,8 @@
        id="g4924"
        transform="translate(500,0)">
       <g
-         id="g4900">
+         id="g5083"
+         transform="translate(500,0)">
         <g
            id="g4811">
           <rect
@@ -444,35 +445,66 @@
                  width="12506.881"
                  id="rect4797" /></flowRegion><flowPara
                id="flowPara4799"
-               style="text-align:center;text-anchor:middle">Darker blue</flowPara><flowPara
+               style="text-align:center;text-anchor:middle">blue</flowPara><flowPara
                id="flowPara4801"
                style="text-align:center;text-anchor:middle">#213e60</flowPara></flowRoot>        </g>
+        <g
+           transform="translate(635.7902,30.935922)"
+           id="g5022">
+          <g
+             id="g4954"
+             transform="translate(-1135.7902,-30.935922)">
+            <rect
+               y="-12068.069"
+               x="12058.067"
+               height="500"
+               width="500"
+               id="rect4882"
+               style="opacity:1;fill:#4074b7;fill-opacity:1;stroke:none;stroke-width:0.91500002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <flowRoot
+               transform="translate(-6629.0887,-31.922829)"
+               xml:space="preserve"
+               id="flowRoot4884"
+               style="font-style:normal;font-weight:normal;font-size:51.07747269px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+                 id="flowRegion4886"><rect
+                   id="rect4888"
+                   width="12506.881"
+                   height="2001.9261"
+                   x="12682.568"
+                   y="-11849.939"
+                   style="fill:#ffffff" /></flowRegion><flowPara
+                 style="text-align:center;text-anchor:middle"
+                 id="flowPara4890">blue</flowPara><flowPara
+                 style="text-align:center;text-anchor:middle"
+                 id="flowPara4892">#4074B7</flowPara></flowRoot>          </g>
+          <g
+             id="g5008"
+             transform="translate(-1135.7902,-30.935922)">
+            <rect
+               y="-12068.069"
+               x="12558.067"
+               height="500"
+               width="500"
+               id="rect5010"
+               style="opacity:1;fill:#346096;fill-opacity:1;stroke:none;stroke-width:0.91500002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+            <flowRoot
+               transform="translate(-6129.0887,-31.922829)"
+               xml:space="preserve"
+               id="flowRoot5012"
+               style="font-style:normal;font-weight:normal;font-size:51.07747269px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
+                 id="flowRegion5014"><rect
+                   id="rect5016"
+                   width="12506.881"
+                   height="2001.9261"
+                   x="12682.568"
+                   y="-11849.939"
+                   style="fill:#ffffff" /></flowRegion><flowPara
+                 style="text-align:center;text-anchor:middle"
+                 id="flowPara5018">blue</flowPara><flowPara
+                 style="text-align:center;text-anchor:middle"
+                 id="flowPara5020">#346096</flowPara></flowRoot>          </g>
+        </g>
       </g>
-      <g
-         id="g4954">
-        <rect
-           y="-12068.069"
-           x="12058.067"
-           height="500"
-           width="500"
-           id="rect4882"
-           style="opacity:1;fill:#4074b7;fill-opacity:1;stroke:none;stroke-width:0.91500002;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
-        <flowRoot
-           transform="translate(-6629.0887,-31.922829)"
-           xml:space="preserve"
-           id="flowRoot4884"
-           style="font-style:normal;font-weight:normal;font-size:51.07747269px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"><flowRegion
-             id="flowRegion4886"><rect
-               id="rect4888"
-               width="12506.881"
-               height="2001.9261"
-               x="12682.568"
-               y="-11849.939"
-               style="fill:#ffffff" /></flowRegion><flowPara
-             style="text-align:center;text-anchor:middle"
-             id="flowPara4890">Light blue</flowPara><flowPara
-             style="text-align:center;text-anchor:middle"
-             id="flowPara4892">#4074B7</flowPara></flowRoot>      </g>
     </g>
   </g>
 </svg>
