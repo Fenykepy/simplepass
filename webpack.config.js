@@ -56,15 +56,30 @@ var config = {
         loader: ExtractTextPlugin.extract('style-loader', '!css-loader!less-loader'),
         exclude: path.join( __dirname, '/node_modules/'),
       },
-      {
-        // images and fonts
-        test: /\.(png|jpg)$/,
-        loader: 'url-loader?limit=8192', // inline base64 URLs for <=8k images, direct URLs for the rest
+      { 
+        // images are stored separately
+        test: /\.(png|jpg)$/, 
+        loader: 'file-loader?name=images/[hash].[ext]',
         exclude: path.join( __dirname, '/node_modules/'),
-      }
+      },
+      { 
+        // svg are optimised then stored separately
+        test: /\.(svg)$/, 
+        loaders: [ 'file-loader?name=images/[hash].[ext]', 'svgo-loader?useConfig=svgoConfig'],
+        exclude: path.join( __dirname, '/node_modules/'),
+      },
     ],
-  }
+  },
+  svgoConfig: {
+    plugins: [
+      {removeTitle: true},
+      {convertColors: {shorthex: false}},
+      {convertPathData: false}
+    ]
+  },
 };
+
+
 
 module.exports = config;
 

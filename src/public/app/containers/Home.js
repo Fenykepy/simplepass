@@ -34,6 +34,7 @@ class Home extends Component {
           <button
             onClick={this.logout.bind(this)}
           >Logout</button>
+          <Spinner />
         </header>
         <aside>
         </aside>
