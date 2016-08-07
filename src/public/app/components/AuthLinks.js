@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router'
+import Link from 'react-router/lib/Link'
 
 export default class AuthLinks extends Component {
 
@@ -8,11 +8,11 @@ export default class AuthLinks extends Component {
     return (
       <ul className="top-links">
         <li><Link
-            className="transparent"
+            activeClassName="selected"
             to={'/login/'}
         >Log in</Link></li>
         <li><Link
-          className="transparent"
+          activeClassName="selected"
           to={'/signup/'}
         >Sign up</Link></li>
       </ul>

@@ -28,19 +28,6 @@ a {
     }
 }
 
-a.transparent {
-    display: inline-flex;
-    justify-content: center;
-    flex-direction: column;
-    width: auto;
-    height: 38px;
-    padding: 12px 25px;
-    &:hover, &:active, &:focus {
-        text-decoration: none;
-        background: rgba(255,255,255,0.1);
-    }
-}
-
 // headings
 h1, h2, h3, h4, h5, h6 {
     font-weight: bold;
@@ -89,9 +76,22 @@ header[role="banner"] {
         right: 40px;
         display: flex;
         a {
+            display: inline-flex;
+            justify-content: center;
+            flex-direction: column;
+            width: auto;
+            height: 38px;
             padding: 8px 25px;
             color: @header-text;
+            &:hover, &:active, &:focus {
+                text-decoration: none;
+                background: @header-links-bg-hover;
+            }
+            &.selected {
+                background: @header-links-bg-hover;
+            }
         }
+
     }
 }
 header#main-header {

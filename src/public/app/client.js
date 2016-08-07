@@ -12,7 +12,9 @@ import { Provider } from 'react-redux'
 import { createStoreWithMiddleware } from './store'
 import rootReducer from './reducers'
 
-import { Router, browserHistory } from 'react-router'
+import browserHistory from 'react-router/lib/browserHistory'
+import Router from 'react-router/lib/Router'
+
 import getRoutes from './routes'
 
 import { fetchUserIfNeeded } from '../user/actions'

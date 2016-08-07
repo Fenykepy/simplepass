@@ -1,6 +1,7 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { Route, Redirect, IndexRoute } from 'react-router'
+
+import Route from 'react-router/lib/Route'
 
 import App from './containers/App'
 import Login from '../user/containers/Login'

@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { registerSelector } from '../selectors'
 
-import { Link } from 'react-router'
+import Link from 'react-router/lib/Link'
 
 import { register } from '../actions'
 
@@ -127,5 +127,6 @@ class Register extends Component {
 Register.contextTypes = {
   router: React.PropTypes.object.isRequired,
 }
+
 // wrap the component to inject dispatch and state into it
 export default connect (registerSelector)(Register)

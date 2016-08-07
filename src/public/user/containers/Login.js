@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { loginSelector } from '../selectors'
 
-import { Link } from 'react-router'
+import Link from 'react-router/lib/Link'
 
 import { login } from '../actions'
 import { setDocumentTitle } from '../../app/actions'
