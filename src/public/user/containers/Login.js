@@ -11,6 +11,7 @@ import { setDocumentTitle } from '../../app/actions'
 
 import LoginForm from '../components/LoginForm'
 import Spinner from '../../app/components/Spinner'
+import Header from '../../app/components/Header'
 
 
 const LOGIN_FORM = "login-form"
@@ -67,8 +68,11 @@ class Login extends Component {
 
     return (
       <section role="main">
-        <article>
-          <h1>Log in</h1>
+        <Header
+          user={this.props.user}
+        />
+        <article className="column-form">
+          <h1>Log In to SimplePass</h1>
           <LoginForm
             id={LOGIN_FORM}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
@@ -79,6 +83,7 @@ class Login extends Component {
           />
           <footer>
             <input
+              className="primary"
               form={LOGIN_FORM}
               value="Log in"
               onClick={this.handleLogin.bind(this)}

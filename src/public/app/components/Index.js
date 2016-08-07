@@ -2,7 +2,10 @@ import React, { Component } from 'react'
 
 import { Link } from 'react-router'
 
+import AuthLinks from './AuthLinks'
+
 export default class Index extends Component {
+
   render() {
     return (
       <section>
@@ -16,16 +19,7 @@ export default class Index extends Component {
               role="button"
             >Get started</Link>
           </div>
-          <ul className="admin-links">
-            <li><Link
-                className="transparent"
-                to={'/login/'}
-            >Log in</Link></li>
-            <li><Link
-              className="transparent"
-              to={'/signup/'}
-            >Sign up</Link></li>
-          </ul>
+          <AuthLinks />
         </header>
           <article>
             <h1>One word, to manage them all</h1>

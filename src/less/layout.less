@@ -31,13 +31,11 @@ a.transparent {
     display: inline-flex;
     justify-content: center;
     flex-direction: column;
-    color: @white;
     width: auto;
     height: 38px;
     padding: 12px 25px;
     &:hover, &:active, &:focus {
         text-decoration: none;
-        color: @white;
         background: rgba(255,255,255,0.1);
     }
 }
@@ -66,20 +64,38 @@ h5 {
 }
 
 header[role="banner"] {
-    display: flex;
     background: @header-bg;
     color: @header-text;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    height: 55px;
     h1 {
         font-weight: normal;
-        font-size: 48px;
+        font-size: 28px;
+        margin: 0 40px;
+        a {
+            color: @header-text;
+            &:hover {
+                text-decoration: none;
+                color: @header-text;
+            }
+        }
     }
-    h2 {
-        font-weight: normal;
-        font-size: 36px;
+    .top-links {
+        position: absolute;
+        top: 0;
+        right: 40px;
+        display: flex;
+        a {
+            padding: 8px 25px;
+            color: @header-text;
+        }
     }
 }
 header#main-header {
-    height: 450px;
+    height: 100vh;
+    min-height: 400px;
     .text-wrapper {
         margin: auto;
         text-align: center;
@@ -93,12 +109,6 @@ header#main-header {
         font-weight: normal;
         font-size: 24px;
         margin-bottom: 40px;
-    }
-    .admin-links {
-        position: absolute;
-        top: 0;
-        right: 40px;
-        display: flex;
     }
 }
 
