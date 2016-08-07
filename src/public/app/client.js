@@ -1,7 +1,7 @@
 // import a promise polyfill
 require('es6-promise').polyfill();
 // import less files
-//require('../less/controller.less')
+require('../../less/controller.less')
 
 
 import React from 'react'

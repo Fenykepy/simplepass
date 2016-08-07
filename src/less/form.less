@@ -1,0 +1,58 @@
+// buttons, input type=submit, a role=button
+
+// general buttons, grey border and text, white background
+// border gets darker on focus
+button, a[role="button"], input[type="submit"] {
+    font-family: @sans;
+    font-weight: bold;
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2px;
+    box-shadow: none;
+    height: 38px;
+    width: auto;
+    padding: 3px 23px;
+    margin: 5px 2px 0 2px;
+    text-align: center;
+    text-decoration: none;
+    color: @buttons;
+    border: 1px solid @buttons-border;
+    background: @buttons-bg;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        color: @buttons-hover;
+        border: 1px solid @buttons-border-hover;
+    }
+}
+
+button.primary, a[role="button"].primary, input[type="submit"].primary {
+    color: @buttons-primary;
+    border: none;
+    background: @buttons-primary-bg;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        background: @buttons-primary-bg-hover;
+    }
+}
+
+button.secondary, a[role="button"].secondary, input[type="submit"].secondary {
+    color: @buttons-secondary;
+    border: 1px solid @buttons-secondary-border;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        color: @buttons-secondary-hover;
+        background: @buttons-secondary-bg-hover;
+    }
+}
+
+button.reversed, a[role="button"].reversed, input[type="submit"].reversed {
+    color: @buttons-reversed;
+    border: 1px solid @buttons-reversed-border;
+    background: @buttons-reversed-bg;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        color: @buttons-reversed-hover;
+        background: @buttons-reversed-bg-hover;
+    }
+}

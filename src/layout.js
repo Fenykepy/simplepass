@@ -10,6 +10,7 @@ export default  `
         <meta name="author" content="Fenykepy" />
         <meta charset="utf-8" />
         <link rel="icon" type="image/svg" href="/public/images/phiroom-favicon.svg" />
+        <link rel="stylesheet" href="${webpackAssets.app.css}" />
       </head>
       <body>
         <div id="root"></div>

@@ -104,6 +104,7 @@ class Register extends Component {
           />
           <footer>
             <input
+              className="primary"
               form={REGISTER_FORM}
               value="Sign up"
               onClick={this.handleRegister.bind(this)}

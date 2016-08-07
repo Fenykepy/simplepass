@@ -1,0 +1,104 @@
+html {
+    height: 100%;
+}
+body {
+    font-size: 100%;
+    font-family: @sans
+}
+
+// paragraphs
+p {
+    margin: 0.5em 0;
+}
+// emphasis
+em {
+    font-style: italic;
+}
+strong {
+    font-weight: bold;
+}
+
+// links
+a {
+    color: @links;
+    &:hover, &:active, &:focus {
+        color: @links-hover;
+        text-decoration: underline;
+    }
+}
+
+a.transparent {
+    display: inline-flex;
+    justify-content: center;
+    flex-direction: column;
+    color: @white;
+    width: auto;
+    height: 38px;
+    padding: 12px 25px;
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        color: @white;
+        background: rgba(255,255,255,0.1);
+    }
+}
+
+// headings
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 0.45em;
+}
+
+h1 {
+    font-size: 1.5em;
+}
+h2 {
+    font-size: 1.4em;
+}
+h3 {
+    font-size: 1.3em;
+}
+h4 {
+    font-size: 1.2em;
+}
+h5 {
+    font-size: 1.1em;
+}
+
+header[role="banner"] {
+    display: flex;
+    background: @header-bg;
+    color: @header-text;
+    h1 {
+        font-weight: normal;
+        font-size: 48px;
+    }
+    h2 {
+        font-weight: normal;
+        font-size: 36px;
+    }
+}
+header#main-header {
+    height: 450px;
+    .text-wrapper {
+        margin: auto;
+        text-align: center;
+    }
+    h1 {
+        font-weight: normal;
+        font-size: 48px;
+        margin-bottom: 20px;
+    }
+    h2 {
+        font-weight: normal;
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+    .admin-links {
+        position: absolute;
+        top: 0;
+        right: 40px;
+        display: flex;
+    }
+}
+

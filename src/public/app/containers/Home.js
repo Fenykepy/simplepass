@@ -3,12 +3,18 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import { logout } from '../../user/actions'
+import { fetchEjsonIfNeeded } from '../../ejson/actions'
 
 import { homeSelector } from '../selectors'
 
 
+import Spinner from '../components/Spinner'
 
 class Home extends Component {
+
+  componentWillMount() {
+    this.props.dispatch(fetchEjsonIfNeeded())
+  }
 
   logout(e) {
     e.preventDefault()
@@ -31,8 +37,6 @@ class Home extends Component {
         </header>
         <aside>
         </aside>
-        <article>
-        </article>
       </section>
     )
   }

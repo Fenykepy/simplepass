@@ -33,6 +33,9 @@ var config = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new AssetsPlugin(),
+    new ExtractTextPlugin("styles.css", {
+      allChunks: true
+    })
   ],
   module: {
     loaders: [

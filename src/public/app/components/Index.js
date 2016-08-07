@@ -6,14 +6,32 @@ export default class Index extends Component {
   render() {
     return (
       <section>
-        <header>
-          <h1>SimplePass</h1>
-          <h2>A simple password manager</h2>
-          <Link to={'/login/'}>Log in</Link>
-          <Link to={'/signup/'}>Sign up</Link>
+        <header role="banner" id="main-header">
+          <div className="text-wrapper">
+            <h1>SimplePass</h1>
+            <h2>A simple password manager</h2>
+            <Link
+              className="reversed"
+              to={'/signup/'}
+              role="button"
+            >Get started</Link>
+          </div>
+          <ul className="admin-links">
+            <li><Link
+                className="transparent"
+                to={'/login/'}
+            >Log in</Link></li>
+            <li><Link
+              className="transparent"
+              to={'/signup/'}
+            >Sign up</Link></li>
+          </ul>
         </header>
           <article>
             <h1>One word, to manage them all</h1>
+            <button>Click me</button>
+            <button className="primary">Primary</button>
+            <button className="secondary">Secondary</button>
             <p>You only need to remember your "master" password to get access to all your passwords and notes</p>
           </article>
           <article>
