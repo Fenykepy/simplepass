@@ -15,10 +15,10 @@ class Fetch {
   }
   
   setDefaultHeaders(headers={}) {
-    headers = Object.assign(
-      this.default_headers,
-      headers
-    )
+    headers = {
+      ...this.default_headers,
+      ...headers
+    }
     return new Headers(headers)
   }
 

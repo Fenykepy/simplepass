@@ -60,9 +60,9 @@ class Register extends Component {
     // if password and confirm are set and not equal, add error
     if (this.state.password && this.state.password_confirm &&
         this.state.password !== this.state.password_confirm) {
-          return Object.assign({}, this.props.user.registration_errors, {
+          return {...this.props.user.registration_errors,
             password_confirm: ['Password and password confirmation must match.']
-          })
+          }
     }
     return this.props.user.registration_errors
   }

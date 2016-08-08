@@ -23,17 +23,17 @@ let default_status = {
 function status(state=default_status, action) {
   switch (action.type) {
     case LOCK:
-      return Object.assign({}, state, {
+      return {...state,
         locked: true
-      })
+      }
     case UNLOCK:
-      return Object.assign({}, state, {
+      return {...state,
         locked: false
-      })
+      }
     case SET_PASSPHRASE:
-      return Object.assign({}, state, {
+      return {...state,
         passphrase: action.passphrase
-      })
+      }
     case TIMEOUT:
       return default_status
     case REQUEST_LOGOUT:

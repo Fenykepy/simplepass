@@ -49,6 +49,7 @@
     "babel-plugin-react-transform": "^2.0.2",
     "babel-plugin-syntax-async-functions": "^6.8.0",
     "babel-plugin-syntax-async-generators": "^6.8.0",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-polyfill": "^6.9.1",
     "babel-preset-es2015": "^6.9.0",
     "babel-preset-react": "^6.11.1",
@@ -70,7 +71,8 @@
   "babel": {
     "plugins": [
       "syntax-async-functions",
-      "syntax-async-generators"
+      "syntax-async-generators",
+      ["transform-object-rest-spread"]
     ],
     "presets": [
       "es2015",
