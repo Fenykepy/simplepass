@@ -11,6 +11,14 @@ import MasterPassphraseForm from '../components/MasterPassphraseForm'
 
 const MASTER_PASSPHRASE_FORM = "master-passphrase-form"
 
+const PASSPHRASE_MESSAGE = (
+  'In order to use simple pass, you first need to define a master passphrase, which will be used to encrypt and decrypt your keychain.'
+)
+
+const PASSPHRASE_WARNING = (
+  'Make it strong and keep it secret.'
+)
+
 class MasterPassphrase extends Component {
 
   constructor(props) {
@@ -65,14 +73,12 @@ class MasterPassphrase extends Component {
     } = this.props
 
     //console.log('MasterPassphrase', this.props)
-
     return (
       <article id="column-form">
         <h1>Set master passphrase</h1>
-
           <div className="field-wrapper">
-          <p className="center"><em>In order to use simple pass, you first need to define a master passphrase, which will be used to encrypt and decrypt your keychain.</em></p>
-          <p className="center"><strong>Make it strong and keep it secret.</strong></p>
+            <p className="center"><em>{PASSPHRASE_MESSAGE}</em></p>
+            <p className="center"><strong>{PASSPHRASE_WARNING}</strong></p>
           </div>
         <MasterPassphraseForm
           id={MASTER_PASSPHRASE_FORM}
