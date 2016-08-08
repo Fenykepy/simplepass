@@ -11,11 +11,11 @@ ejson.retrieve = function* (next) {
   try {
     let ejson = yield fsThunk.readFile(path.join(
       this.EJSON_DIR, this.state.user.ejson_path))
+    return this.body = {ejson: ejson}
   }
   catch (e) {
     this.throw({error: 'An error occured reading ejson file.'}, 500)
   }
-  this.body = {ejson: ejson}
 }
 
 
