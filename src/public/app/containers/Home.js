@@ -7,8 +7,8 @@ import { fetchEjsonIfNeeded } from '../../ejson/actions'
 
 import { homeSelector } from '../selectors'
 
-
-import Header from '../../app/components/Header'
+import MasterPassphrase from './MasterPassphrase'
+import Header from '../components/Header'
 import Spinner from '../components/Spinner'
 
 class Home extends Component {
@@ -33,6 +33,11 @@ class Home extends Component {
     // we show spinner while ejson fetches
     if (! this.props.ejson || ! this.props.ejson.fetched) {
       child = <Spinner message="Fetching ejson..." />
+    }
+
+    // we show master passphrase form if ejson is empty string
+    if (! this.props.ejson.ejson) {
+      child = <MasterPassphrase />
     } else {
       child = <div />
     }

@@ -92,6 +92,7 @@ class Register extends Component {
         <article id="column-form">
           <h1>Join SimplePass</h1>
           <RegisterForm
+            id={REGISTER_FORM}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
             handlePasswordChange={this.handlePasswordChange.bind(this)}
             handlePasswordConfirmChange={this.handlePasswordConfirmChange.bind(this)}
