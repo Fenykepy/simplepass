@@ -16,7 +16,7 @@ import {
 } from '../user/actionsTypes'
 
 
-let default_status = {
+const default_status = {
   locked: true,
 }
 
