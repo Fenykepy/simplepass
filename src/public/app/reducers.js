@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 import ejson from '../ejson/reducers'
 import user from '../user/reducers'
+import keychain from '../keychain/reducers'
 
 
 import {
@@ -47,6 +48,7 @@ const rootReducer = combineReducers({
   status,
   user,
   ejson,
+  keychain,
 })
 
 export default rootReducer

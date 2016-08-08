@@ -22,7 +22,7 @@ import {
   ADD_GROUP,
   UPDATE_GROUP,
   DELETE_GROUP,
-} from './actionTypes'
+} from './actionsTypes'
 
 import {
   REQUEST_LOGOUT
@@ -36,10 +36,9 @@ function config(state=default_config, action) {
   switch (action.type) {
     case LOCK_KEYCHAIN:
       // we hide timeout as confidential data
-      return {
-        state.username,
-        state.email
-      }
+      let new_state = {...state}
+      delete new_state.timeout
+      return new_state
     case LOAD_CONFIG:
       return action.config
     case SET_CONFIG_TIMEOUT:
@@ -79,6 +78,8 @@ function passwords(state={}, action) {
       let new_state = {...state}
       delete new_state[action.password]
       return new_state
+    default:
+      return state
   }
 }
 
@@ -100,6 +101,8 @@ function notes(state={}, action) {
       let new_state = {...state}
       delete new_state[action.note]
       return new_state
+    default:
+      return state
   }
 }
 
@@ -121,6 +124,8 @@ function bank_cards(state={}, action) {
       let new_state = {...state}
       delete new_state[action.bank_card]
       return new_state
+    default:
+      return state
   }
 }
 
@@ -142,6 +147,8 @@ function groups(state={}, action) {
       let new_state = {...state}
       delete new_state[action.group]
       return new_state
+    default:
+      return state
   }
 }
 

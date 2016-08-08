@@ -66,4 +66,21 @@ function fetchEjson() {
   }
 }
 
+export function syncKeychain() {
+  /* TODO */
+  // throw error if locked
+  // convert keychain as json
+  // encrypt json to ejson
+  // store ejson into state
+  // send ejson to server
+  return
+}
 
+export function unlockKeychain() {
+  /* TODO */
+  // pass if unlocked
+  // decrypt ejson to json
+  // parse json
+  // load json to keychain
+  return
+}
