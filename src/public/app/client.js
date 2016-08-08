@@ -34,7 +34,6 @@ let unsubscribe = store.subscribe(() =>
 let authenticated = getCookie('authenticated')
 
 if (authenticated) {
-  console.log('authenticated')
   // fetch users data if needed
   store.dispatch(fetchUserIfNeeded())
   // fetch ejson

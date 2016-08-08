@@ -30,7 +30,7 @@
 
 ## Client side
 
-- Get credentials
+- Check credentials
 - Get encrypted json object:
     - if we have an empty string:
         - ask user to set a main password and to confirm it

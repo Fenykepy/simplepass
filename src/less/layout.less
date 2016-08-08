@@ -51,6 +51,18 @@ h5 {
     font-size: 1.1em;
 }
 
+.accessibility {
+    position: absolute !important;
+    font-size: 0;
+    text-indent: -500000px;
+    width: 1px;
+    height: 1px;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    clip: rect(1px, 1px, 1px, 1px);
+}
+
 #overlay, #modal-overlay {
     position: fixed;
     top: 0;
@@ -235,4 +247,17 @@ article#column-form {
             }
         }
     }
+}
+.locked {
+    background: url('../graphics/svg/lock.svg') center center no-repeat;
+    background-size: contain;
+    height: 25px;
+    width: 12px;
+    span {
+        .accessibility
+    }
+}
+.unlocked {
+    background-image: url('../graphics/svg/lock-open.svg');
+    //.accessibility
 }

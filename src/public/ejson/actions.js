@@ -11,6 +11,7 @@ function requestEjson() {
 }
 
 function receiveEjson(ejson) {
+  console.log('ejson', ejson)
   return {
     type: types.REQUEST_EJSON_SUCCESS,
     ejson,

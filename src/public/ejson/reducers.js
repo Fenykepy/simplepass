@@ -3,6 +3,7 @@ import {
   REQUEST_EJSON_SUCCESS,
   REQUEST_EJSON_FAILURE,
 } from './actionsTypes'
+
 import {
   REQUEST_LOGOUT
 } from '../user/actionsTypes'

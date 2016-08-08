@@ -4,7 +4,9 @@ import { userSelector } from '../user/selectors'
 
 import { ejsonSelector } from '../ejson/selectors'
 
-const stateSelector = state => state.state
+export const statusSelector = createStructuredSelector({
+  status: state => state.status,
+})
 
 export const appSelector = createStructuredSelector({
   user: userSelector,
@@ -12,7 +14,6 @@ export const appSelector = createStructuredSelector({
 
 export const homeSelector = createStructuredSelector({
   user: userSelector,
-  state: stateSelector,
   ejson: ejsonSelector,
 })
 
