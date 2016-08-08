@@ -26,7 +26,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.32"
-     inkscape:cx="1202.9314"
+     inkscape:cx="584.1814"
      inkscape:cy="734.96918"
      inkscape:document-units="px"
      inkscape:current-layer="g4924"
@@ -48,7 +48,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -93,7 +93,7 @@
            height="764.5592"
            x="14462.543"
            y="-11688.818" /></flowRegion><flowPara
-         id="flowPara4355"></flowPara></flowRoot>    <g
+         id="flowPara4355" /></flowRoot>    <g
        id="g4419"
        transform="translate(2632.5829,-848.52832)">
       <rect
@@ -180,7 +180,7 @@
            height="918.75"
            x="12306.25"
            y="-11807.013" /></flowRegion><flowPara
-         id="flowPara4468"></flowPara></flowRoot>    <g
+         id="flowPara4468" /></flowRoot>    <g
        id="g4598"
        transform="translate(1376.3329,-745.40332)">
       <rect
@@ -422,7 +422,7 @@
                style="text-align:center;text-anchor:middle"
                id="flowPara4232">Main blue</flowPara><flowPara
                style="text-align:center;text-anchor:middle"
-               id="flowPara4772">#84a74</flowPara></flowRoot>        </g>
+               id="flowPara4772">#284a74</flowPara></flowRoot>        </g>
         <g
            id="g4825">
           <rect

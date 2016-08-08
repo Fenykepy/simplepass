@@ -31,21 +31,33 @@
 ## Client side
 
 - Get credentials
-- Get encrypted json object
-- Ask main password to user
-- Decrypt json object
-- play with it
-    - add new entry
-    - update entry
-    - delete entry
-    - add group
-    - delete group
-    - copy hidden content to clipboard -> https://github.com/xavi-/node-copy-paste
-    - change timeout
-    - change main password
-- Encrypt and post it to server at each change
-- Ask again main password at timeout end
-- Logout - clear encrypted json object and delete jwt
+- Get encrypted json object:
+    - if we have an empty string:
+        - ask user to set a main password and to confirm it
+        - store main password in state TODO find a way to do not store password (asymetric keys ?)
+        - create default ejson with user data (username, email)
+        - start timeout
+    - if we have ejson:
+        - ask user for main password
+        - store main password in state
+        - uncrypt ejson
+        - start timeout
+    - play with app:
+        - add new password, note or bank card
+        - update it
+        - delete it
+        - add group
+        - update group
+        - delete group
+        - copy hidden content to clipboard -> https://github.com/xavi-/node-copy-paste
+        - change timeout
+        - change main password
+        - grab json from state, crypt json to ejson and send it to server at each writing change
+    - at timeout end:
+        - delete json and password
+        - keep ejson
+    - at logout:
+        - clear everything, including ejson
 
 
 ## Encrypted json object structure (.ejson file)
@@ -57,24 +69,17 @@
             email: "pro@lavilotte-rolle.fr",
         },
         groups: [
-            {id: "hash of name", name: "groupe1"},
-            {id: "hash of name", name: "groupe1"},
+            {id: "hash", name: "groupe1"},
+            {id: "hash", name: "groupe1"},
         ],
-        entries: [
-            {id: "hash of name", name: "my password name", type: "password", url: "http://my_site", content: "my password", group: "group's hash"},
-            {id: "hash of name", name: "my note name", type: "note", url: "http://my_site", content: "my note", group: "group's hash", date_created: date, date_updated: date},
+        passwords: [
+            {id: "hash", name: "my password name", url: "http://my_site", password: "my password", groups: "group's hash"},
+        ],
+        notes: [
+            {id: "hash", title: "my title", content: "my content"},
+        ],
+        bank_cards: [
+            {id: "hash", owner: "John Poe", number: 0000000000000000, expires: "MM/AA", cryptogram: 000, description: "cic card"},
         ]
     }
 
-
-## ComponentsMap
-
-- App -> state based router
-    Authentication free
-    - Home -> one page app description, links to sign in and up
-    - Login -> login form
-    - Register -> registration form
-    - Recover -> password recovering form
-    Authentication required
-    - Main -> authenticated user home page
-    - Profil -> user data modification form
