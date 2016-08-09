@@ -33,6 +33,7 @@ function generateVector() {
 }
 
 function setEjsonHeader(vector) {
+  // return encoded ejson header
   return base64url.encode(JSON.stringify(
     {
       alg: CRYPT_ALGO,
@@ -41,6 +42,26 @@ function setEjsonHeader(vector) {
       type: "EJSON"
     }
   ))
+}
+
+function setEjsonCipher(raw_cipher) {
+  // return encoded ejson cipher
+  return base64url.encode(raw_cipher)
+}
+
+function setEjson(vector, cipher) {
+  // set ejson string from encoded header and cipher  
+  return setEjsonHeader(vector) + "." + setEjsonCipher(cipher)
+}
+
+function getEjsonHeader(ejson) {
+  // return decoded ejson header
+  return JSON.parse(base64url.decode(ejson.split('.')[0]))
+}
+
+function getEjsonCipher(ejson) {
+  // return decoded ejson cipher
+  return base64url.decode(ejson.split('.')[1])
 }
 
 function hex(buffer) {
@@ -118,6 +139,10 @@ crypto.decrypt = function(cipher, key, algo, iv) {
       generated_key,
       string2buffer(cipher)
     )
+    .then(buf =>
+        // convert array buffer to string
+        buffer2string(new Uint8Array(buf))
+    )
   })
 }
 
@@ -126,19 +151,22 @@ crypto.string2ejson = function(clear_text, key) {
 
   // we generate a new vector
   let vector = generateVector()
-  // we generate base64 encoded cipher header
-  let header = setEjsonHeader(vector)
   // we generate cipher and return ejson when done
   return this.encrypt(clear_text, key, vector)
-  .then(cipher => {
-    console.log('raw cipher', cipher)
-    return header + "." + base64url.encode(cipher)
-  })
+  .then(cipher =>
+    setEjson(vector, cipher)
+  )
 }
 
 crypto.ejson2string = function(ejson, key) {
-  
-  return
+  /* return a promise which resolve in decoded EJSON string */
+  let header = getEjsonHeader(ejson)
+  let cipher = getEjsonCipher(ejson)
+  let vector = new Uint8Array(header.iv)
+  let alg = header.alg
+
+  return this.decrypt(cipher, key, alg, vector)
+    .then(clear_text => clear_text)
 }
 
 

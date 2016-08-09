@@ -22,7 +22,6 @@ export default class CryptTest extends Component {
 
   handleKeyChange(e) {
     this.setState({key: e.target.value})
-    this.getEjson()
   }
 
   handleEjsonChange(e) {
@@ -31,7 +30,6 @@ export default class CryptTest extends Component {
 
   handleTextChange(e) {
     this.setState({input_clear_text: e.target.value})
-    this.getEjson()
   }
 
   getEjson(e = null) {
@@ -118,7 +116,7 @@ export default class CryptTest extends Component {
               id="id_text"
               rows="5"
               value={this.state.input_clear_text}
-              onChange={this.handleTextChange}
+              onChange={this.handleTextChange.bind(this)}
             />
           </div>
           <div className="field-wrapper">
@@ -143,7 +141,7 @@ export default class CryptTest extends Component {
               id="id_ejson"
               rows="5"
               value={this.state.input_ejson}
-              onChange={this.handleEjsonChange}
+              onChange={this.handleEjsonChange.bind(this)}
             />
           </div>
           <div className="field-wrapper">
