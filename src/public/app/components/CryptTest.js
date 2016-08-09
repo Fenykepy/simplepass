@@ -69,6 +69,12 @@ export default class CryptTest extends Component {
       // form is ok, reset errors
       this.setState({key_errors: {}, ejson_errors: {}})
       // we compute clear text
+      crypto.ejson2string(
+        this.state.input_ejson,
+        this.state.key
+      ).then(text =>
+        this.setState({ output_clear_text: text })
+      )
     }
     // we show errors if necessary
     if (! this.state.key) {
@@ -80,6 +86,10 @@ export default class CryptTest extends Component {
   }
 
   render() {
+
+    if (! window.crypto) {
+      return <div><em>Sorry, your browser doen't support webCrypto, upgrade it.</em></div>
+    }
 
     return (
       <article id="column-form">

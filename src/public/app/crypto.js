@@ -1,3 +1,5 @@
+import base64url from './base64url'
+
 const CRYPT_ALGO = "AES-CBC"
 const crypto = {}
 
@@ -31,7 +33,7 @@ function generateVector() {
 }
 
 function setEjsonHeader(vector) {
-  return btoa(JSON.stringify(
+  return base64url.encode(JSON.stringify(
     {
       alg: CRYPT_ALGO,
       // we convert vector to array to serialize it
@@ -103,7 +105,7 @@ crypto.encrypt = function(clear_text, key, iv) {
     )
     .then(buf =>
       // convert array buffer to string
-      new Uint8Array(buf)
+      buffer2string(new Uint8Array(buf))
     )
   })
 }
@@ -129,9 +131,8 @@ crypto.string2ejson = function(clear_text, key) {
   // we generate cipher and return ejson when done
   return this.encrypt(clear_text, key, vector)
   .then(cipher => {
-    console.log('cipher', cipher)
-    console.log('string', buffer2string(cipher))
-    return header + "." + btoa(cipher)
+    console.log('raw cipher', cipher)
+    return header + "." + base64url.encode(cipher)
   })
 }
 
