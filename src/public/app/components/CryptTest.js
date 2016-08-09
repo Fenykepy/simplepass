@@ -10,7 +10,7 @@ export default class CryptTest extends Component {
 
     this.state = {
       key: "Secret",
-      input_clear_text: "This text will be encrypted.",
+      input_clear_text: "This text will be encrypted.\nSome non ascii chars for pleasure: …œŒæÆŸж",
       output_ejson: "",
       input_ejson: "",
       output_clear_text: "",
@@ -87,6 +87,12 @@ export default class CryptTest extends Component {
 
     if (! window.crypto) {
       return <div><em>Sorry, your browser doen't support webCrypto, upgrade it.</em></div>
+    }
+    try {
+      new TextEncoder('utf-8').encode('my_str')
+    }
+    catch (e) {
+      return <div><em>Sorry, your browser doen't support TextEncoder, upgrade it.</em></div>
     }
 
     return (

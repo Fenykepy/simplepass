@@ -1,3 +1,5 @@
+import base64arrayBuffer from 'base64-arraybuffer'
+
 import base64url from './base64url'
 
 const CRYPT_ALGO = "AES-CBC"
@@ -6,25 +8,13 @@ const crypto = {}
 
 function string2buffer(str) {
   /* convert a string to a buffer */
-  let arr = Array.from(str)
-    .map(item =>
-      item.charCodeAt()
-    )
-  
-  return Uint8Array.from(arr)
-  
-  // to be used when widely supported:
-  //new TextEncoder("utf-8").encode(str)
+  return new TextEncoder("utf-8").encode(str)
 }
 
 
 function buffer2string(buf) {
   /* convert a buffer to a string */
-  return buf.reduce((prev, cur) => {
-      return prev + String.fromCharCode(cur)
-  }, "")
-  // to be used when widely supported:
-  //new TextDecoder("utf-8").decode(buf)
+  return new TextDecoder("utf-8").decode(buf)
 }
 
 function generateVector() {
@@ -44,9 +34,10 @@ function setEjsonHeader(vector) {
   ))
 }
 
-function setEjsonCipher(raw_cipher) {
-  // return encoded ejson cipher
-  return base64url.encode(raw_cipher)
+function setEjsonCipher(b64_cipher) {
+  // return url encoded ejson cipher from base64 cipher
+  console.log('raw_cipher', b64_cipher)
+  return base64url.escape(b64_cipher)
 }
 
 function setEjson(vector, cipher) {
@@ -60,8 +51,8 @@ function getEjsonHeader(ejson) {
 }
 
 function getEjsonCipher(ejson) {
-  // return decoded ejson cipher
-  return base64url.decode(ejson.split('.')[1])
+  // return decoded ejson base64 cipher
+  return base64url.unescape(ejson.split('.')[1])
 }
 
 function hex(buffer) {
@@ -125,8 +116,8 @@ crypto.encrypt = function(clear_text, key, iv) {
       string2buffer(clear_text)
     )
     .then(buf =>
-      // convert array buffer to string
-      buffer2string(new Uint8Array(buf))
+      // convert array buffer to base64
+      base64arrayBuffer.encode(buf)
     )
   })
 }
@@ -137,7 +128,8 @@ crypto.decrypt = function(cipher, key, algo, iv) {
     return window.crypto.subtle.decrypt(
       {name: algo, iv},
       generated_key,
-      string2buffer(cipher)
+      // cipher must be base64 encoded
+      base64arrayBuffer.decode(cipher)
     )
     .then(buf =>
         // convert array buffer to string
@@ -153,8 +145,8 @@ crypto.string2ejson = function(clear_text, key) {
   let vector = generateVector()
   // we generate cipher and return ejson when done
   return this.encrypt(clear_text, key, vector)
-  .then(cipher =>
-    setEjson(vector, cipher)
+  .then(b64cipher =>
+    setEjson(vector, b64cipher)
   )
 }
 

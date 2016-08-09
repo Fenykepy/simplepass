@@ -1,7 +1,7 @@
 const base64url = {}
 
 
-function escape(str) {
+base64url.escape = function(str) {
   // remove leading equals "="
   return str.replace(/=+$/, '')
     // replace "/" by "_"
@@ -10,7 +10,7 @@ function escape(str) {
     .replace(/\+/g, '-')
 }
 
-function unescape(str) {
+base64url.unescape = function(str) {
   // add leading equals "="
   return (str + '==='.slice((str.length + 3) % 4))
     // replace "-" by '+'
@@ -21,11 +21,11 @@ function unescape(str) {
 
 
 base64url.encode = function(str) {
-  return escape(btoa(str))
+  return this.escape(btoa(str))
 }
 
 base64url.decode = function(str) {
-  return atob(unescape(str))
+  return atob(this.unescape(str))
 }
 
 export default base64url
