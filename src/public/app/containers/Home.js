@@ -29,6 +29,18 @@ class Home extends Component {
       user
     } = this.props
 
+    
+    if (! window.crypto) {
+      return <div><em>Sorry, your browser doen't support webCrypto, upgrade it.</em></div>
+    }
+    try {
+      new TextEncoder('utf-8').encode('my_str')
+    }
+    catch (e) {
+      return <div><em>Sorry, your browser doen't support TextEncoder, upgrade it.</em></div>
+    }
+
+
     let child
     // we show spinner while ejson fetches
     if (! this.props.ejson || ! this.props.ejson.fetched) {

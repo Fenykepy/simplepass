@@ -1,9 +1,4 @@
 /*
- * Keychain actions types
- */
-export const LOCK_KEYCHAIN = 'LOCK_KEYCHAIN'
-
-/*
  * Config actions types
  */
 export const LOAD_CONFIG = 'LOAD_CONFIG'

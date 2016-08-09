@@ -6,10 +6,9 @@ import keychain from '../keychain/reducers'
 
 
 import {
-  LOCK,
-  UNLOCK,
+  LOCK_KEYCHAIN,
+  UNLOCK_KEYCHAIN,
   SET_PASSPHRASE,
-  TIMEOUT,
 } from './actionsTypes'
 
 import {
@@ -23,11 +22,9 @@ const default_status = {
 
 function status(state=default_status, action) {
   switch (action.type) {
-    case LOCK:
-      return {...state,
-        locked: true
-      }
-    case UNLOCK:
+    case LOCK_KEYCHAIN:
+      return default_status
+    case UNLOCK_KEYCHAIN:
       return {...state,
         locked: false
       }
@@ -35,8 +32,6 @@ function status(state=default_status, action) {
       return {...state,
         passphrase: action.passphrase
       }
-    case TIMEOUT:
-      return default_status
     case REQUEST_LOGOUT:
       return default_status
     default:

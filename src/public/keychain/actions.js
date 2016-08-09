@@ -1,6 +1,6 @@
 import * as types from './actionsTypes'
 
-import { syncKeychain } from '../ejson/actions'
+import { syncKeychain } from '../app/actions'
 
 /* keychain actions creators */
 export function lockKeychain() {
@@ -11,7 +11,7 @@ export function lockKeychain() {
 
 export function loadJSON(json) {
   // load json into state
-  return (dispatch) {
+  return function(dispatch) {
     dispatch(loadConfig(json.config || {}))
     dispatch(loadPasswords(json.passwords || {}))
     dispatch(loadNotes(json.notes || {}))
@@ -45,7 +45,7 @@ export function setConfigUser(username) {
       type: types.SET_CONFIG_USERNAME,
       username
     })
-    return dispatch(syncKeychain())
+  }
 }
 
 export function setConfigEmail(email) {
@@ -54,7 +54,7 @@ export function setConfigEmail(email) {
       type: types.SET_CONFIG_EMAIL,
       email
     })
-    return dispatch(syncKeychain())
+  }
 }
 
 
@@ -74,6 +74,7 @@ export function addPassword(password) {
       data: password,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function updatePassword(password) {
@@ -84,6 +85,7 @@ export function updatePassword(password) {
       data: password,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function deletePassword(password) {
@@ -93,6 +95,7 @@ export function deletePassword(password) {
       password: password.id,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 
@@ -112,6 +115,7 @@ export function addNote(note) {
       data: note,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function updateNote(note) {
@@ -122,6 +126,7 @@ export function updateNote(note) {
       data: note,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function deleteNote(note) {
@@ -131,6 +136,7 @@ export function deleteNote(note) {
       note: note.id,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 
@@ -152,6 +158,7 @@ export function addBankCard(bank_card) {
       data: bank_card,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function updateBankCard(bank_card) {
@@ -162,6 +169,7 @@ export function updateBankCard(bank_card) {
       data: bank_card,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function deleteBankCard(bank_card) {
@@ -171,6 +179,7 @@ export function deleteBankCard(bank_card) {
       bank_card: bank_card.id,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 
@@ -192,6 +201,7 @@ export function addGroup(group) {
       data: group,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function updateGroup(group) {
@@ -202,6 +212,7 @@ export function updateGroup(group) {
       data: group,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 export function deleteGroup(group) {
@@ -211,6 +222,7 @@ export function deleteGroup(group) {
       group: group.id,
     })
     return dispatch(syncKeychain())
+  }
 }
 
 

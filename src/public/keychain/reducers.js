@@ -1,7 +1,6 @@
 import { combineReducers } from 'redux'
 
 import {
-  LOCK_KEYCHAIN,
   LOAD_CONFIG,
   SET_CONFIG_TIMEOUT,
   SET_CONFIG_USER,
@@ -23,6 +22,10 @@ import {
   UPDATE_GROUP,
   DELETE_GROUP,
 } from './actionsTypes'
+
+import {
+  LOCK_KEYCHAIN
+} from '../app/actionsTypes'
 
 import {
   REQUEST_LOGOUT
