@@ -27,8 +27,8 @@ function setEjsonHeader(vector) {
   return base64url.encode(JSON.stringify(
     {
       alg: CRYPT_ALGO,
-      // we convert vector to array to serialize it
-      iv: Array.from(vector),
+      // we convert vector to base64 to serialize it
+      iv: base64arrayBuffer.encode(vector),
       type: "EJSON"
     }
   ))
@@ -36,7 +36,6 @@ function setEjsonHeader(vector) {
 
 function setEjsonCipher(b64_cipher) {
   // return url encoded ejson cipher from base64 cipher
-  console.log('raw_cipher', b64_cipher)
   return base64url.escape(b64_cipher)
 }
 
@@ -154,7 +153,7 @@ crypto.ejson2string = function(ejson, key) {
   /* return a promise which resolve in decoded EJSON string */
   let header = getEjsonHeader(ejson)
   let cipher = getEjsonCipher(ejson)
-  let vector = new Uint8Array(header.iv)
+  let vector = base64arrayBuffer.decode(header.iv)
   let alg = header.alg
 
   return this.decrypt(cipher, key, alg, vector)

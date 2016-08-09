@@ -86,17 +86,23 @@
 ## Encrypted json object structure (.ejson file)
 
 We almost work like a jwt :
-    eyJhbGciOiJBRVMtQ0JDIiwidHlwIjoiRUpTT04ifQ.eyJjb25maWciOnsidGltZW91dCI6MTgwfSwicGFzc3dvcmRzIjp7fSwibm90ZXMiOnt9LCJiYW5rX2NhcmRzIjp7fSwiZ3JvdXBzIjp7fX0
+
+    eyJhbGciOiJBRVMtQ0JDIiwiaXYiOiI3L1BocG1HMW5JWk1LU0JYSnMrK3lBPT0iLCJ0eXBlIjoiRUpTT04ifQ.k6UhQG_mZUnhkgoiOiWeZw28RcFzgBMHL38IsFMT2q-
+
+We have the header and the cipher, both urlbase64 encoded, separated by a dot `.`
+
+I wonder if it's necessary to add a signature :
+    - Header could be modified, and it would result in invalid EJSON, but is that a problem ?
 
 ### Header
-    base64 encoded JSON:
+    urlbase64 encoded JSON:
     
     {
         "alg": "AES-CBC",
-        "iv": [84,218,154,202,197,112,76,143,26,1,37,208,63,209,43,31],
+        "iv": "7/PhpmG1nIZMKSBXJs++yA==",
         "type": "EJSON"
     }
 
 ### Cipher
-    base64 encoded uncryted keychain
+    url base64 encoded encryted keychain
     
