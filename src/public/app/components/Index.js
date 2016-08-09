@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Link from 'react-router/lib/Link'
 
 import AuthLinks from './AuthLinks'
+import CryptTest from './CryptTest'
 
 export default class Index extends Component {
 
@@ -21,6 +22,7 @@ export default class Index extends Component {
           </div>
           <AuthLinks />
         </header>
+        <CryptTest />
           <article>
             <h1>One word, to manage them all</h1>
             <button>Click me</button>

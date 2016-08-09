@@ -93,10 +93,10 @@ We almost work like a jwt :
     
     {
         "alg": "AES-CBC",
-        "iv": "xxxxxx",
+        "iv": [84,218,154,202,197,112,76,143,26,1,37,208,63,209,43,31],
         "type": "EJSON"
     }
 
-### Payload
+### Cipher
     base64 encoded uncryted keychain
     
