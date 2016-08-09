@@ -60,7 +60,7 @@
         - clear everything, including ejson
 
 
-## Encrypted json object structure (.ejson file)
+## Keychain structure ( content of .ejson file once uncrypted)
 
     JSON = {
         config: {
@@ -68,18 +68,35 @@
             username: "fenykepy",
             email: "pro@lavilotte-rolle.fr",
         },
-        groups: [
-            {id: "hash", name: "groupe1"},
-            {id: "hash", name: "groupe1"},
-        ],
-        passwords: [
-            {id: "hash", name: "my password name", url: "http://my_site", password: "my password", groups: "group's hash"},
-        ],
-        notes: [
-            {id: "hash", title: "my title", content: "my content"},
-        ],
-        bank_cards: [
-            {id: "hash", owner: "John Poe", number: 0000000000000000, expires: "MM/AA", cryptogram: 000, description: "cic card"},
-        ]
+        groups: {
+            [id]: {id: "hash", name: "groupe1"},
+            [id]: {id: "hash", name: "groupe1"},
+        },
+        passwords: {
+            [id]: {id: "hash", name: "my password name", url: "http://my_site", password: "my password", groups: "group's hash"},
+        },
+        notes: {
+            [id]: {id: "hash", title: "my title", content: "my content"},
+        },
+        bank_cards: {
+            [id]: {id: "hash", owner: "John Poe", number: 0000000000000000, expires: "MM/AA", cryptogram: 000, description: "cic card"},
+        }
     }
 
+## Encrypted json object structure (.ejson file)
+
+We almost work like a jwt :
+    eyJhbGciOiJBRVMtQ0JDIiwidHlwIjoiRUpTT04ifQ.eyJjb25maWciOnsidGltZW91dCI6MTgwfSwicGFzc3dvcmRzIjp7fSwibm90ZXMiOnt9LCJiYW5rX2NhcmRzIjp7fSwiZ3JvdXBzIjp7fX0
+
+### Header
+    base64 encoded JSON:
+    
+    {
+        "alg": "AES-CBC",
+        "iv": "xxxxxx",
+        "type": "EJSON"
+    }
+
+### Payload
+    base64 encoded uncryted keychain
+    
