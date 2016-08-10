@@ -7,7 +7,8 @@ import { fetchEjsonIfNeeded } from '../../ejson/actions'
 
 import { homeSelector } from '../selectors'
 
-import MasterPassphrase from './MasterPassphrase'
+import InitPassphrase from './InitPassphrase'
+import KeychainLoader from './KeychainLoader'
 import Header from '../components/Header'
 import Spinner from '../components/Spinner'
 
@@ -22,17 +23,12 @@ class Home extends Component {
     this.props.dispatch(logout())
   }
 
-  render() {
-    // injected by connect call
-    const {
-      dispatch,
-      user
-    } = this.props
-
-    
+  getChild() {
+    // we test if crypto is present in browser 
     if (! window.crypto) {
       return <div><em>Sorry, your browser doen't support webCrypto, upgrade it.</em></div>
     }
+    // we test if TextEncoder is present in browser 
     try {
       new TextEncoder('utf-8').encode('my_str')
     }
@@ -40,28 +36,42 @@ class Home extends Component {
       return <div><em>Sorry, your browser doen't support TextEncoder, upgrade it.</em></div>
     }
 
-
-    let child
     // we show spinner while ejson fetches
     if (! this.props.ejson || ! this.props.ejson.fetched) {
-      child = <Spinner message="Fetching ejson..." />
+      return <Spinner message="Fetching ejson..." />
     }
 
     // we show master passphrase form if ejson is empty string
     if (! this.props.ejson.ejson) {
-      child = <MasterPassphrase />
-    } else {
-      child = <div />
+      return <InitPassphrase />
     }
 
+    // we show unlocking form if keychain is locked
+    if (this.props.locked) {
+      return <KeychainLoader />
+    }
 
+    // we show keychain
+    return <div>Keychain</div>
+
+  }
+
+
+  render() {
+    // injected by connect call
+    const {
+      dispatch,
+      authenticated,
+      ejson,
+      locked,
+    } = this.props
 
     return (
       <section role="main">
         <Header
-          authenticated={this.props.user.is_authenticated}
+          authenticated={this.props.authenticated}
         />
-        {child}
+        {this.getChild()}
       </section>
     )
   }

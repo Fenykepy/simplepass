@@ -20,7 +20,7 @@ function setPassphrase(passphrase) {
   }
 }
 
-function lockKeychain() {
+export function lockKeychain() {
   return {
     type: types.LOCK_KEYCHAIN,
   }
@@ -81,5 +81,8 @@ export function init(passphrase) {
   }
 }
 
+export function loadKeychain(passphrase) {
+  return 
+}
 
 

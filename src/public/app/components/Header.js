@@ -18,7 +18,7 @@ export default class Header extends Component {
     }
     return (
       <header role="banner">
-        <h1><Link to={"/"}>SimplePass</Link></h1>
+        <h1><Link to={"/"}>SimplePass </Link><sup>beta</sup></h1>
         {children}
       </header>
     )

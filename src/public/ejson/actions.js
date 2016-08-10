@@ -56,10 +56,10 @@ function fetchEjson() {
           dispatch(receiveEjson(ejson.ejson))
       )
       .catch(error => {
+        throw error
         return error.response.json().then(json => {
           // store error json in state  
           dispatch(requestEjsonFailure(json))
-          throw error
         })
       })
   }

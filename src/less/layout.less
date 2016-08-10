@@ -51,6 +51,11 @@ h5 {
     font-size: 1.1em;
 }
 
+sup {
+    vertical-align: super;
+    font-size: 0.6em;
+}
+
 .accessibility {
     position: absolute !important;
     font-size: 0;
@@ -258,14 +263,16 @@ article#column-form {
 }
 .locked {
     background: url('../graphics/svg/lock.svg') center center no-repeat;
+}
+.unlocked {
+    background: url('../graphics/svg/lock-open.svg') center center no-repeat;
+    background-image: url('../graphics/svg/lock-open.svg');
+}
+.locked, .unlocked {
     background-size: contain;
     height: 25px;
     width: 12px;
     span {
         .accessibility
     }
-}
-.unlocked {
-    background-image: url('../graphics/svg/lock-open.svg');
-    //.accessibility
 }

@@ -4,11 +4,13 @@ import { connect } from 'react-redux'
 
 import { statusSelector } from '../selectors'
 
+import { lockKeychain } from '../actions'
+
 class StatusButton extends Component {
 
   getTitle() {
     return this.props.status.locked ? 
-      'Keychain is locked, click to unlock' :
+      'Keychain is locked' :
       'Keychain is unlocked, click to lock'
   }
 
@@ -16,6 +18,13 @@ class StatusButton extends Component {
     return this.props.status.locked ?
       'locked' :
       'unlocked'
+  }
+
+  handleClick() {
+    // we lock keychain if it's unlocked
+    if (! this.props.status.locked) {
+      this.props.dispatch(lockKeychain())
+    }
   }
 
   render() {
@@ -29,7 +38,9 @@ class StatusButton extends Component {
     return (
       <button
         title={this.getTitle()}
-        className="top-link"><div
+        className="top-link"
+        onClick={this.handleClick.bind(this)}
+      ><div
           className={this.getClassName()}
         ><span>{this.props.status.locked ? 'locked' : 'unlocked'}</span></div></button>
     )

@@ -2,14 +2,12 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { statusSelector } from '../selectors'
-
 import { init } from '../actions'
 
-import MasterPassphraseForm from '../components/MasterPassphraseForm'
+import InitPassphraseForm from '../components/InitPassphraseForm'
 
 
-const MASTER_PASSPHRASE_FORM = "master-passphrase-form"
+const INIT_PASSPHRASE_FORM = "init-passphrase-form"
 
 const PASSPHRASE_MESSAGE = (
   'In order to use simple pass, you first need to define a master passphrase, which will be used to encrypt and decrypt your keychain.'
@@ -19,7 +17,7 @@ const PASSPHRASE_WARNING = (
   'Make it strong and keep it secret.'
 )
 
-class MasterPassphrase extends Component {
+class InitPassphrase extends Component {
 
   constructor(props) {
     super(props)
@@ -68,7 +66,6 @@ class MasterPassphrase extends Component {
     // injected by connect call
     const {
       dispatch,
-      status
     } = this.props
 
     //console.log('MasterPassphrase', this.props)
@@ -79,8 +76,8 @@ class MasterPassphrase extends Component {
             <p className="center"><em>{PASSPHRASE_MESSAGE}</em></p>
             <p className="center"><strong>{PASSPHRASE_WARNING}</strong></p>
           </div>
-        <MasterPassphraseForm
-          id={MASTER_PASSPHRASE_FORM}
+        <InitPassphraseForm
+          id={INIT_PASSPHRASE_FORM}
           handlePassChange={this.handlePassChange.bind(this)}
           handlePassConfirmChange={this.handlePassConfirmChange.bind(this)}
           pass={this.state.pass}
@@ -91,7 +88,7 @@ class MasterPassphrase extends Component {
           <div className="field-wrapper">
             <input
               className="primary max"
-              form={MASTER_PASSPHRASE_FORM}
+              form={INIT_PASSPHRASE_FORM}
               value="Save"
               type="submit"
               onClick={this.handleSetMasterPassphrase.bind(this)}
@@ -104,4 +101,4 @@ class MasterPassphrase extends Component {
 }
 
 // wrap the component to inject dispatch and state into it
-export default connect (statusSelector)(MasterPassphrase)
+export default connect ()(InitPassphrase)
