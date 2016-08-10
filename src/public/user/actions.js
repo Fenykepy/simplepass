@@ -102,9 +102,9 @@ export function login(credentials) {
         },
         JSON.stringify(credentials)
     )
-    .then(json => {
+    .then(json =>
       dispatch(requestLoginSuccess(json))
-    })
+    )
     .catch(error => {
       error.response.json().then(json => {
         // store error in state

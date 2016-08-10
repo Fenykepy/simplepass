@@ -26,10 +26,27 @@ class Login extends Component {
       password: '',
     }
   }
-  
+
+  componentWillMount() {
+    this.componentWillRender(this.props)
+  }
+
   componentDidMount() {
     // we set title
     setDocumentTitle('Sign in')
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.componentWillRender(nextProps)
+  }
+
+
+  componentWillRender(props) {
+    // redirect home if user is authenticated
+    if (props.user.is_authenticated) {
+      console.log('user authenticated, redirect home')
+      this.context.router.push('/')
+    }
   }
 
 
@@ -55,11 +72,6 @@ class Login extends Component {
 
     //console.log('Login', this.props)
 
-    // redirect home if user is authenticated
-    if (this.props.user.is_authenticated) {
-      console.log('user authenticated, redirect home')
-      this.context.router.push('/')
-    }
     
     let child
     // show spinner if user is logging in
