@@ -9,6 +9,7 @@ import { homeSelector } from '../selectors'
 
 import InitPassphrase from './InitPassphrase'
 import KeychainLoader from './KeychainLoader'
+import Keychain from '../../keychain/containers/Keychain'
 import Header from '../components/Header'
 import Spinner from '../components/Spinner'
 
@@ -52,7 +53,7 @@ class Home extends Component {
     }
 
     // we show keychain
-    return <div>Keychain</div>
+    return <Keychain />
 
   }
 
