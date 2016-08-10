@@ -37,16 +37,19 @@
 if we have no ejson (empty string) user is new:
     [OK]- show passphrase creation form
     - dispatch(init)(app)
-        [OK]- dispatch(SET_PASSPHRASE)(app) - and start timeout
+        [OK]- dispatch(SET_PASSPHRASE)(app)
         [OK]- dispatch(SET_CONFIG_USER)(keychain)
         [OK]- dispatch(SET_CONFIG_EMAIL)(keychain)
-        - dispatch(syncKeychain)(app)
+        [OK]- dispatch(syncKeychain)(app) (promise)
+        [OK]- dispatch(updateEjson)(ejson)
+            - dispatch(resetTimeout)
 if we have ejson (any string):
     - show passphrase form
     - dispatch(load)(app)
-        - dispatch(SET_PASSPHRASE)(app) - and start timeout
+        - dispatch(SET_PASSPHRASE)(app)
         - dispatch(UNLOCK_KEYCHAIN)(app)
         - dispatch(loadJSON)(keychain)
+        - dispatch(resetTimeout)
 
 user plays with app:
     - when user starts modifying (any action)

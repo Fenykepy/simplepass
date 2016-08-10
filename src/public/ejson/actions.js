@@ -11,7 +11,6 @@ function requestEjson() {
 }
 
 function receiveEjson(ejson) {
-  console.log('ejson', ejson)
   return {
     type: types.REQUEST_EJSON_SUCCESS,
     ejson,
@@ -66,4 +65,47 @@ function fetchEjson() {
   }
 }
 
+
+// updating ejson
+
+function requestUpdateEjson() {
+  return {
+    type: types.REQUEST_UPDATE_EJSON
+  }
+}
+
+function requestUpdateEjsonSuccess(ejson) {
+  return {
+    type: types.REQUEST_UPDATE_EJSON_SUCCESS,
+    ejson
+  }
+}
+
+function requestUpdateEjsonFailure() {
+  return {
+    type: types.REQUEST_UPDATE_EJSON_FAILURE,
+  }
+}
+
+export function updateEjson(ejson) {
+  return function(dispatch) {
+    // start request
+    dispatch(requestUpdateEjson())
+    // return a promise
+    return Fetch.put('/api/ejson/',
+      {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      },
+      JSON.stringify({ejson: ejson})
+    )
+    .then(respons => {
+        dispatch(requestUpdateEjsonSuccess(ejson))
+    })
+    .catch(error => {
+      dispatch(requestUpdateEjsonFailure())
+      throw error
+    })
+  }
+}
 

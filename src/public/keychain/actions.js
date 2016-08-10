@@ -22,7 +22,7 @@ export function loadJSON(json) {
 
 
 /* config actions creators */
-function loadConfig(config) {
+export function loadConfig(config) {
   return {
     type: types.LOAD_CONFIG,
     config
@@ -45,6 +45,7 @@ export function setConfigUser(username) {
       type: types.SET_CONFIG_USERNAME,
       username
     })
+    return dispatch(syncKeychain())
   }
 }
 
@@ -54,6 +55,7 @@ export function setConfigEmail(email) {
       type: types.SET_CONFIG_EMAIL,
       email
     })
+    return dispatch(syncKeychain())
   }
 }
 

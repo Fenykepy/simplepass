@@ -7,7 +7,7 @@ import FormFieldErrors from '../../app/components/FormFieldErrors'
 export default class MasterPassphraseForm extends Component {
 
   render() {
-    console.log('MasterPassphraseForm', this.props)
+    //console.log('MasterPassphraseForm', this.props)
 
     return (
       <form

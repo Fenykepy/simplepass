@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { statusSelector } from '../selectors'
 
-import { defineMasterPassphrase } from '../actions'
+import { init } from '../actions'
 
 import MasterPassphraseForm from '../components/MasterPassphraseForm'
 
@@ -41,13 +41,12 @@ class MasterPassphrase extends Component {
 
   handleSetMasterPassphrase(e) {
     e.preventDefault()
-    console.log(this.state)
     let errors = this.validateForm()
     // we got errors
     if (Object.keys(errors).length > 0) {
       return this.setState({errors: errors})
     }
-    this.props.dispatch(defineMasterPassphrase(this.state.pass))
+    this.props.dispatch(init(this.state.pass))
   }
 
   validateForm() {
