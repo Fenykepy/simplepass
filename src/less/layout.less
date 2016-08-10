@@ -276,3 +276,39 @@ article#column-form {
         .accessibility
     }
 }
+
+// left navigation panel
+#left-panel {
+    background: @left-panel-bg;
+    width: 300px;
+    // we set height as view port height less headers' height
+    min-height: calc(~'100vh - 55px');
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    border-right: 1px solid @left-panel-border;
+    h6 {
+        margin: 0;
+    }
+    .number {
+        margin-left: auto;
+        font-weight: bold;
+    }
+    a {
+        display: flex;
+        padding: 10px 25px;
+        color: @left-panel-links;
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+            color: @left-panel-links-hover;
+        }
+        &.selected {
+            background: @left-panel-links-bg-selected;
+            color: @left-panel-links-selected;
+        }
+    }
+    .buttons-wrapper {
+        margin: auto 10px 0px;
+    }
+}
