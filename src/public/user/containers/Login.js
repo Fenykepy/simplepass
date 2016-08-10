@@ -40,7 +40,6 @@ class Login extends Component {
     this.componentWillRender(nextProps)
   }
 
-
   componentWillRender(props) {
     // redirect home if user is authenticated
     if (props.user.is_authenticated) {

@@ -30,10 +30,27 @@ class Register extends Component {
     }
   }
 
+  componentWillMount() {
+    this.componentWillRender(this.props)
+  }
+
   componentDidMount() {
     // we set title
     setDocumentTitle('Sign up')
   }
+
+  componentWillReceiveProps(nextProps) {
+    this.componentWillRender(nextProps)
+  }
+
+  componentWillRender(props) {
+    // redirect home if user is authenticated
+    if (props.user.is_authenticated) {
+      console.log('user authenticated, redirect home')
+      this.context.router.push('/')
+    }
+  }
+
 
   handleUsernameChange(e) {
     this.setState({username: e.target.value})
@@ -76,12 +93,6 @@ class Register extends Component {
     } = this.props
 
     //console.log('Register, this.props)
-
-    // redirect home if user is authenticated
-    if (this.props.user.is_authenticated) {
-      console.log('redirect home')
-      this.context.router.push('/')
-    }
 
     let child
     // show spinner if user is registering
