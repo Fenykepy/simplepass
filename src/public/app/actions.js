@@ -3,7 +3,10 @@ import * as types from './actionsTypes'
 import crypto from './crypto'
 
 
-import { loadConfig } from '../keychain/actions'
+import {
+  loadJSON,
+  loadConfig,
+} from '../keychain/actions'
 import { updateEjson } from '../ejson/actions'
 
 
@@ -37,15 +40,26 @@ function getJSONKeychain(state) {
   return JSON.stringify(state.keychain)
 }
 
-/* return passphrase */
+/* return passphrase from state */
 function getPassphrase(state) {
   return state.status.passphrase
+}
+
+/* return ejson from state */
+function getEjson(state) {
+  return state.ejson.ejson
 }
 
 /* encrypt keychain to EJSON */
 function encryptKeychain(keychain, passphrase) {
   return crypto.string2ejson(keychain, passphrase)
 }
+
+/* decryt keychain */
+function decryptKeychain(ejson, passphrase) {
+  return crypto.ejson2string(ejson, passphrase)
+}
+
 
 /* to sync keychain with ejson store and server */
 export function syncKeychain() {
@@ -62,13 +76,16 @@ export function syncKeychain() {
   }
 }
 
-/* At first use of simplepass */
+/*
+ * At first use of simplepass:
+ * set ejson with default config
+ */
 export function init(passphrase) {
   return function(dispatch, getState) {
     let state = getState()
     // store passphrase in state
     dispatch(setPassphrase(passphrase))
-    // unlock keychain
+    // set keychain as unlocked
     dispatch(unlockKeychain())
     // set user in keychain config
     dispatch(loadConfig({
@@ -81,8 +98,24 @@ export function init(passphrase) {
   }
 }
 
+/* Unlock keychain */
 export function loadKeychain(passphrase) {
-  return 
+  return function(dispatch, getState) {
+    let state = getState()
+    // store passphrase in state
+    dispatch(setPassphrase(passphrase))
+    // decryt ejson
+    return decryptKeychain(
+      getEjson(state),
+      passphrase
+    )
+    .then(json => {
+      // store keychain in state
+      dispatch(loadJSON(json))
+      // set keychain as unlocked
+      dispatch(unlockKeychain())
+    })
+  }
 }
 
 

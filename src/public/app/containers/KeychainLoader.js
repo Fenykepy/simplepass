@@ -25,12 +25,12 @@ class KeychainLoader extends Component {
 
   handleLoadKeychain(e) {
     e.preventDefault()
-    this.props.dispatch(loadKeychain(this.state.passphrase))
-    .catch(errors =>
+    this.props.dispatch(loadKeychain(this.state.pass))
+    .catch(errors => {
       this.setState({errors: {
-        'non_field_errors': ['Failed to unlock keychain with given passphrase.']
+        'pass': ['Failed to unlock keychain with given passphrase.']
       }})
-    ) 
+    }) 
   }
 
   render() {

@@ -3,20 +3,15 @@ import * as types from './actionsTypes'
 import { syncKeychain } from '../app/actions'
 
 /* keychain actions creators */
-export function lockKeychain() {
-  return {
-    type: types.LOCK_KEYCHAIN
-  }
-}
-
 export function loadJSON(json) {
   // load json into state
   return function(dispatch) {
-    dispatch(loadConfig(json.config || {}))
-    dispatch(loadPasswords(json.passwords || {}))
-    dispatch(loadNotes(json.notes || {}))
-    dispatch(loadBankCards(json.bank_cards || {}))
-    dispatch(loadGroups(json.groups || {}))
+    let keychain = JSON.parse(json)
+    dispatch(loadConfig(keychain.config || {}))
+    dispatch(loadPasswords(keychain.passwords || {}))
+    dispatch(loadNotes(keychain.notes || {}))
+    dispatch(loadBankCards(keychain.bank_cards || {}))
+    dispatch(loadGroups(keychain.groups || {}))
   }
 }
 

@@ -157,7 +157,6 @@ crypto.ejson2string = function(ejson, key) {
   let alg = header.alg
 
   return this.decrypt(cipher, key, alg, vector)
-    .then(clear_text => clear_text)
 }
 
 

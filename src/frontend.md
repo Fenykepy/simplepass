@@ -36,7 +36,7 @@
 [OK]- then user arrives on Home, and is authenticated:
 if we have no ejson (empty string) user is new:
     [OK]- show passphrase creation form
-    - dispatch(init)(app)
+    [OK]- dispatch(init)(app)
         [OK]- dispatch(SET_PASSPHRASE)(app)
         [OK]- dispatch(SET_CONFIG_USER)(keychain)
         [OK]- dispatch(SET_CONFIG_EMAIL)(keychain)
@@ -44,11 +44,11 @@ if we have no ejson (empty string) user is new:
         [OK]- dispatch(updateEjson)(ejson)
             - dispatch(resetTimeout)
 if we have ejson (any string):
-    - show passphrase form
-    - dispatch(load)(app)
-        - dispatch(SET_PASSPHRASE)(app)
-        - dispatch(UNLOCK_KEYCHAIN)(app)
-        - dispatch(loadJSON)(keychain)
+    [OK]- show passphrase form
+    [OK]- dispatch(loadKeychain)(app)
+        [OK]- dispatch(SET_PASSPHRASE)(app)
+        [OK]- dispatch(loadJSON)(keychain)
+        [OK]- dispatch(UNLOCK_KEYCHAIN)(app)
         - dispatch(resetTimeout)
 
 user plays with app:

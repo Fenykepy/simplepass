@@ -18,7 +18,7 @@ class App extends Component {
       user,
     } = this.props
     
-    console.log('App', this.props)
+    //console.log('App', this.props)
     
     // if user is authenticating, show spinner
     if (this.props.user.is_fetching) {
