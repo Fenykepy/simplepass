@@ -106,9 +106,7 @@ export function login(credentials) {
       dispatch(requestLoginSuccess(json))
     })
     .catch(error => {
-      // throw error to display it later
-      throw error
-      return error.response.json().then(json => {
+      error.response.json().then(json => {
         // store error in state
         dispatch(requestLoginFailure(json))
       })
