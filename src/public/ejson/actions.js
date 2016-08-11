@@ -1,5 +1,7 @@
 import * as types from './actionsTypes'
 
+import { saveAs } from 'file-saver'
+
 import Fetch from '../app/http'
 
 // action creators
@@ -109,3 +111,20 @@ export function updateEjson(ejson) {
   }
 }
 
+export function saveEjson() {
+  // we write ejson in a file to user disk
+  return function(dispatch, getState) {
+    // grap some data from state
+    let state = getState()
+    let user = state.user.user.username
+    let ejson = state.ejson.ejson
+    let date = (new Date()).toJSON()
+    let filename = `SIMPLEPASS_${date}_${user}.ejson`
+    // We create a new Blob with ejson
+    let blob = new Blob([ejson],
+      {type: "text/plain;charset=utf-8"}
+    )
+    // save blob to user harddrive
+    saveAs(blob, filename)
+  }
+}

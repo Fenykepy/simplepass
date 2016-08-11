@@ -25,9 +25,16 @@ export default class Index extends Component {
         <CryptTest />
           <article>
             <h1>One word, to manage them all</h1>
-            <button>Click me</button>
-            <button className="primary">Primary</button>
-            <button className="secondary">Secondary</button>
+            <div>
+              <button>Click me</button>
+              <button className="primary">Primary</button>
+              <button className="secondary">Secondary</button>
+            </div>
+            <div>
+              <button disabled>Click me</button>
+              <button disabled className="primary">Primary</button>
+              <button disabled className="secondary">Secondary</button>
+            </div>
             <p>You only need to remember your "master" password to get access to all your passwords and notes</p>
           </article>
           <article>

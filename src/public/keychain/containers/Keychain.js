@@ -1,5 +1,3 @@
-
-// wrap the component to inject dispatch and state into it
 import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
@@ -32,4 +30,5 @@ class Keychain extends Component {
   }
 }
 
+// wrap the component to inject dispatch and state into it
 export default connect (keychainSelector)(Keychain)

@@ -2,6 +2,8 @@ import React, { Component, PropTypes } from 'react'
 
 import Link from 'react-router/lib/Link'
 
+import ImportExportButtonsWrapper from '../containers/ImportExportButtonsWrapper'
+
 export default class LeftPanel extends Component {
   
   render() {
@@ -39,16 +41,11 @@ export default class LeftPanel extends Component {
             </Link>
           </li>
         </ul>
-        <div className="buttons-wrapper">
+        <ImportExportButtonsWrapper />
           {/*<button
             className="secondary max"
             title="Import encryted keychain from your harddrive"
-          >Import Keychain</button>
-          <button
-            className="secondary max"
-            title="Export encryted keychain to your harddrive"
-          >Export Keychain</button>*/}
-        </div>
+          >Import Keychain</button>*/}
       </nav>
     )
   }
