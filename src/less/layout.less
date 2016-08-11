@@ -294,14 +294,17 @@ article#column-form {
 
 // left navigation panel
 #left-panel {
-    background: @left-panel-bg;
     width: 300px;
-    // we set height as view port height less headers' height
-    min-height: calc(~'100vh - 55px');
+    position: fixed;
+    top: 55px;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     padding: 20px 0;
+    background: @left-panel-bg;
     border-right: 1px solid @left-panel-border;
     h6 {
         margin: 0;
@@ -326,4 +329,10 @@ article#column-form {
     .buttons-wrapper {
         margin: auto 10px 0px;
     }
+}
+// main list area
+#entries-list {
+    // left panel
+    margin-left: 300px;
+
 }
