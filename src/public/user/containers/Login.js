@@ -82,6 +82,7 @@ class Login extends Component {
           <h1>Log In to SimplePass</h1>
           <LoginForm
             id={LOGIN_FORM}
+            onSubmit={this.handleLogin.bind(this)}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
             handlePasswordChange={this.handlePasswordChange.bind(this)}
             username={this.state.username}
@@ -94,7 +95,6 @@ class Login extends Component {
                 className="primary max"
                 form={LOGIN_FORM}
                 value="Log in"
-                onClick={this.handleLogin.bind(this)}
                 type="submit"
               />
             </div>
