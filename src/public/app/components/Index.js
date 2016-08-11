@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Link from 'react-router/lib/Link'
 
-import AuthLinks from './AuthLinks'
+import Header from '../components/Header'
 import CryptTest from './CryptTest'
 
 export default class Index extends Component {
@@ -10,7 +10,8 @@ export default class Index extends Component {
   render() {
     return (
       <section>
-        <header role="banner" id="main-header">
+        <div id="main-title">
+          <Header />
           <div className="text-wrapper">
             <h1>SimplePass</h1>
             <h2>A simple password manager</h2>
@@ -20,8 +21,7 @@ export default class Index extends Component {
               role="button"
             >Get started</Link>
           </div>
-          <AuthLinks />
-        </header>
+        </div>
         <CryptTest />
           <article>
             <h1>One word, to manage them all</h1>

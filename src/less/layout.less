@@ -93,13 +93,23 @@ sup {
     }
 }
 
-header[role="banner"] {
-    background: @header-bg;
-    color: @header-text;
+section[role="main"] {
+    // we escape fixed header
+    padding-top: 55px;
+}
+
+header[role="banner"], #main-title {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 55px;
+    z-index: 5;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    height: 55px;
+    color: @header-text;
+    background: @header-bg;
     h1 {
         font-weight: normal;
         font-size: 28px;
@@ -149,25 +159,30 @@ header[role="banner"] {
     }
 }
 
-header#main-header {
+#main-title {
+    position: relative;
     height: 100vh;
     min-height: 400px;
+    color: @header-text;
+    background: @header-bg;
     background-image: url('../graphics/svg/arrow-down.svg');
     background-repeat: no-repeat;
     background-position: center bottom;
     .text-wrapper {
         margin: auto;
         text-align: center;
-    }
-    h1 {
-        font-weight: normal;
-        font-size: 48px;
-        margin-bottom: 20px;
-    }
-    h2 {
-        font-weight: normal;
-        font-size: 24px;
-        margin-bottom: 40px;
+        position: relative;
+        z-index: 6;
+        h1 {
+            font-weight: normal;
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-weight: normal;
+            font-size: 24px;
+            margin-bottom: 40px;
+        }
     }
 }
 
