@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { saveEjson } from '../../ejson/actions'
 
 import ExportButton from '../components/ExportButton'
+//import ImportButton from '../components/ImportButton'
 
 class ImportExportButtonsWrapper extends Component {
 

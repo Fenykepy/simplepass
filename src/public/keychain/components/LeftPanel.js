@@ -42,10 +42,6 @@ export default class LeftPanel extends Component {
           </li>
         </ul>
         <ImportExportButtonsWrapper />
-          {/*<button
-            className="secondary max"
-            title="Import encryted keychain from your harddrive"
-          >Import Keychain</button>*/}
       </nav>
     )
   }
