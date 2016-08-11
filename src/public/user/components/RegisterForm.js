@@ -10,6 +10,7 @@ export default class RegisterForm extends Component {
     return (
       <form
         id={this.props.id}
+        onSubmit={this.props.onSubmit}
       >
         <div className="field-wrapper">
           <FormFieldErrors

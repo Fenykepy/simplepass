@@ -44,6 +44,7 @@ class InitPassphrase extends Component {
     if (Object.keys(errors).length > 0) {
       return this.setState({errors: errors})
     }
+    // form is clean, submit it
     this.props.dispatch(init(this.state.pass))
   }
 

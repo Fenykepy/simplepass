@@ -27,6 +27,7 @@ class Register extends Component {
       password: '',
       password_confirm: '',
       email: '',
+      errors: {},
     }
   }
 
@@ -70,18 +71,31 @@ class Register extends Component {
 
   handleRegister(e) {
     e.preventDefault()
+    let errors = this.validateForm()
+    // we got errors
+    if (Object.keys(errors).length > 0) {
+      return this.setState({errors: errors})
+    }
+    // form is clean, submit it
     this.props.dispatch(register(this.state))
   }
 
   getErrors() {
-    // if password and confirm are set and not equal, add error
+    // return combined errors from state and props (client and server ones)
+    return {...this.props.user.registration_errors, ...this.state.errors}
+  }
+
+  validateForm() {
+    // if password and password confirm don't match, add error
+    let errors = {}
     if (this.state.password && this.state.password_confirm &&
         this.state.password !== this.state.password_confirm) {
-          return {...this.props.user.registration_errors,
-            password_confirm: ['Password and password confirmation must match.']
-          }
+          errors.password_confirm = [
+            'Password and password confirmation must match.'
+          ]
     }
-    return this.props.user.registration_errors
+
+    return errors
   }
 
 
@@ -104,6 +118,7 @@ class Register extends Component {
           <h1>Join SimplePass</h1>
           <RegisterForm
             id={REGISTER_FORM}
+            onSubmit={this.handleRegister.bind(this)}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
             handlePasswordChange={this.handlePasswordChange.bind(this)}
             handlePasswordConfirmChange={this.handlePasswordConfirmChange.bind(this)}
@@ -120,7 +135,6 @@ class Register extends Component {
                 className="primary max"
                 form={REGISTER_FORM}
                 value="Sign up"
-                onClick={this.handleRegister.bind(this)}
                 type="submit"
               />
             </div>
