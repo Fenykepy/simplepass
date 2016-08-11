@@ -1,6 +1,7 @@
 import * as types from './actionsTypes'
 
 import Fetch from '../app/http'
+import browserHistory from 'react-router/lib/browserHistory'
 
 // actions creators
 
@@ -144,9 +145,10 @@ export function logout() {
     dispatch(requestLogout())
     //return a promise
     return Fetch.get('/api/user/logout/')
-    .then(() =>
-        dispatch(requestLogoutSuccess())
-    )
+    .then(() => {
+        browserHistory.push('/')
+        return dispatch(requestLogoutSuccess())
+    })
     .catch(error => {
       dispatch(requestLogoutFailure())
       throw error

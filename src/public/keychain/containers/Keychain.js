@@ -25,6 +25,7 @@ class Keychain extends Component {
           n_bank_cards={this.props.keychain.n_bank_cards}
           n_groups={this.props.keychain.n_groups}
         />
+        {this.props.children}
       </div>
     )
   }

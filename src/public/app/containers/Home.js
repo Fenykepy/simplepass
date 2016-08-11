@@ -53,7 +53,11 @@ class Home extends Component {
     }
 
     // we show keychain
-    return <Keychain />
+    return (
+      <Keychain
+        children={this.props.children}
+      />
+    )
 
   }
 

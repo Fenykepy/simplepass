@@ -41,10 +41,11 @@ class Login extends Component {
   }
 
   componentWillRender(props) {
-    // redirect home if user is authenticated
+    // redirect to next url or home if user is authenticated
     if (props.user.is_authenticated) {
-      console.log('user authenticated, redirect home')
-      this.context.router.push('/')
+      let next = props.location.query.next || '/'
+      console.log(`user authenticated, redirect to ${next}`)
+      this.context.router.push(next)
     }
   }
 

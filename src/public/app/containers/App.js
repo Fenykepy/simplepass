@@ -30,9 +30,13 @@ class App extends Component {
       return <Index />
     }
 
-    // if user is authenticated and we have no children component
-    if (this.props.user.is_authenticated && ! this.props.children) {
-      return <Home />
+    // if user is authenticated return Home
+    if (this.props.user.is_authenticated) {
+      return  (
+        <Home
+          children={this.props.children}
+        />
+      )
     }
     
     return this.props.children
