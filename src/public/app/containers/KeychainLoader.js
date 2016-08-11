@@ -45,6 +45,7 @@ class KeychainLoader extends Component {
       <article id="column-form">
         <h1>Unlock keychain</h1>
         <KeychainLoaderForm
+          id={KEYCHAIN_LOADER_FORM}
           handlePassChange={this.handlePassChange.bind(this)}
           pass={this.state.pass}
           errors={this.state.errors}
@@ -52,11 +53,11 @@ class KeychainLoader extends Component {
         <footer>
           <div className="field-wrapper">
             <input
+              onClick={this.handleLoadKeychain.bind(this)}
               className="primary max"
               form={KEYCHAIN_LOADER_FORM}
               value="Unlock"
               type="submit"
-              onClick={this.handleLoadKeychain.bind(this)}
             />
           </div>
         </footer>
