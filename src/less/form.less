@@ -129,7 +129,7 @@ button, a[role="button"], input[type="submit"] {
     height: 38px;
     width: auto;
     padding: 3px 23px;
-    margin: 5px 2px 0 2px;
+    margin: 5px 0 0 0;
     text-align: center;
     text-decoration: none;
     color: @buttons;
@@ -139,6 +139,17 @@ button, a[role="button"], input[type="submit"] {
         text-decoration: none;
         color: @buttons-hover;
         border: 1px solid @buttons-border-hover;
+    }
+}
+
+// general buttons when disabled
+button[disabled], a[role="button"].disabled, button.disabled, input[type=submit].disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    // nothing happens on hover, active, focus
+    &:hover, &:focus, &:active {
+        color: @buttons;
+        border-color: @buttons-border;
     }
 }
 
@@ -153,6 +164,13 @@ button.primary, a[role="button"].primary, input[type="submit"].primary {
         text-decoration: none;
         background: @buttons-primary-bg-hover;
     }
+    &[disabled], &.disabled {
+        // nothing happens on hover, active, focus
+        &:hover, &:focus, &:active {
+            color: @buttons-primary;
+            background: @buttons-primary-bg;
+        }
+    }
 }
 
 // secondary buttons, blue border and text,
@@ -165,6 +183,14 @@ button.secondary, a[role="button"].secondary, input[type="submit"].secondary {
         text-decoration: none;
         color: @buttons-secondary-hover;
         background: @buttons-secondary-bg-hover;
+    }
+    &[disabled], &.disabled {
+        // nothing happens on hover, active, focus
+        &:hover, &:focus, &:active {
+            color: @buttons-secondary;
+            background: inherit;
+            border-color: @buttons-secondary-border;
+        }
     }
 }
 
