@@ -79,6 +79,7 @@ class InitPassphrase extends Component {
           </div>
         <InitPassphraseForm
           id={INIT_PASSPHRASE_FORM}
+          onSubmit={this.handleSetMasterPassphrase.bind(this)}
           handlePassChange={this.handlePassChange.bind(this)}
           handlePassConfirmChange={this.handlePassConfirmChange.bind(this)}
           pass={this.state.pass}
@@ -92,7 +93,6 @@ class InitPassphrase extends Component {
               form={INIT_PASSPHRASE_FORM}
               value="Save"
               type="submit"
-              onClick={this.handleSetMasterPassphrase.bind(this)}
             />
           </div>
         </footer>
