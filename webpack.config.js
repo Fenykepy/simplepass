@@ -77,6 +77,12 @@ var config = {
       {convertPathData: false}
     ]
   },
+  resolve: {
+    root: [
+      path.resolve(path.join( __dirname, 'src/public')),
+      path.resolve(path.join( __dirname, 'src/modules')),
+    ]
+  },
 };
 
 
