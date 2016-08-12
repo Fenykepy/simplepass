@@ -8,12 +8,15 @@ import {
 const SORT_ENTRIES_BY = 'title'
 
 const basicKeychainSelector = state => state.keychain
+const filterSelector = state => state.keychain.filter
 
 
 export const keychainSelector = createSelector(
   basicKeychainSelector,
-  (keychain) => {
+  filterSelector,
+  (keychain, filter) => {
     return {
+      filter: filter,
       n_passwords: Object.keys(keychain.passwords).length,
       n_notes: Object.keys(keychain.notes).length,
       n_bank_cards: Object.keys(keychain.bank_cards).length,
@@ -24,9 +27,10 @@ export const keychainSelector = createSelector(
 
 export const passwordsSelector = createSelector(
   basicKeychainSelector,
-  (keychain) => {
+  filterSelector,
+  (keychain, filter) => {
     return {
-      passwords: entriesToList(keychain.passwords, '')
+      passwords: entriesToList(keychain.passwords, filter)
     }
   }
 )

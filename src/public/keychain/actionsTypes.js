@@ -1,4 +1,10 @@
 /*
+ * Filter actions types
+ */
+export const SET_FILTER = 'SET_FILTER'
+
+
+/*
  * Config actions types
  */
 export const LOAD_CONFIG = 'LOAD_CONFIG'

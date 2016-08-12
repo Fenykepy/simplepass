@@ -4,22 +4,29 @@ import { connect } from 'react-redux'
 
 import { keychainSelector } from 'public/keychain/selectors'
 
+import { setFilter } from 'public/keychain/actions'
+
 import LeftPanel from 'public/keychain/components/LeftPanel'
 import Toolbar from 'public/keychain/components/Toolbar'
 
 class Keychain extends Component {
 
+  setFilter(e) {
+    this.props.dispatch(setFilter(e.target.value))
+  }
+
   render() {
     // injected by connect call
     const {
       dispatch,
+      filter,
       n_passwords,
       n_notes,
       n_bank_cards,
       n_groups,
     } = this.props
 
-    //console.log('Keychain', this.props)
+    console.log('Keychain', this.props)
 
     return (
       <div id="keychain">
@@ -30,7 +37,10 @@ class Keychain extends Component {
           n_groups={this.props.n_groups}
         />
         <section id="entries-list">
-          <Toolbar />
+          <Toolbar
+            filter={this.props.filter}
+            filterChange={this.setFilter.bind(this)}
+          />
           {this.props.children}
         </section>
       </div>

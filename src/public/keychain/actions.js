@@ -15,6 +15,13 @@ export function loadJSON(json) {
   }
 }
 
+/* filter actions creators */
+export function setFilter(filter) {
+  return {
+    type: types.SET_FILTER,
+    filter
+  }
+}
 
 /* config actions creators */
 export function loadConfig(config) {

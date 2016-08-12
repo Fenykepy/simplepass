@@ -2,6 +2,7 @@ import { combineReducers } from 'redux'
 
 import {
   LOAD_CONFIG,
+  SET_FILTER,
   SET_CONFIG_TIMEOUT,
   SET_CONFIG_USER,
   SET_CONFIG_EMAIL,
@@ -32,6 +33,14 @@ import {
 } from 'public/user/actionsTypes'
 
 
+function filter(state='', action) {
+  switch (action.type) {
+    case SET_FILTER:
+      return action.filter
+    default:
+      return state
+  }
+}
 
 const default_config = { timeout: 180 }
 
@@ -158,6 +167,7 @@ function groups(state={}, action) {
 
 
 const keychain = combineReducers({
+  filter,
   config,
   passwords,
   notes,
