@@ -1,6 +1,6 @@
 import * as types from './actionsTypes'
 
-import Fetch from '../app/http'
+import Fetch from 'public/http'
 import browserHistory from 'react-router/lib/browserHistory'
 
 // actions creators

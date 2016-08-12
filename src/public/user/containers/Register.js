@@ -6,13 +6,13 @@ import { registerSelector } from '../selectors'
 
 import Link from 'react-router/lib/Link'
 
-import { register } from '../actions'
+import { register } from 'public/user/actions'
 
-import { setDocumentTitle } from '../../app/actions'
+import { setDocumentTitle } from 'public/app/actions'
 
-import RegisterForm from '../components/RegisterForm'
-import Spinner from '../../app/components/Spinner'
-import Header from '../../app/components/Header'
+import RegisterForm from 'public/user/components/RegisterForm'
+import Spinner from 'public/app/components/Spinner'
+import Header from 'public/app/components/Header'
 
 
 const REGISTER_FORM = "register-form"

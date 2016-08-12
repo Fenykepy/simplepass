@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { init } from '../actions'
+import { init } from 'public/app/actions'
 
-import InitPassphraseForm from '../components/InitPassphraseForm'
+import InitPassphraseForm from 'public/app/components/InitPassphraseForm'
 
 
 const INIT_PASSPHRASE_FORM = "init-passphrase-form"

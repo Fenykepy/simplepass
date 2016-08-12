@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { appSelector } from '../selectors'
+import { appSelector } from 'public/app/selectors'
 
-import Index from '../components/Index'
-import Home from './Home'
-import Spinner from '../components/Spinner'
+import Index from 'public/app/components/Index'
+import Home from 'public/app/containers/Home'
+import Spinner from 'public/app/components/Spinner'
 
 class App extends Component {
   

@@ -1,19 +1,12 @@
-import { combineReducers } from 'redux'
-
-import ejson from '../ejson/reducers'
-import user from '../user/reducers'
-import keychain from '../keychain/reducers'
-
-
 import {
   LOCK_KEYCHAIN,
   UNLOCK_KEYCHAIN,
   SET_PASSPHRASE,
-} from './actionsTypes'
+} from 'public/app/actionsTypes'
 
 import {
   REQUEST_LOGOUT
-} from '../user/actionsTypes'
+} from 'public/user/actionsTypes'
 
 
 const default_status = {
@@ -39,11 +32,4 @@ function status(state=default_status, action) {
   }
 }
 
-const rootReducer = combineReducers({
-  status,
-  user,
-  ejson,
-  keychain,
-})
-
-export default rootReducer
+export default status

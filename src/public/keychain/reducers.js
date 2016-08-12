@@ -21,15 +21,15 @@ import {
   ADD_GROUP,
   UPDATE_GROUP,
   DELETE_GROUP,
-} from './actionsTypes'
+} from 'public/keychain/actionsTypes'
 
 import {
   LOCK_KEYCHAIN
-} from '../app/actionsTypes'
+} from 'public/app/actionsTypes'
 
 import {
   REQUEST_LOGOUT
-} from '../user/actionsTypes'
+} from 'public/user/actionsTypes'
 
 
 

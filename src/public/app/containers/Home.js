@@ -2,16 +2,16 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { logout } from '../../user/actions'
-import { fetchEjsonIfNeeded } from '../../ejson/actions'
+import { logout } from 'public/user/actions'
+import { fetchEjsonIfNeeded } from 'public/ejson/actions'
 
-import { homeSelector } from '../selectors'
+import { homeSelector } from 'public/app/selectors'
 
-import InitPassphrase from './InitPassphrase'
-import KeychainLoader from './KeychainLoader'
-import Keychain from '../../keychain/containers/Keychain'
-import Header from '../components/Header'
-import Spinner from '../components/Spinner'
+import InitPassphrase from 'public/app/containers/InitPassphrase'
+import KeychainLoader from 'public/app/containers/KeychainLoader'
+import Keychain from 'public/keychain/containers/Keychain'
+import Header from 'public/app/components/Header'
+import Spinner from 'public/app/components/Spinner'
 
 class Home extends Component {
 

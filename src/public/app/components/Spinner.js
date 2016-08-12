@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import spinner_svg from '../../../graphics/svg/spinner.svg'
+import spinner_svg from 'graphics/svg/spinner.svg'
 /*
  * using a svg spinner optimized with svgo rotating with css3
  * we pass from 8kb to 4kb

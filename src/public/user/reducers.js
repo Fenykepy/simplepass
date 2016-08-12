@@ -9,7 +9,7 @@ import {
   REQUEST_USER_SUCCESS,
   REQUEST_USER_FAILURE,
   REQUEST_LOGOUT,
-} from './actionsTypes'
+} from 'public/user/actionsTypes'
 
 function user(state = {}, action) {
   switch (action.type) {

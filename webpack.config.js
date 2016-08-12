@@ -19,7 +19,7 @@ var config = {
     app: [
     'babel-polyfill',
     'webpack-hot-middleware/client',
-    './src/public/app/client'
+    './src/public/client'
     ]
   },
   output: {
@@ -79,7 +79,7 @@ var config = {
   },
   resolve: {
     root: [
-      path.resolve(path.join( __dirname, 'src/public')),
+      path.resolve(path.join( __dirname, 'src')),
       path.resolve(path.join( __dirname, 'src/modules')),
     ]
   },

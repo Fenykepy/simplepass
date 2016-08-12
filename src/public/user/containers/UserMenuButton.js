@@ -2,11 +2,11 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { userMenuSelector } from '../selectors'
+import { userMenuSelector } from 'public/user/selectors'
 
-import { logout } from '../actions'
+import { logout } from 'public/user/actions'
 
-import UserMenu from '../components/UserMenu'
+import UserMenu from 'public/user/components/UserMenu'
 
 class UserMenuButton extends Component {
 

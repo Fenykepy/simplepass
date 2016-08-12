@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 
 import Link from 'react-router/lib/Link'
 
-import Header from '../components/Header'
-import CryptTest from './CryptTest'
+import Header from 'public/app/components/Header'
+import CryptTest from 'public/app/components/CryptTest'
 
 export default class Index extends Component {
 

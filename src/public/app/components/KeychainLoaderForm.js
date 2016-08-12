@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import FormFieldErrors from '../../app/components/FormFieldErrors'
+import FormFieldErrors from 'public/app/components/FormFieldErrors'
 
 
 export default class KeychainLoaderForm extends Component {

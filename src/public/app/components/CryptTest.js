@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
-import FormFieldErrors from './FormFieldErrors'
-import crypto from '../crypto'
+import FormFieldErrors from 'public/app/components/FormFieldErrors'
+import crypto from 'public/crypto'
 
 export default class CryptTest extends Component {
 

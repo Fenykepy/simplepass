@@ -3,11 +3,11 @@ import { render } from 'react-dom'
 
 import Route from 'react-router/lib/Route'
 
-import AuthenticationRequired from '../user/containers/AuthenticationRequired'
-import App from './containers/App'
-import Login from '../user/containers/Login'
-import Register from '../user/containers/Register'
-import Passwords from '../keychain/containers/Passwords'
+import AuthenticationRequired from 'public/user/containers/AuthenticationRequired'
+import App from 'public/app/containers/App'
+import Login from 'public/user/containers/Login'
+import Register from 'public/user/containers/Register'
+import Passwords from 'public/keychain/containers/Passwords'
 
 export default () => {
   return (

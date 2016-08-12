@@ -1,6 +1,6 @@
 import base64arrayBuffer from 'base64-arraybuffer'
 
-import base64url from './base64url'
+import base64url from 'base64url'
 
 const CRYPT_ALGO = "AES-CBC"
 const crypto = {}

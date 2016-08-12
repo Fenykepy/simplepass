@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { statusSelector } from '../selectors'
+import { statusSelector } from 'public/app/selectors'
 
-import { lockKeychain } from '../actions'
+import { lockKeychain } from 'public/app/actions'
 
 class StatusButton extends Component {
 

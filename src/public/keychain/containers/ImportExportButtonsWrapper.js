@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { saveEjson } from '../../ejson/actions'
+import { saveEjson } from 'public/ejson/actions'
 
-import ExportButton from '../components/ExportButton'
+import ExportButton from 'public/keychain/components/ExportButton'
 //import ImportButton from '../components/ImportButton'
 
 class ImportExportButtonsWrapper extends Component {

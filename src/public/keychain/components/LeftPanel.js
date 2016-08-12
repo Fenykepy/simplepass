@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Link from 'react-router/lib/Link'
 
-import ImportExportButtonsWrapper from '../containers/ImportExportButtonsWrapper'
+import ImportExportButtonsWrapper from 'public/keychain/containers/ImportExportButtonsWrapper'
 
 export default class LeftPanel extends Component {
   

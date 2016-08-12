@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { passwordsSelector } from '../selectors'
+import { passwordsSelector } from 'public/keychain/selectors'
 
 class Passwords extends Component {
 
@@ -16,7 +16,7 @@ class Passwords extends Component {
     
     console.log('Passwords', this.props)
     return (
-      <div>toto</div>
+      <div>{this.props.passwords}</div>
     )
   }
 }

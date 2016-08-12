@@ -2,7 +2,7 @@ import * as types from './actionsTypes'
 
 import { saveAs } from 'file-saver'
 
-import Fetch from '../app/http'
+import Fetch from 'public/http'
 
 // action creators
 

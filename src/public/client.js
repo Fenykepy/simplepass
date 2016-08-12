@@ -1,24 +1,24 @@
 // import a promise polyfill
 require('es6-promise').polyfill();
 // import less files
-require('../../less/controller.less')
+require('less/controller.less')
 
 
 import React from 'react'
 import { render } from 'react-dom'
 
-import { getCookie } from '../../utils/cookieManager'
+import { getCookie } from 'cookie-manager'
 import { Provider } from 'react-redux'
-import { createStoreWithMiddleware } from './store'
-import rootReducer from './reducers'
+import { createStoreWithMiddleware } from 'public/store'
+import rootReducer from 'public/rootReducer'
 
 import browserHistory from 'react-router/lib/browserHistory'
 import Router from 'react-router/lib/Router'
 
-import getRoutes from './routes'
+import getRoutes from 'public/routes'
 
-import { fetchUserIfNeeded } from '../user/actions'
-import { fetchEjsonIfNeeded } from '../ejson/actions'
+import { fetchUserIfNeeded } from 'public/user/actions'
+import { fetchEjsonIfNeeded } from 'public/ejson/actions'
 
 let store = createStoreWithMiddleware(rootReducer)
 

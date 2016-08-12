@@ -6,12 +6,12 @@ import { loginSelector } from '../selectors'
 
 import Link from 'react-router/lib/Link'
 
-import { login } from '../actions'
-import { setDocumentTitle } from '../../app/actions'
+import { login } from 'public/user/actions'
+import { setDocumentTitle } from 'public/app/actions'
 
-import LoginForm from '../components/LoginForm'
-import Spinner from '../../app/components/Spinner'
-import Header from '../../app/components/Header'
+import LoginForm from 'public/user/components/LoginForm'
+import Spinner from 'public/app/components/Spinner'
+import Header from 'public/app/components/Header'
 
 
 const LOGIN_FORM = "login-form"

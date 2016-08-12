@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 export default class Toolbar extends Component {
 
   render() {
-    console.log('toolbar', this.props)
+    //console.log('toolbar', this.props)
     return (
       <header id="toolbar">
         <input

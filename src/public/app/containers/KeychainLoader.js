@@ -2,9 +2,9 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { loadKeychain } from '../actions'
+import { loadKeychain } from 'public/app/actions'
 
-import KeychainLoaderForm from '../components/KeychainLoaderForm'
+import KeychainLoaderForm from 'public/app/components/KeychainLoaderForm'
 
 const KEYCHAIN_LOADER_FORM = 'keychain-loader-form'
 

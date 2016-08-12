@@ -3,9 +3,9 @@ import { createStructuredSelector } from 'reselect'
 import {
   userSelector,
   authenticatedSelector,
-} from '../user/selectors'
+} from 'public/user/selectors'
 
-import { ejsonSelector } from '../ejson/selectors'
+import { ejsonSelector } from 'public/ejson/selectors'
 
 export const statusSelector = createStructuredSelector({
   status: state => state.status,

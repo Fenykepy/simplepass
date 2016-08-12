@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react'
 
 import Link from 'react-router/lib/Link'
 
-import AuthLinks from './AuthLinks'
-import AdminLinks from './AdminLinks'
+import AuthLinks from 'public/app/components/AuthLinks'
+import AdminLinks from 'public/app/components/AdminLinks'
 
 export default class Header extends Component {
 

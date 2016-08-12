@@ -20,12 +20,28 @@ export const passwordsSelector = createSelector(
   basicKeychainSelector,
   (keychain) => {
     return {
-      passwords: keychain.passwords
+      passwords: sortEntries(filterEntries(objectValues(keychain.passwords), ''))
     }
   }
 )
 
-function mapEntriesToArray(entries, filter) {
-  return objectValues(entries)
+function filterEntries(entries, filter) {
+  // if we have no filter or no entries return
+  if (! filter || entries.length < 1) return entries
+  // we build a new regex from filter
+  let re = new RegExp(filter, 'i')
+  // we filter entries titles against regex
+  return entries.filter(item => re.test(item.title))
+}
+
+function sortEntries(entries) {
+  return entries.sort((a, b) => {
+    if (a.title > b.title)
+      return 1
+    if (a.title < b.title)
+      return -1
+    // a doit être égale à b
+    return 0
+  })
 }
       

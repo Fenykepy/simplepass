@@ -9,7 +9,7 @@ import {
 
 import {
   REQUEST_LOGOUT
-} from '../user/actionsTypes'
+} from 'public/user/actionsTypes'
 
 function ejson(state={}, action) {
   switch (action.type) {

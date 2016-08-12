@@ -1,6 +1,6 @@
 import * as types from './actionsTypes'
 
-import { syncKeychain } from '../app/actions'
+import { syncKeychain } from 'public/app/actions'
 
 /* keychain actions creators */
 export function loadJSON(json) {

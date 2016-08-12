@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { keychainSelector } from '../selectors'
+import { keychainSelector } from 'public/keychain/selectors'
 
-import LeftPanel from '../components/LeftPanel'
-import Toolbar from '../components/Toolbar'
+import LeftPanel from 'public/keychain/components/LeftPanel'
+import Toolbar from 'public/keychain/components/Toolbar'
 
 class Keychain extends Component {
 

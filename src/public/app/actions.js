@@ -1,13 +1,13 @@
-import * as types from './actionsTypes'
+import * as types from 'public/app/actionsTypes'
 
-import crypto from './crypto'
+import crypto from 'public/crypto'
 
 
 import {
   loadJSON,
   loadConfig,
-} from '../keychain/actions'
-import { updateEjson } from '../ejson/actions'
+} from 'public/keychain/actions'
+import { updateEjson } from 'public/ejson/actions'
 
 
 
