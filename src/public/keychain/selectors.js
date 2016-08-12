@@ -1,5 +1,11 @@
 import { createSelector, createStructuredSelector } from 'reselect'
-import { objectValues } from 'functionnal'
+import {
+  objectValues,
+  sortByProperty,
+} from 'functionnal'
+
+// default entries list order by
+const SORT_ENTRIES_BY = 'title'
 
 const basicKeychainSelector = state => state.keychain
 
@@ -20,10 +26,16 @@ export const passwordsSelector = createSelector(
   basicKeychainSelector,
   (keychain) => {
     return {
-      passwords: sortEntries(filterEntries(objectValues(keychain.passwords), ''))
+      passwords: entriesToList(keychain.passwords, '')
     }
   }
 )
+
+function entriesToList(entries, filter) {
+  let all_entries = objectValues(entries)
+  let filtered_entries = filterEntries(all_entries, filter)
+  return sortByProperty(filtered_entries, SORT_ENTRIES_BY)
+}
 
 function filterEntries(entries, filter) {
   // if we have no filter or no entries return
@@ -34,14 +46,3 @@ function filterEntries(entries, filter) {
   return entries.filter(item => re.test(item.title))
 }
 
-function sortEntries(entries) {
-  return entries.sort((a, b) => {
-    if (a.title > b.title)
-      return 1
-    if (a.title < b.title)
-      return -1
-    // a doit être égale à b
-    return 0
-  })
-}
-      
