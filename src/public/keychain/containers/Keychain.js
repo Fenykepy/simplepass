@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { keychainSelector } from '../selectors'
 
 import LeftPanel from '../components/LeftPanel'
+import Toolbar from '../components/Toolbar'
 
 class Keychain extends Component {
 
@@ -12,7 +13,10 @@ class Keychain extends Component {
     // injected by connect call
     const {
       dispatch,
-      keychain,
+      n_passwords,
+      n_notes,
+      n_bank_cards,
+      n_groups,
     } = this.props
 
     //console.log('Keychain', this.props)
@@ -20,12 +24,13 @@ class Keychain extends Component {
     return (
       <div id="keychain">
         <LeftPanel
-          n_passwords={this.props.keychain.n_passwords}
-          n_notes={this.props.keychain.n_notes}
-          n_bank_cards={this.props.keychain.n_bank_cards}
-          n_groups={this.props.keychain.n_groups}
+          n_passwords={this.props.n_passwords}
+          n_notes={this.props.n_notes}
+          n_bank_cards={this.props.n_bank_cards}
+          n_groups={this.props.n_groups}
         />
         <section id="entries-list">
+          <Toolbar />
           {this.props.children}
         </section>
       </div>

@@ -7,7 +7,7 @@ import AuthenticationRequired from '../user/containers/AuthenticationRequired'
 import App from './containers/App'
 import Login from '../user/containers/Login'
 import Register from '../user/containers/Register'
-import Passwords from '../keychain/components/Passwords'
+import Passwords from '../keychain/containers/Passwords'
 
 export default () => {
   return (

@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 
-export default function AuthenticationRequired(Component) {
+export default function AuthenticationRequired(Child) {
 
   class AuthenticationComponent extends Component {
 
@@ -24,14 +24,18 @@ export default function AuthenticationRequired(Component) {
   
     getComponent() {
       if (this.props.is_authenticated) {
-        return <Component {...this.props} />
+        return <Child {...this.props} />
       }
       return null
     }
 
 
     render() {
-      //console.log('AuthenticationComponent', this.props)
+      const {
+        is_authenticated,
+      } = this.props
+
+      // console.log('AuthenticationComponent', this.props)
       return this.getComponent()
     }
   }
