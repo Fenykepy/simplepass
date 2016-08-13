@@ -71,14 +71,17 @@ class Home extends Component {
       authenticated,
       ejson,
       locked,
+      modal,
     } = this.props
 
     return (
       <section role="main">
+
         <Header
           authenticated={this.props.authenticated}
         />
         {this.getChild()}
+        {this.props.modal}
       </section>
     )
   }

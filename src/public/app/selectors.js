@@ -12,6 +12,7 @@ export const statusSelector = createStructuredSelector({
 })
 
 const lockedSelector = state => state.status.locked
+const modalSelector = state => state.modal
 
 export const appSelector = createStructuredSelector({
   user: userSelector,
@@ -21,5 +22,6 @@ export const homeSelector = createStructuredSelector({
   authenticated: authenticatedSelector,
   ejson: ejsonSelector,
   locked: lockedSelector,
+  modal: modalSelector,
 })
 

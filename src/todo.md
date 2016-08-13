@@ -20,7 +20,11 @@
 - Add modal windows
 - Add sort by select in toolbar
 - Add a reset search input button
+- Add a settings forms (to set timeout)
+- Add an EJSON version in json (for later upgrade of old EJSON)
+- Add a master passphrase form to change master passphrase
+- Add an api endpoint to change user password or email
 - Add an api endpoint to confirm email adress
 - Add an api endpoint to recover password
-- Add an api endpoint to delete account:
+- Add an api endpoint to delete account
 

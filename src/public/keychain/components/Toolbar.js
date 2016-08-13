@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import AddEntryButton from 'public/keychain/components/AddEntryButton'
+
 export default class Toolbar extends Component {
 
   render() {
@@ -13,9 +15,7 @@ export default class Toolbar extends Component {
           value={this.props.filter}
           placeholder="Search..."
         />
-        <button
-          className="secondary"
-        >Add</button>
+        <AddEntryButton />
       </header>
     )
   }
