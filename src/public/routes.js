@@ -7,7 +7,7 @@ import AuthenticationRequired from 'public/user/containers/AuthenticationRequire
 import App from 'public/app/containers/App'
 import Login from 'public/user/containers/Login'
 import Register from 'public/user/containers/Register'
-import Passwords from 'public/keychain/containers/Passwords'
+import PasswordsList from 'public/keychain/containers/PasswordsList'
 
 export default () => {
   return (
@@ -15,7 +15,7 @@ export default () => {
       <Route path="/" component={App}>
         <Route path="/login/" component={Login} />
         <Route path="/signup/" component={Register} />
-        <Route path="/passwords/" component={AuthenticationRequired(Passwords)} />
+        <Route path="/passwords/" component={AuthenticationRequired(PasswordsList)} />
       </Route>
     </Route>
   )

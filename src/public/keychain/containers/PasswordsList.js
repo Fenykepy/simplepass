@@ -4,7 +4,9 @@ import { connect } from 'react-redux'
 
 import { passwordsSelector } from 'public/keychain/selectors'
 
-class Passwords extends Component {
+import PasswordAbstract from 'public/keychain/components/PasswordAbstract'
+
+class PasswordsList extends Component {
 
   render() {
 
@@ -14,9 +16,17 @@ class Passwords extends Component {
       passwords,
     } = this.props
     
-    console.log('Passwords', this.props)
+    console.log('PasswordsList', this.props)
+
     return (
-      <div></div>
+      <ul>
+        {this.props.passwords.map(password =>
+          <PasswordAbstract
+            key={password.id}
+            {...password}
+          />
+        )}
+      </ul>
     )
   }
 }
@@ -26,4 +36,4 @@ const mapStateToProps = state => {
 }
 
 // wrap the component to inject dispatch and state into it
-export default connect (passwordsSelector)(Passwords)
+export default connect (passwordsSelector)(PasswordsList)
