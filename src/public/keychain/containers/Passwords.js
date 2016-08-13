@@ -16,7 +16,7 @@ class Passwords extends Component {
     
     console.log('Passwords', this.props)
     return (
-      <div>{this.props.passwords}</div>
+      <div></div>
     )
   }
 }

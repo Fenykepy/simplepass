@@ -71,6 +71,8 @@ function loadPasswords(passwords) {
 }
 
 export function addPassword(password) {
+  password.id = Date.now()
+  password.last_modified = password.id
   return dispatch => {
     dispatch({
       type: types.ADD_PASSWORD,
@@ -82,6 +84,7 @@ export function addPassword(password) {
 }
 
 export function updatePassword(password) {
+  password.last_modified = Date.now()
   return dispatch => {
     dispatch({
       type: types.UPDATE_PASSWORD,

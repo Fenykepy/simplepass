@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import Modal from 'public/modal/components/Modal'
-import ModalFooter from 'public/modal/components/ModalFooter'
+import PasswordEdition from 'public/keychain/containers/PasswordEdition'
 
 export default class AddEntryButton extends Component {
 
@@ -11,17 +11,9 @@ export default class AddEntryButton extends Component {
         closeModal={this.props.closeModal}
         title="Add a new password"
       >
-        <div id="modal-content">
-          Mon beau contenu
-        </div>
-        <ModalFooter>
-          <button
-            onClick={this.props.closeModal}
-          >Cancel</button>
-          <button
-            className="primary"
-          >Add</button>
-        </ModalFooter>
+        <PasswordEdition
+          closeModal={this.props.closeModal}
+        />
       </Modal>
     )
 
