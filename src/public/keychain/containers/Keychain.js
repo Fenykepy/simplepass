@@ -5,6 +5,10 @@ import { connect } from 'react-redux'
 import { keychainSelector } from 'public/keychain/selectors'
 
 import { setFilter } from 'public/keychain/actions'
+import {
+  closeModal,
+  setModal,
+} from 'public/modal/actions'
 
 import LeftPanel from 'public/keychain/components/LeftPanel'
 import Toolbar from 'public/keychain/components/Toolbar'
@@ -13,6 +17,14 @@ class Keychain extends Component {
 
   setFilter(e) {
     this.props.dispatch(setFilter(e.target.value))
+  }
+
+  setModal(modal) {
+    this.props.dispatch(setModal(modal))
+  }
+
+  closeModal() {
+    this.props.dispatch(closeModal())
   }
 
   render() {
@@ -40,6 +52,8 @@ class Keychain extends Component {
           <Toolbar
             filter={this.props.filter}
             filterChange={this.setFilter.bind(this)}
+            setModal={this.setModal.bind(this)}
+            closeModal={this.closeModal.bind(this)}
           />
           {this.props.children}
         </section>

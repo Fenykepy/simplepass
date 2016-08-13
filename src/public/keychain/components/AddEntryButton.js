@@ -1,29 +1,31 @@
 import React, { Component } from 'react'
 
-import Modal from 'public/app/components/Modal'
+import Modal from 'public/modal/components/Modal'
+import ModalFooter from 'public/modal/components/ModalFooter'
 
 export default class AddEntryButton extends Component {
 
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      modal: false
-    }
-  }
-  
-  toogleModal(e) {
-    e.stopPropagation()
-    this.setState({modal: ! this.state.modal})
-  }
-
-  getModal() {
-    if (! this.state.modal) return null
-    return (
-      <Modal>
-        <div>Le contenu de ma modal</div>
+  setModal() {
+    let modal = (
+      <Modal
+        closeModal={this.props.closeModal}
+        title="Add a new password"
+      >
+        <div id="modal-content">
+          Mon beau contenu
+        </div>
+        <ModalFooter>
+          <button
+            onClick={this.props.closeModal}
+          >Cancel</button>
+          <button
+            className="primary"
+          >Add</button>
+        </ModalFooter>
       </Modal>
     )
+
+    this.props.setModal(modal)
   }
 
   render() {
@@ -31,8 +33,8 @@ export default class AddEntryButton extends Component {
     return (
       <button
         className="secondary"
-        onClick={this.toogleModal.bind(this)}
-      >Add{this.getModal()}</button>
+        onClick={this.setModal.bind(this)}
+      >Add</button>
     )
   }
 }

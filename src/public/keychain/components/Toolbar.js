@@ -15,7 +15,10 @@ export default class Toolbar extends Component {
           value={this.props.filter}
           placeholder="Search..."
         />
-        <AddEntryButton />
+        <AddEntryButton
+          setModal={this.props.setModal}
+          closeModal={this.props.closeModal}
+        />
       </header>
     )
   }

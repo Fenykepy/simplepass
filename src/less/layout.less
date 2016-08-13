@@ -92,6 +92,65 @@ sup {
         background-color: rgba(0, 0, 0, 1) ;
     }
 }
+#modal {
+    z-index: 1000;
+    position: relative;
+    margin: 40px auto;
+    width: 770px;
+    color: @modal;
+    background: @modal-bg;
+    border: 1px solid @modal-border;
+    border-radius: 4px;
+    box-shadow: 0 0 4px @black;
+    &.small {
+        width: 500px;
+    }
+    &.max {
+        width: auto;
+        margin: 40px;
+    }
+}
+#modal-header {
+    padding: 30px 60px;
+    border-bottom: 1px solid @modal-border;
+    h1 {
+        margin: 0;
+    }
+    button.modal-close {
+        position: absolute;
+        right: 30px;
+        top: 23px;
+        width: 40px;
+        height: 40px;
+        line-height: 30px;
+        font-size: 30px;
+        font-weight: bold;
+        vertical-align: top;
+        border: none;
+        background: none;
+        padding: 0;
+        margin: 0;
+        color: @modal-close;
+        &:hover, &:active, &:focus {
+            color: @modal-close-hover;
+        }
+    }
+}
+#modal-content {
+    margin: 0;
+    padding: 45px;
+}
+#modal-footer {
+    padding: 25px 45px 30px;
+    border-top: 1px solid @modal-border;
+    text-align: right;
+    button, a[role="button"], input[type="submit"] {
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+}
+
+
 
 @header-height: 55px;
 
