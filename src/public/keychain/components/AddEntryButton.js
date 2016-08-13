@@ -21,7 +21,7 @@ export default class AddEntryButton extends Component {
   }
 
   render() {
-    console.log('AddEntryButton', this.props)
+    //console.log('AddEntryButton', this.props)
     return (
       <button
         className="secondary"

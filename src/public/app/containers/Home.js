@@ -48,11 +48,11 @@ class Home extends Component {
     }
 
     // we show unlocking form if keychain is locked
-    /* hide this to style easily keychain components
+    /* hide this to style easily keychain components */
     if (this.props.locked) {
       return <KeychainLoader />
     }
-    */
+    /**/
 
     // we show keychain
     return (
