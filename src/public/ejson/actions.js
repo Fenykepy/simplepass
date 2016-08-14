@@ -101,7 +101,7 @@ export function updateEjson(ejson) {
       },
       JSON.stringify({ejson: ejson})
     )
-    .then(respons => {
+    .then(response => {
         dispatch(requestUpdateEjsonSuccess(ejson))
     })
     .catch(error => {

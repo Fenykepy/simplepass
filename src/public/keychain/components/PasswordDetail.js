@@ -33,7 +33,7 @@ export default class PasswordDetail extends Component {
   }
 
   getDescription() {
-    if (this.props.password) {
+    if (this.props.description) {
       return <li><strong>Description:</strong> {this.props.description}</li>
     }
     return null
@@ -42,7 +42,7 @@ export default class PasswordDetail extends Component {
   render() {
     console.log('PasswordDetail', this.props)
     return (
-      <ul
+      <table
         className="entry-detail"
       >
         {this.getUsername()}
@@ -50,8 +50,10 @@ export default class PasswordDetail extends Component {
         {this.getPassword()}
         {this.getUrl()}
         {this.getDescription()}
-        
-      </ul>
+        <tr><td><button
+          className="secondary small edit"
+        >Edit</button></td></tr>
+      </table>
     )
   }
 }

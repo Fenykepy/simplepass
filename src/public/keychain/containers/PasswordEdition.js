@@ -108,11 +108,13 @@ class PasswordEdition extends Component {
             handleTitleChange={this.handleTitleChange.bind(this)}
             handleUsernameChange={this.handleUsernameChange.bind(this)}
             handleEmailChange={this.handleEmailChange.bind(this)}
+            handlePasswordChange={this.handlePasswordChange.bind(this)}
             handleUrlChange={this.handleUrlChange.bind(this)}
             handleDescriptionChange={this.handleDescriptionChange.bind(this)}
             title={this.state.title}
             username={this.state.username}
             email={this.state.email}
+            password={this.state.password}
             url={this.state.url}
             description={this.state.description}
             errors={this.state.errors}
