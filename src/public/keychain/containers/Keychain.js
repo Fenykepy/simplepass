@@ -15,6 +15,15 @@ import Toolbar from 'public/keychain/components/Toolbar'
 
 class Keychain extends Component {
 
+  getChildContext() {
+    // we set setModal and closeModal as context
+    // to avoid passing it everywhere
+    return {
+      setModal: this.setModal.bind(this),
+      closeModal: this.closeModal.bind(this),
+    }
+  }
+
   setFilter(e) {
     this.props.dispatch(setFilter(e.target.value))
   }
@@ -60,6 +69,11 @@ class Keychain extends Component {
       </div>
     )
   }
+}
+
+Keychain.childContextTypes = {
+  setModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 }
 
 // wrap the component to inject dispatch and state into it

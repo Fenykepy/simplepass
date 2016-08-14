@@ -15,7 +15,6 @@ export default class PasswordAbstract extends Component {
 
   toogleDetails(e) {
     e.preventDefault()
-    console.log('clicked !')
     this.setState({details: ! this.state.details})
   }
 

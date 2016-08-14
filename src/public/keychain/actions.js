@@ -88,7 +88,7 @@ export function updatePassword(password) {
   return dispatch => {
     dispatch({
       type: types.UPDATE_PASSWORD,
-      paddword: password.id,
+      password: password.id,
       data: password,
     })
     return dispatch(syncKeychain())

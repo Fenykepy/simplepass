@@ -29,6 +29,22 @@ class PasswordEdition extends Component {
     }
   }
 
+  componentWillMount() {
+    // we update existing password
+    if (this.props.password) {
+      let pwd = this.props.password
+      // populate state with existing password
+      this.setState({
+        title: pwd.title || '',
+        username: pwd.username || '',
+        email: pwd.email || '',
+        password: pwd.password || '',
+        url: pwd.url || '',
+        description: pwd.description || '',
+      })
+    }
+  }
+
   handleTitleChange(e) {
     this.setState({title: e.target.value})
   }
