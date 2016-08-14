@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react'
 
-
 export default class HiddenCopyField extends Component {
 
   constructor(props) {
@@ -45,16 +44,16 @@ export default class HiddenCopyField extends Component {
     if (! this.props.content) return null
 
     return (
-      <tr>
-        <th>{this.props.title}</th><td>{this.getContent()}</td>
-        <td className="button-col">
+      <li className="detail-row">
+        <h6>{this.props.title}</h6>
+        <div className="content">{this.getContent()}</div>
           <button
             className={this.state.hidden ? 'eye-hidden' : 'eye-visible'}
             title="Toogle content visibility"
             onClick={this.toogleVisibility.bind(this)}
-          ><span className="accessibility">Toogle visibility</span></button>
-        </td>
-        <td className="button-col">
+          >
+            <span className="accessibility">Toogle visibility</span>
+          </button>
           {/* we create an false hidden input
               to be able to copy it's content to clipboard :
               copying directly a string doesn't work :/
@@ -68,11 +67,13 @@ export default class HiddenCopyField extends Component {
             ref={ref => this.copyInput = ref }
           />
           <button
+            className="copy-to-clipboard"
             title="Copy content to clipboard"
             onClick={this.copyToClipboard.bind(this)}
-          >Copy to clipboard</button>
-        </td>
-      </tr>
+          >
+            <span className="accessibility">Copy to clipboard</span>
+          </button>
+      </li>
     )
   }
 }

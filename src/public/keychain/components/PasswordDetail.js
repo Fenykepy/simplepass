@@ -2,13 +2,14 @@ import React, { Component, PropTypes } from 'react'
 
 import HiddenCopyField from 'public/keychain/components/HiddenCopyField'
 import UrlField from 'public/keychain/components/UrlField'
+import DescriptionField from 'public/keychain/components/DescriptionField'
 
 
 export default class PasswordDetail extends Component {
 
   getDescription() {
     if (this.props.description) {
-      return <tr><th>Description:</th><td> {this.props.description}</td></tr>
+      return <li><h6>Description:</h6><div>{this.props.description}</div></li>
     }
     return null
   }
@@ -17,38 +18,35 @@ export default class PasswordDetail extends Component {
     console.log('PasswordDetail', this.props)
     return (
 
-      <div
+      <ul
         className="entry-detail"
       >
-        <table>
-          <tbody>
-            <HiddenCopyField
-              title="Username:"
-              content={this.props.username}
-            />
-            <HiddenCopyField
-              title="Email:"
-              content={this.props.email}
-            />
-            <HiddenCopyField
-              title="Password:"
-              content={this.props.password}
-            />
-            <UrlField
-              title="Related url:"
-              url={this.props.url}
-            />
-            {this.getDescription()}
-          </tbody>
-        </table>
-        <div
-          className="footer"
-        >
+        <HiddenCopyField
+          title="Username:"
+          content={this.props.username}
+        />
+        <HiddenCopyField
+          title="Email:"
+          content={this.props.email}
+        />
+        <HiddenCopyField
+          title="Password:"
+          content={this.props.password}
+        />
+        <UrlField
+          title="Related url:"
+          url={this.props.url}
+        />
+        <DescriptionField
+          title="Description:"
+          content={this.props.description}
+        />
+        <li>
           <button
             className="secondary small edit"
           >Edit</button>
-        </div>
-      </div>
+        </li>
+      </ul>
     )
   }
 }
