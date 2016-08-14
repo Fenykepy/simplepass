@@ -5,11 +5,14 @@ import { connect } from 'react-redux'
 import {
   addPassword,
   updatePassword,
+  deletePassword,
 } from 'public/keychain/actions'
 
+import Modal from 'public/modal/components/Modal'
 import ModalContent from 'public/modal/components/ModalContent'
 import ModalFooter from 'public/modal/components/ModalFooter'
 import PasswordEditionForm from 'public/keychain/components/PasswordEditionForm'
+import DeleteConfirm from 'public/keychain/components/DeleteConfirm'
 
 const PASSWORD_FORM = "password-form"
 
@@ -103,6 +106,44 @@ class PasswordEdition extends Component {
     return errors
   }
 
+  getDeleteButton() {
+    if (! this.props.password) return null
+    // we update existing password, show delete button
+    return (
+      <div className="delete">
+        <button
+          onClick={this.confirmDeletePassword.bind(this)}
+        >Delete</button>
+      </div>
+    )
+  }
+
+  confirmDeletePassword() {
+    let modal = (
+      <Modal
+        closeModal={this.props.closeModal}
+        title="Delete a password"
+      >
+        <DeleteConfirm
+          type="password"
+          title={this.props.password.title}
+          closeModal={this.props.closeModal}
+          deletePassword={this.deletePassword.bind(this)}
+        />
+      </Modal>
+    )
+
+    this.props.setModal(modal)
+  }
+
+  deletePassword() {
+    this.props.dispatch(deletePassword(
+      this.props.password.id
+    )) 
+    // we close modal
+    this.props.closeModal()
+  }
+
   render() {
     // injected by connect call
     const {
@@ -118,6 +159,7 @@ class PasswordEdition extends Component {
     return (
       <div>
         <ModalContent>
+          {this.getDeleteButton()}
           <PasswordEditionForm
             id={PASSWORD_FORM}
             onSubmit={this.handleSubmit.bind(this)}
@@ -154,3 +196,4 @@ class PasswordEdition extends Component {
 
 // wrap the component to inject dispatch and state into it
 export default connect ()(PasswordEdition)
+

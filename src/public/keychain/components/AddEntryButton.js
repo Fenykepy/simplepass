@@ -14,6 +14,7 @@ export default class AddEntryButton extends Component {
         <PasswordEdition
           closeModal={this.context.closeModal}
           password={this.props.password}
+          setModal={this.context.setModal}
         />
       </Modal>
     )

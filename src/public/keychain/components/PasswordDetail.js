@@ -16,7 +16,7 @@ export default class PasswordDetail extends Component {
   }
 
   render() {
-    console.log('PasswordDetail', this.props)
+    //console.log('PasswordDetail', this.props)
     return (
 
       <ul

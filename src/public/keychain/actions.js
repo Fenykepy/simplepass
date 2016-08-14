@@ -99,7 +99,7 @@ export function deletePassword(password) {
   return dispatch => {
     dispatch({
       type: types.DELETE_PASSWORD,
-      password: password.id,
+      password: password,
     })
     return dispatch(syncKeychain())
   }
