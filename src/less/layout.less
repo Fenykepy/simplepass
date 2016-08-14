@@ -404,6 +404,7 @@ article#column-form {
     border-bottom: 1px solid @left-panel-border;
     display: flex;
     padding: 0 25px;
+    z-index: 1; // for list entries to stay under
     input, button {
         margin: auto 10px;
         height: 34px;
@@ -478,20 +479,25 @@ button.copy-to-clipboard {
     border-bottom: 1px solid @entry-border;
     li {
         width: 100%;
-        height: 40px;
+        min-height: 40px;
         display: flex;
     }
     h6 {
-        box-sizing: border-box;
-        margin: auto 0;
         width: 120px;
+        height: 40px;
+        box-sizing: border-box;
+        flex: none; // for all titles to stay vertically aligned
+        margin: 0;
+        line-height: 40px;
+        vertical-align: middle;
         display: inline-flex;
         justify-content: flex-end;
         padding: 0 8px;
     }
     div.content {
         box-sizing: border-box;
-        margin: auto 0;
+        line-height: 40px;
+        margin: auto 40px auto 0;
         display: inline-flex;
         padding: 0 8px;
     }
