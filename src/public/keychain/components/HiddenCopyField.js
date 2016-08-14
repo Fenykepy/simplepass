@@ -49,9 +49,10 @@ export default class HiddenCopyField extends Component {
         <th>{this.props.title}</th><td>{this.getContent()}</td>
         <td className="button-col">
           <button
+            className={this.state.hidden ? 'eye-hidden' : 'eye-visible'}
             title="Toogle content visibility"
             onClick={this.toogleVisibility.bind(this)}
-          >Toogle visibility</button>
+          ><span className="accessibility">Toogle visibility</span></button>
         </td>
         <td className="button-col">
           {/* we create an false hidden input
