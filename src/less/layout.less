@@ -158,7 +158,6 @@ section[role="main"] {
     // we escape fixed header
     padding-top: @header-height;
 }
-
 header[role="banner"], #main-title {
     position: fixed;
     top: 0;
@@ -175,7 +174,7 @@ header[role="banner"], #main-title {
         font-weight: normal;
         font-size: 28px;
         font-family: @simplepass;
-        margin: 0 40px;
+        margin: 0 30px;
         a {
             color: @header-text;
             &:hover {
@@ -218,6 +217,12 @@ header[role="banner"], #main-title {
         box-sizing: content-box;
         margin: 0;
     }
+}
+
+header[role="banner"] h1 {
+    // we show logo only in banner title
+    background: url('../graphics/svg/round-lock.svg') no-repeat left center;
+    padding-left: 45px;
 }
 
 #main-title {
