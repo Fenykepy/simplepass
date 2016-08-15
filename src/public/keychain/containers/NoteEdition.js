@@ -46,7 +46,7 @@ class NoteEdition extends Component {
   }
 
   handleContentChange(e) {
-    this.setState({title: e.target.value})
+    this.setState({content: e.target.value})
   }
 
 
@@ -70,7 +70,7 @@ class NoteEdition extends Component {
       this.props.dispatch(addNote(note))
     }
     // we close modal
-    this.props.closeModal()
+    this.context.closeModal()
   }
 
   validateForm() {
@@ -99,19 +99,18 @@ class NoteEdition extends Component {
   confirmDeleteNote() {
     let modal = (
       <Modal
-        closeModal={this.props.closeModal}
+        modal_closable={true}
         title="Delete a note"
       >
         <DeleteConfirm
           type="note"
           title={this.props.note.title}
-          closeModal={this.props.closeModal}
-          deletePassword={this.deleteNote.bind(this)}
+          delete={this.deleteNote.bind(this)}
         />
       </Modal>
     )
 
-    this.props.setModal(modal)
+    this.context.setModal(modal)
   }
 
   deleteNote() {
@@ -119,7 +118,7 @@ class NoteEdition extends Component {
       this.props.note.id
     )) 
     // we close modal
-    this.props.closeModal()
+    this.context.closeModal()
   }
 
   render() {
@@ -150,7 +149,7 @@ class NoteEdition extends Component {
         </ModalContent>
         <ModalFooter>
           <button
-            onClick={this.props.closeModal}
+            onClick={this.context.closeModal}
           >Cancel</button>
           <input
             type="submit"
@@ -164,12 +163,15 @@ class NoteEdition extends Component {
   }
 }
 
-NoteEdition.PropTypes = {
-  setModal: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
+NoteEdition.propTypes = {
   note: PropTypes.shape({
     id: PropTypes.number.isRequired,
   }),
+}
+
+NoteEdition.contextTypes = {
+  setModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 }
 // wrap the component to inject dispatch and state into it
 export default connect ()(NoteEdition)

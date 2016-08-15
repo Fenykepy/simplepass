@@ -6,8 +6,8 @@ import ModalHeader from 'public/modal/components/ModalHeader'
 export default class Modal extends Component {
 
   closeModal(e) {
-    if (this.props.closeModal) {
-      this.props.closeModal(e)
+    if (this.props.modal_closable) {
+      this.context.closeModal()
     }
   }
 
@@ -33,7 +33,7 @@ export default class Modal extends Component {
         >
           <ModalHeader
             title={this.props.title}
-            closable={this.props.closeModal}
+            closable={this.props.modal_closable}
             closeModal={this.closeModal.bind(this)}
           />
           {this.props.children}
@@ -41,4 +41,16 @@ export default class Modal extends Component {
       </div>
     )
   }
+}
+
+Modal.propTypes = {
+  modal_closable: PropTypes.bool,
+  modal_max: PropTypes.bool,
+  modal_small: PropTypes.bool,
+  modal_opaque: PropTypes.bool,
+  modal_transparent: PropTypes.bool,
+}
+
+Modal.contextTypes = {
+  closeModal: PropTypes.func.isRequired,
 }

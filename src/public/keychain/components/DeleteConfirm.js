@@ -15,14 +15,25 @@ export default class DeleteConfirm extends Component {
         </ModalContent>
         <ModalFooter>
           <button
-            onClick={this.props.closeModal}
+            onClick={this.context.closeModal}
           >Cancel</button>
           <button
             className="primary"
-            onClick={this.props.deletePassword}
+            onClick={this.props.delete}
           >Delete</button>
         </ModalFooter>
       </div>
     )
   }
 }
+
+DeleteConfirm.propTypes = {
+  type: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  delete: PropTypes.func.isRequired, 
+}
+
+DeleteConfirm.contextTypes = {
+  closeModal: PropTypes.func.isRequired,
+}
+

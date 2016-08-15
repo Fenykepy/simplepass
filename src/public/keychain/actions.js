@@ -115,6 +115,8 @@ function loadNotes(notes) {
 }
 
 export function addNote(note) {
+  note.id = Date.now()
+  note.last_modified = note.id
   return dispatch => {
     dispatch({
       type: types.ADD_NOTE,
@@ -126,6 +128,7 @@ export function addNote(note) {
 }
 
 export function updateNote(note) {
+  note.last_modified = Date.now()
   return dispatch => {
     dispatch({
       type: types.UPDATE_NOTE,
@@ -158,6 +161,8 @@ function loadBankCards(bank_cards) {
 }
 
 export function addBankCard(bank_card) {
+  bank_card.id = Date.now()
+  bank_card.last_modified = bank_card.id
   return dispatch => {
     dispatch({
       type: types.ADD_BANK_CARD,
@@ -169,6 +174,7 @@ export function addBankCard(bank_card) {
 }
 
 export function updateBankCard(bank_card) {
+  bank_card.last_modified = Date.now()
   return dispatch => {
     dispatch({
       type: types.UPDATE_BANK_CARD,

@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import HiddenCopyField from 'public/keychain/components/HiddenCopyField'
 import UrlField from 'public/keychain/components/UrlField'
 import DescriptionField from 'public/keychain/components/DescriptionField'
-import AddEntryButton from 'public/keychain/components/AddEntryButton'
+import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
 
 
 export default class PasswordDetail extends Component {
@@ -43,10 +43,10 @@ export default class PasswordDetail extends Component {
           content={this.props.description}
         />
         <li>
-          <AddEntryButton
+          <AddPasswordButton
             className="secondary small edit"
             password={this.props}
-          >Edit</AddEntryButton>
+          >Edit</AddPasswordButton>
         </li>
       </ul>
     )

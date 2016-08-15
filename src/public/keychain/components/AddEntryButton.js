@@ -1,21 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 
 import Modal from 'public/modal/components/Modal'
-import PasswordEdition from 'public/keychain/containers/PasswordEdition'
+import ModalContent from 'public/modal/components/ModalContent'
+import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
+import AddNoteButton from 'public/keychain/components/AddNoteButton'
 
 export default class AddEntryButton extends Component {
 
   setModal() {
     let modal = (
       <Modal
-        closeModal={this.context.closeModal}
+        modal_closable={true}
         title="Add a new password"
       >
-        <PasswordEdition
-          closeModal={this.context.closeModal}
-          password={this.props.password}
-          setModal={this.context.setModal}
-        />
+        <ModalContent>
+          <AddPasswordButton>Password</AddPasswordButton>
+          <AddNoteButton>Note</AddNoteButton>
+        </ModalContent>
       </Modal>
     )
 
@@ -35,5 +36,8 @@ export default class AddEntryButton extends Component {
 
 AddEntryButton.contextTypes = {
   setModal: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
+}
+
+AddEntryButton.propTypes = {
+  className: PropTypes.string,
 }

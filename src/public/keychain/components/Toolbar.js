@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, PropTypes } from 'react'
 
 import AddEntryButton from 'public/keychain/components/AddEntryButton'
 
@@ -19,4 +19,9 @@ export default class Toolbar extends Component {
       </header>
     )
   }
+}
+
+Toolbar.propTypes = {
+  filter: PropTypes.string,
+  filterChange: PropTypes.func.isRequired,
 }

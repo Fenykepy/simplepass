@@ -16,7 +16,7 @@ class PasswordsList extends Component {
       passwords,
     } = this.props
     
-    console.log('PasswordsList', this.props)
+    //console.log('PasswordsList', this.props)
 
     return (
       <ul>

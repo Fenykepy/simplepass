@@ -80,7 +80,7 @@ class PasswordEdition extends Component {
       return this.setState({errors: errors})
     }
     // form is clean, submit it
-    // we remove erros from state
+    // we remove errors from state
     let password = {...this.state}
     delete password.errors
     if (this.props.password) {
@@ -92,7 +92,7 @@ class PasswordEdition extends Component {
       this.props.dispatch(addPassword(password))
     }
     // we close modal
-    this.props.closeModal()
+    this.context.closeModal()
   }
 
   validateForm() {
@@ -121,19 +121,18 @@ class PasswordEdition extends Component {
   confirmDeletePassword() {
     let modal = (
       <Modal
-        closeModal={this.props.closeModal}
+        modal_closable={true}
         title="Delete a password"
       >
         <DeleteConfirm
           type="password"
           title={this.props.password.title}
-          closeModal={this.props.closeModal}
-          deletePassword={this.deletePassword.bind(this)}
+          delete={this.deletePassword.bind(this)}
         />
       </Modal>
     )
 
-    this.props.setModal(modal)
+    this.context.setModal(modal)
   }
 
   deletePassword() {
@@ -141,7 +140,7 @@ class PasswordEdition extends Component {
       this.props.password.id
     )) 
     // we close modal
-    this.props.closeModal()
+    this.context.closeModal()
   }
 
   render() {
@@ -180,7 +179,7 @@ class PasswordEdition extends Component {
         </ModalContent>
         <ModalFooter>
           <button
-            onClick={this.props.closeModal}
+            onClick={this.context.closeModal}
           >Cancel</button>
           <input
             type="submit"
@@ -194,12 +193,15 @@ class PasswordEdition extends Component {
   }
 }
 
-PasswordEdition.PropTypes = {
-  setModal: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
+PasswordEdition.propTypes = {
   password: PropTypes.shape({
     id: PropTypes.number.isRequired,
   }),
+}
+
+PasswordEdition.contextTypes = {
+  setModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
 }
 // wrap the component to inject dispatch and state into it
 export default connect ()(PasswordEdition)
