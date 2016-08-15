@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import Link from 'react-router/lib/Link'
 
 import Header from 'public/app/components/Header'
-import CryptTest from 'public/app/components/CryptTest'
 
 export default class Index extends Component {
 
@@ -22,19 +21,16 @@ export default class Index extends Component {
             >Get started</Link>
           </div>
         </div>
-        <CryptTest />
+        <div id="intro">
+          <h1>You're keychain in sync, everywhere</h1>
+          <p>Simple pass store your passwords, secure notes and bank cards informations and allows you to retrieve them from any browser.</p>
+        </div>
+        <div id="secure">
+          <h1>Secure</h1>
+
+        </div>
           <article>
             <h1>One word, to manage them all</h1>
-            <div>
-              <button>Click me</button>
-              <button className="primary">Primary</button>
-              <button className="secondary">Secondary</button>
-            </div>
-            <div>
-              <button disabled>Click me</button>
-              <button disabled className="primary">Primary</button>
-              <button disabled className="secondary">Secondary</button>
-            </div>
             <p>You only need to remember your "master" password to get access to all your passwords and notes</p>
           </article>
           <article>

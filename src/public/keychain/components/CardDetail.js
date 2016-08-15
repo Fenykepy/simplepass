@@ -28,7 +28,7 @@ export default class CardDetail extends Component {
           this.props.expires_year}
         />
         <HiddenCopyField
-          title="Security cryptogram:"
+          title="Cryptogram:"
           content={this.props.cryptogram}
         />
         <DescriptionField
