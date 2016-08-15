@@ -32,3 +32,11 @@ export default class PasswordAbstract extends Component {
     )
   }
 }
+
+PasswordAbstract.propTypes = {
+  title: PropTypes.string.isRequired,
+  username: PropTypes.string,
+  email: PropTypes.string,
+  url: PropTypes.string,
+  description: PropTypes.string,
+}

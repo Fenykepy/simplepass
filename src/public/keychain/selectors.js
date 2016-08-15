@@ -35,6 +35,16 @@ export const passwordsSelector = createSelector(
   }
 )
 
+export const notesSelector = createSelector(
+  basicKeychainSelector,
+  filterSelector,
+  (keychain, filter) => {
+    return {
+      notes: entriesToList(keychain.notes, filter)
+    }
+  }
+)
+
 function entriesToList(entries, filter) {
   let all_entries = objectValues(entries)
   let filtered_entries = filterEntries(all_entries, filter)

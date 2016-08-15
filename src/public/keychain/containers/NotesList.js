@@ -2,28 +2,28 @@ import React, { Component, PropTypes } from 'react'
 
 import { connect } from 'react-redux'
 
-import { passwordsSelector } from 'public/keychain/selectors'
+import { notesSelector } from 'public/keychain/selectors'
 
 import PasswordAbstract from 'public/keychain/components/PasswordAbstract'
 
-class PasswordsList extends Component {
+class NotesList extends Component {
 
   render() {
 
     // injected by connect call
     const {
       dispatch,
-      passwords,
+      notes,
     } = this.props
     
-    //console.log('PasswordsList', this.props)
+    //console.log('NotesList', this.props)
 
     return (
       <ul>
-        {this.props.passwords.map(password =>
+        {this.props.notes.map(note =>
           <PasswordAbstract
-            key={password.id}
-            {...password}
+            key={note.id}
+            {...note}
           />
         )}
       </ul>
@@ -31,13 +31,9 @@ class PasswordsList extends Component {
   }
 }
 
-PasswordsList.propTypes = {
-  passwords: PropTypes.array.isRequired,
+NotesList.propTypes = {
+  notes: PropTypes.array.isRequired,
 }
 
-
-
 // wrap the component to inject dispatch and state into it
-export default connect (passwordsSelector)(PasswordsList)
-
-
+export default connect (notesSelector)(NotesList)
