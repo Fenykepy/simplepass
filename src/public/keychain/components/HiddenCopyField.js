@@ -47,6 +47,7 @@ export default class HiddenCopyField extends Component {
       <li className="detail-row">
         <h6>{this.props.title}</h6>
         <div className="content">{this.getContent()}</div>
+        <div className="buttons-wrapper">
           <button
             className={this.state.hidden ? 'eye-hidden' : 'eye-visible'}
             title="Toogle content visibility"
@@ -73,6 +74,7 @@ export default class HiddenCopyField extends Component {
           >
             <span className="accessibility">Copy to clipboard</span>
           </button>
+        </div>
       </li>
     )
   }

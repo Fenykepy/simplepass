@@ -439,7 +439,7 @@ button.eye-hidden, button.eye-visible {
     height: 30px;
     width: 36px;
     padding: 0;
-    margin: auto 0 auto auto;
+    margin: auto 5px;
 }
 button.eye-visible {
     background: url('../graphics/svg/eye-visible.svg') no-repeat center center;
@@ -464,7 +464,7 @@ button.eye-hidden {
 button.copy-to-clipboard {
     width: 30px;
     height: 30px;
-    margin: auto 40px auto 10px;
+    margin: auto 5px;
     padding: 0;
     border: none;
     background: url('../graphics/svg/clipboard.svg') no-repeat center center;
@@ -508,8 +508,17 @@ button.copy-to-clipboard {
         display: inline-flex;
         padding: 0 8px;
     }
+    div.buttons-wrapper {
+        display: flex;
+        box-sizing: border-box;
+        height: 40px;
+        margin: 0 40px 0 auto;
+    }
     button.edit {
         min-width: 150px;
         margin: auto;
+    }
+    button.eye-hidden, button.eye-visible, button.copy-to-clipboard {
+        flex: none; // for buttons to stay vertically aligned
     }
 }
