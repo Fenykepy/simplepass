@@ -420,19 +420,40 @@ article#column-form {
 // Entries in entries list
 button.entry {
     display: flex;
+    position: relative;
     flex-direction: row;
     justify-content: flex-start;
     height: 45px;
     width: 100%;
     border: none; // reset buttons borders
     margin: 0;
-    padding: 0 25px;
+    padding: 0 45px;
     font-size: 100%;
     text-align: left;
     border-bottom: 1px solid @entry-border;
     font-weight: bold;
     &:hover {
         color: @black;
+    }
+    &:before {
+        left: 25px;
+        top: 17px;
+        .arrow-right(@text, 6px, 9px);
+    }
+    &:hover:before {
+        left: 25px;
+        top: 17px;
+        .arrow-right(@black, 6px, 9px);
+    }
+    &.open:before {
+        left: 22px;
+        top: 19px;
+        .arrow-down(@text, 6px, 9px);
+    }
+    &.open:hover:before {
+        left: 22px;
+        top: 19px;
+        .arrow-down(@black, 6px, 9px);
     }
 }
 button.eye-hidden, button.eye-visible {

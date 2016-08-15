@@ -7,6 +7,13 @@
     width: 0;
 }
 
+.arrow-right(@color: #444, @height: 9px, @width: 11px) {
+    .arrow;
+    border-left: @width solid @color;
+    border-top: @height solid transparent;
+    border-bottom: @height solid transparent;
+}
+
 .arrow-down(@color: #444, @height: 9px, @width: 11px) {
     .arrow;
     border-top: @width solid @color;

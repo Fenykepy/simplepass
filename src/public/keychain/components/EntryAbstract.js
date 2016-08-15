@@ -36,9 +36,12 @@ export default class EntryAbstract extends Component {
 
   render() {
     //console.log('PasswordAbstract', this.props)
+    let classes = ["entry"]
+    this.state.details ? classes.push('open') : ""
+
     return (
       <li><button
-          className="entry"
+          className={classes.join(' ')}
           onClick={this.toogleDetails.bind(this)}
         >{this.props.title}</button>
         {this.getDetails()}
