@@ -108,3 +108,20 @@ export default class PasswordEditionForm extends Component {
   }
 }
 
+PasswordEditionForm.PropTypes = {
+  id: PropTypes.string.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  title: PropTypes.string.isRequired,
+  handleTitleChange: PropTypes.func.isRequired,
+  username: PropTypes.string.isRequired,
+  handleUsernameChange: PropTypes.func.isRequired,
+  email: PropTypes.string.isRequired,
+  handleEmailChange: PropTypes.func.isRequired,
+  password: PropTypes.string.isRequired,
+  handlePasswordChange: PropTypes.func.isRequired,
+  url: PropTypes.string.isRequired,
+  handleUrlChange: PropTypes.func.isRequired,
+  description: PropTypes.string.isRequired,
+  handleDescriptionChange: PropTypes.func.isRequired,
+  errors: PropTypes.object,
+}
