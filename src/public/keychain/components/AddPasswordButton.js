@@ -8,13 +8,11 @@ export default class AddPasswordButton extends Component {
   setModal() {
     let modal = (
       <Modal
-        closeModal={this.context.closeModal}
+        modal_closable={true}
         title={this.getTitle()}
       >
         <PasswordEdition
-          closeModal={this.context.closeModal}
           password={this.props.password}
-          setModal={this.context.setModal}
         />
       </Modal>
     )
@@ -44,7 +42,6 @@ export default class AddPasswordButton extends Component {
 
 AddPasswordButton.contextTypes = {
   setModal: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
 }
 
 AddPasswordButton.PropTypes = {

@@ -8,13 +8,11 @@ export default class AddNoteButton extends Component {
   setModal() {
     let modal = (
       <Modal
-        closeModal={this.context.closeModal}
+        modal_closable={true}
         title={this.getTitle()}
       >
         <NoteEdition
-          closeModal={this.context.closeModal}
           note={this.props.note}
-          setModal={this.context.setModal}
         />
       </Modal>
     )
@@ -45,7 +43,6 @@ export default class AddNoteButton extends Component {
 
 AddNoteButton.contextTypes = {
   setModal: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
 }
 
 AddNoteButton.PropTypes = {

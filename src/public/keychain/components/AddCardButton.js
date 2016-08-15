@@ -8,13 +8,11 @@ export default class AddCardButton extends Component {
   setModal() {
     let modal = (
       <Modal
-        closeModal={this.context.closeModal}
+        modal_closable={true}
         title={this.getTitle()}
       >
         <CardEdition
-          closeModal={this.context.closeModal}
           card={this.props.card}
-          setModal={this.context.setModal}
         />
       </Modal>
     )
@@ -45,7 +43,6 @@ export default class AddCardButton extends Component {
 
 AddCardButton.contextTypes = {
   setModal: PropTypes.func.isRequired,
-  closeModal: PropTypes.func.isRequired,
 }
 
 AddCardButton.PropTypes = {
