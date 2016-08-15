@@ -194,6 +194,13 @@ class PasswordEdition extends Component {
   }
 }
 
+PasswordEdition.PropTypes = {
+  setModal: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  password: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+  }),
+}
 // wrap the component to inject dispatch and state into it
 export default connect ()(PasswordEdition)
 
