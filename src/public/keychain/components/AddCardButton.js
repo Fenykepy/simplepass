@@ -36,7 +36,7 @@ export default class AddCardButton extends Component {
     //console.log('AddCardButton', this.props)
     return (
       <button
-        className={this.props.className || "secondary"}
+        className={this.props.className || ""}
         onClick={this.setModal.bind(this)}
       >{this.props.children}</button>
     )
