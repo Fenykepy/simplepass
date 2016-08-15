@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
 import Modal from 'public/modal/components/Modal'
-import NoteEdition from 'public/keychain/containers/NoteEdition'
+import CardEdition from 'public/keychain/containers/CardEdition'
 
-export default class AddNoteButton extends Component {
+export default class AddCardButton extends Component {
 
   setModal() {
     let modal = (
@@ -11,9 +11,9 @@ export default class AddNoteButton extends Component {
         closeModal={this.context.closeModal}
         title={this.getTitle()}
       >
-        <NoteEdition
+        <CardEdition
           closeModal={this.context.closeModal}
-          note={this.props.note}
+          card={this.props.card}
           setModal={this.context.setModal}
         />
       </Modal>
@@ -23,17 +23,17 @@ export default class AddNoteButton extends Component {
   }
 
   getTitle() {
-    if (this.props.note) {
-      // we update existing note
-      return "Edit note"
+    if (this.props.card) {
+      // we update existing card
+      return "Edit bank card"
     }
-    // we add a new note
-    return "Add a new note"
+    // we add a new card
+    return "Add a new bank card"
   }
 
 
   render() {
-    //console.log('AddNoteButton', this.props)
+    //console.log('AddCardButton', this.props)
     return (
       <button
         className={this.props.className || "secondary"}
@@ -43,13 +43,13 @@ export default class AddNoteButton extends Component {
   }
 }
 
-AddNoteButton.contextTypes = {
+AddCardButton.contextTypes = {
   setModal: PropTypes.func.isRequired,
   closeModal: PropTypes.func.isRequired,
 }
 
-AddNoteButton.PropTypes = {
-  note: PropTypes.shape({
+AddCardButton.PropTypes = {
+  card: PropTypes.shape({
     id: PropTypes.number.isRequired,
   }),
 }

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import PasswordDetail from 'public/keychain/components/PasswordDetail'
 import NoteDetail from 'public/keychain/components/NoteDetail'
+import CardDetail from 'public/keychain/components/CardDetail'
 
 
 export default class EntryAbstract extends Component {
@@ -26,6 +27,8 @@ export default class EntryAbstract extends Component {
         return <PasswordDetail {...this.props} />
       case 'NOTE':
         return <NoteDetail {...this.props} />
+      case 'BANK_CARD':
+        return <CardDetail {...this.props} />
       default:
         return <NoteDetail {...this.props} />
     }

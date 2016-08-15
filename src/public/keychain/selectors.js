@@ -45,6 +45,15 @@ export const notesSelector = createSelector(
   }
 )
 
+export const cardsSelector = createSelector(
+  basicKeychainSelector,
+  filterSelector,
+  (keychain, filter) => {
+    return {
+      cards: entriesToList(keychain.bank_cards, filter)
+    }
+  }
+)
 function entriesToList(entries, filter) {
   let all_entries = objectValues(entries)
   let filtered_entries = filterEntries(all_entries, filter)

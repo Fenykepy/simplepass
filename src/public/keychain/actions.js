@@ -164,6 +164,7 @@ function loadBankCards(bank_cards) {
 }
 
 export function addBankCard(bank_card) {
+  bank_card.type = 'BANK_CARD'
   bank_card.id = Date.now()
   bank_card.last_modified = bank_card.id
   return dispatch => {
@@ -177,6 +178,7 @@ export function addBankCard(bank_card) {
 }
 
 export function updateBankCard(bank_card) {
+  bank_card.type = 'BANK_CARD'
   bank_card.last_modified = Date.now()
   return dispatch => {
     dispatch({
@@ -192,7 +194,7 @@ export function deleteBankCard(bank_card) {
   return dispatch => {
     dispatch({
       type: types.DELETE_BANK_CARD,
-      bank_card: bank_card.id,
+      bank_card: bank_card,
     })
     return dispatch(syncKeychain())
   }

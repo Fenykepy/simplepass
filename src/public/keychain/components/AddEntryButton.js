@@ -4,6 +4,7 @@ import Modal from 'public/modal/components/Modal'
 import ModalContent from 'public/modal/components/ModalContent'
 import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
 import AddNoteButton from 'public/keychain/components/AddNoteButton'
+import AddCardButton from 'public/keychain/components/AddCardButton'
 
 export default class AddEntryButton extends Component {
 
@@ -11,11 +12,12 @@ export default class AddEntryButton extends Component {
     let modal = (
       <Modal
         modal_closable={true}
-        title="Add a new password"
+        title="Add a new"
       >
         <ModalContent>
           <AddPasswordButton>Password</AddPasswordButton>
           <AddNoteButton>Note</AddNoteButton>
+          <AddCardButton>Bank card</AddCardButton>
         </ModalContent>
       </Modal>
     )
