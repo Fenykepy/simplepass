@@ -71,6 +71,7 @@ function loadPasswords(passwords) {
 }
 
 export function addPassword(password) {
+  password.type = 'PASSWORD'
   password.id = Date.now()
   password.last_modified = password.id
   return dispatch => {
@@ -116,6 +117,7 @@ function loadNotes(notes) {
 
 export function addNote(note) {
   note.id = Date.now()
+  note.type = 'NOTE'
   note.last_modified = note.id
   return dispatch => {
     dispatch({
@@ -128,6 +130,7 @@ export function addNote(note) {
 }
 
 export function updateNote(note) {
+  note.type = 'NOTE'
   note.last_modified = Date.now()
   return dispatch => {
     dispatch({
@@ -143,7 +146,7 @@ export function deleteNote(note) {
   return dispatch => {
     dispatch({
       type: types.DELETE_NOTE,
-      note: note.id,
+      note: note,
     })
     return dispatch(syncKeychain())
   }

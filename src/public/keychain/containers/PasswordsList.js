@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { passwordsSelector } from 'public/keychain/selectors'
 
-import PasswordAbstract from 'public/keychain/components/PasswordAbstract'
+import EntryAbstract from 'public/keychain/components/EntryAbstract'
 
 class PasswordsList extends Component {
 
@@ -21,7 +21,7 @@ class PasswordsList extends Component {
     return (
       <ul>
         {this.props.passwords.map(password =>
-          <PasswordAbstract
+          <EntryAbstract
             key={password.id}
             {...password}
           />

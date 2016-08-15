@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { notesSelector } from 'public/keychain/selectors'
 
-import PasswordAbstract from 'public/keychain/components/PasswordAbstract'
+import EntryAbstract from 'public/keychain/components/EntryAbstract'
 
 class NotesList extends Component {
 
@@ -21,7 +21,7 @@ class NotesList extends Component {
     return (
       <ul>
         {this.props.notes.map(note =>
-          <PasswordAbstract
+          <EntryAbstract
             key={note.id}
             {...note}
           />

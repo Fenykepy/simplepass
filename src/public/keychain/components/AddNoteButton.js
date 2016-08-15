@@ -9,11 +9,11 @@ export default class AddNoteButton extends Component {
     let modal = (
       <Modal
         closeModal={this.context.closeModal}
-        title="Add a new note"
+        title={this.getTitle()}
       >
         <NoteEdition
           closeModal={this.context.closeModal}
-          password={this.props.note}
+          note={this.props.note}
           setModal={this.context.setModal}
         />
       </Modal>

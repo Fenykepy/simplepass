@@ -8,13 +8,6 @@ import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
 
 export default class PasswordDetail extends Component {
 
-  getDescription() {
-    if (this.props.description) {
-      return <li><h6>Description:</h6><div>{this.props.description}</div></li>
-    }
-    return null
-  }
-
   render() {
     //console.log('PasswordDetail', this.props)
     return (
