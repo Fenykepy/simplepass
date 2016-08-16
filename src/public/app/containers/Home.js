@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 
+
 import { connect } from 'react-redux'
 
 import { logout } from 'public/user/actions'
@@ -28,13 +29,6 @@ class Home extends Component {
     // we test if crypto is present in browser 
     if (! window.crypto) {
       return <div><em>Sorry, your browser doen't support webCrypto, upgrade it.</em></div>
-    }
-    // we test if TextEncoder is present in browser 
-    try {
-      new TextEncoder('utf-8').encode('my_str')
-    }
-    catch (e) {
-      return <div><em>Sorry, your browser doen't support TextEncoder, upgrade it.</em></div>
     }
 
     // we show spinner while ejson fetches

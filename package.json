@@ -42,7 +42,9 @@
     "react-router": "^2.6.1",
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
-    "reselect": "^2.5.3"
+    "reselect": "^2.5.3",
+    "text-encoder-lite": "^1.0.0",
+    "text-encoding": "^0.6.0"
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",

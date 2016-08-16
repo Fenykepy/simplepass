@@ -1,5 +1,8 @@
 import base64arrayBuffer from 'base64-arraybuffer'
 
+// TextEncoder polyfill
+import { TextEncoder, TextDecoder } from 'text-encoding'
+
 import base64url from 'base64url'
 
 const CRYPT_ALGO = "AES-CBC"
