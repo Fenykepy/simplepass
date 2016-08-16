@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+import favicon from 'graphics/svg/simplepass-favicon.svg'
+
 import { connect } from 'react-redux'
 
 import { appSelector } from 'public/app/selectors'
@@ -34,6 +36,7 @@ class App extends Component {
   }
 
   render () {
+    console.log(favicon)
 
     // injected by connect call
     const {

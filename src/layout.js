@@ -9,7 +9,7 @@ export default  `
         <meta name="description" content="SimplePass, the opensource password manager" />
         <meta name="author" content="Fenykepy" />
         <meta charset="utf-8" />
-        <link rel="icon" type="image/svg" href="/public/images/phiroom-favicon.svg" />
+        <link rel="icon" type="image/svg" href="/static/images/simplepass-favicon.svg" />
         <link rel="stylesheet" href="${webpackAssets.app.css}" />
       </head>
       <body>

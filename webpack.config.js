@@ -66,6 +66,15 @@ var config = {
         // svg are optimised then stored separately
         test: /\.(svg)$/, 
         loaders: [ 'file-loader?name=images/[hash].[ext]', 'svgo-loader?useConfig=svgoConfig'],
+        exclude: [
+          path.join( __dirname, '/node_modules/'),
+          path.join(__dirname, '/src/graphics/svg/simplepass-favicon.svg')
+        ]
+      },
+      { 
+        // favicon svg is stored with original name
+        test: /simplepass-favicon\.svg$/, 
+        loaders: [ 'file-loader?name=images/simplepass-favicon.svg', 'svgo-loader?useConfig=svgoConfig'],
         exclude: path.join( __dirname, '/node_modules/'),
       },
     ],
