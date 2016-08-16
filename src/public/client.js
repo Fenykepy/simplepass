@@ -24,10 +24,10 @@ let store = createStoreWithMiddleware(rootReducer)
 
 // every time state changes, log it
 
-
+/*
 let unsubscribe = store.subscribe(() =>
   console.log('state', store.getState())
-)
+  )*/
 
 
 // we check if user may be authenticated or not

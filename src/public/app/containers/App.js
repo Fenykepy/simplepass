@@ -36,7 +36,6 @@ class App extends Component {
   }
 
   render () {
-    console.log(favicon)
 
     // injected by connect call
     const {
