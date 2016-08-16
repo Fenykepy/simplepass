@@ -26,9 +26,12 @@ class KeychainLoader extends Component {
   handleLoadKeychain(e) {
     e.preventDefault()
     this.props.dispatch(loadKeychain(this.state.pass))
-    .catch(errors => {
+    .catch(error => {
+      console.log(error)
+      // because we have no error message in decryption fails
+      // with a bad passphrase
       this.setState({errors: {
-        'pass': ['Failed to unlock keychain with given passphrase.']
+        'pass': [error.message || 'Failed to unlock keychain with given passphrase']
       }})
     }) 
   }
