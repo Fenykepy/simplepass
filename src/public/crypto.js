@@ -9,6 +9,12 @@ const CRYPT_ALGO = "AES-CBC"
 const crypto = {}
 
 
+// we use webkitSubtle prefix if necessairy
+if (! window.crypto.subtle && window.crypto.webkitSubtle) {
+  window.crypto.subtle = window.crypto.webkitSubtle
+}
+
+
 function string2buffer(str) {
   /* convert a string to a buffer */
   return new TextEncoder("utf-8").encode(str)

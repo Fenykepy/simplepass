@@ -30,6 +30,16 @@ class Home extends Component {
     if (! window.crypto) {
       return <div><em>Sorry, your browser doen't support webCrypto, upgrade it.</em></div>
     }
+    
+    // we use webkitSubtle prefix if necessairy
+    if (! window.crypto.subtle && window.crypto.webkitSubtle) {
+      window.crypto.subtle = window.crypto.webkitSubtle
+    }
+
+    // we test if crypto.subtle is present in browser
+    if (! window.crypto.subtle) {
+      return <div><em>Sorry, your browser doen't support webCrypto.subtle, upgrade it.</em></div>
+    }
 
     // we show spinner while ejson fetches
     if (! this.props.ejson || ! this.props.ejson.fetched) {
