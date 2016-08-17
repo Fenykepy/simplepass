@@ -92,6 +92,12 @@ app.use(route.put('/api/ejson/', ejson.update))
 // compress
 app.use(compress())
 
-app.listen(settings.PORT)
+app.listen(settings.PORT, function(err) {
+  if (err) {
+    console.log(error)
+  } else {
+    console.info("==> Listening on port %s. Openup http://localhost:%s/ in your browser.", settings.PORT, settings.PORT)
+  }
+})
 
 

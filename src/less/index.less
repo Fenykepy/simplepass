@@ -52,13 +52,17 @@
     #features {
         flex-direction: row;
         justify-content: center;
+        flex-wrap: wrap;
         height: auto;
         margin: 100px 0 0 0;
+        margin: 0;
         padding: 0 10% 100px;
     }
     #secure, #open, #devices {
         padding-top: 100px; // for background
         flex: 1;
+        min-width: 250px;
+        margin: 100px 15px 0;
         h1 {
             font-size: 1.8em;
         }
@@ -67,14 +71,16 @@
         }
     }
     #devices {
+        background: url('../graphics/svg/devices-blue.svg') no-repeat top center;
+        background-size: auto 80px;
     }
     #secure {
         background: url('../graphics/svg/round-lock-blue.svg') no-repeat top center;
-        background-size: 80px;
+        background-size: auto 80px;
     }
     #open {
         background: url('../graphics/svg/open-source.svg') no-repeat top center;
-        background-size: 80px;
+        background-size: auto 80px;
     }
     #start {
         border: none;
