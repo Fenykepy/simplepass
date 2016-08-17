@@ -20,6 +20,9 @@ import responseTime from './utils/response-time'
 import settings from '../config'
 import monk from 'monk'
 
+import fs from 'fs'
+
+
 var app = koa()
 
 // set settings.DB_PATH as context
@@ -92,10 +95,44 @@ app.use(route.put('/api/ejson/', ejson.update))
 // compress
 app.use(compress())
 
+
+function resetSocket(sock) {
+  /* 
+   * We first delete socket if file exists,
+   * as it's not automatically done at shutdown,
+   * else it throws a error
+   */
+  try {
+    fs.accessSync(sock, fs.F_OK, (error) => {throw error})
+    console.log("Socket file exists, delete it.")
+    fs.unlinkSync(sock)
+  } catch (e) {
+    console.log('failed to reset socket.')
+    throw e
+    return
+  }
+}
+
+if (typeof settings.PORT == "string") {
+  /*
+   * If we use a socket, first delete file if
+   * it exists
+   */
+  resetSocket(settings.PORT)
+}
+
+
+
 app.listen(settings.PORT, function(err) {
   if (err) {
     console.log(error)
   } else {
+    // we give rights to socket else nginx can't use it
+    if (typeof settings.PORT == "string" && fs.lstatSync(settings.PORT).isSocket()) {
+      console.log('change socket mode')
+      fs.chmodSync(settings.PORT, '777');
+    }
+
     console.info("==> Listening on port %s. Openup http://localhost:%s/ in your browser.", settings.PORT, settings.PORT)
   }
 })
