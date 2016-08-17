@@ -21,14 +21,24 @@ export default class Index extends Component {
             >Get started</Link>
           </div>
         </div>
-        <div id="intro">
+        <section id="intro">
           <h1>Synched keychain, secured, anywhere</h1>
-          <p>Simple pass stores your passwords, private notes and bank cards informations. It allows you to retrieve them frow any browser, wherever you are. Only one master passphrase to remember gives you access to all the keychain.</p>
-        </div>
-        <div id="secure">
-          <h1>Secure</h1>
-          <p>Keychain is stored encrypted on the server<br />Encryption / decryption phases run in your browser<br />No data leak</p>
-        </div>
+          <p>Simple pass stores your passwords, private notes and bank cards informations. It allows you to retrieve them frow any modern browser, wherever you are. Only one master passphrase to remember gives you access to all the keychain.</p>
+        </section>
+        <section id="features">
+          <article id="secure">
+            <h1>Secure</h1>
+            <p>Keychain is stored encrypted on the server<br />Encryption / decryption phases run in browser<br />No data leak</p>
+          </article>
+          <article id="devices">
+            <h1>Multi devices</h1>
+            <p>Runs in any modern browser supporting WebCrypto<br />You can access your keychain from any device<br />Desktop computers, laptops, tablets, phones...</p>
+          </article>
+          <article id="open">
+            <h1>Open Source</h1>
+            <p>Feel free to read code and submit pull requests<br />Run it on your own server</p>
+          </article>
+        </section>
         <div id="start">
           <p>Create an account and set your masterpassphrase</p>
           <Link

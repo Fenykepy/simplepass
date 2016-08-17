@@ -27,7 +27,7 @@
     }
 
 
-    #intro, #secure, #open, #start {
+    #intro, #features, #start {
         position: relative;
         height: 100vh;
         min-height: 400px;
@@ -49,10 +49,32 @@
             line-height: 1.5;
         }
     }
-    #secure {
+    #features {
+        flex-direction: row;
+        justify-content: center;
+        height: auto;
+        margin: 100px 0 0 0;
+        padding: 0 10% 100px;
+    }
+    #secure, #open, #devices {
+        padding-top: 100px; // for background
+        flex: 1;
         h1 {
-            background: url('../graphics/svg/round-lock-blue.svg') no-repeat top center;
+            font-size: 1.8em;
         }
+        p {
+            font-size: 1.2em;
+        }
+    }
+    #devices {
+    }
+    #secure {
+        background: url('../graphics/svg/round-lock-blue.svg') no-repeat top center;
+        background-size: 80px;
+    }
+    #open {
+        background: url('../graphics/svg/open-source.svg') no-repeat top center;
+        background-size: 80px;
     }
     #start {
         border: none;
