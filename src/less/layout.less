@@ -289,7 +289,7 @@ article#column-form {
     z-index: 1000; // we place it upon overlay
     padding: 0;
     position: absolute;
-    top: 60px;
+    top: 50px;
     right: 10px;
     min-width: 200px;
     display: block;
@@ -314,6 +314,18 @@ article#column-form {
                 background: @context-item-bg-hover;
             }
         }
+    }
+    &:before {
+        // we create small arrow up, border
+        .arrow-up(@context-border, 10px, 10px);
+        top: -10px;
+        right: 25px;
+    }
+    &:after {
+        // we create some arrow up, background
+        .arrow-up(@context-bg, 10px, 10px);
+        top: -9px;
+        right: 25px;
     }
 }
 .locked {

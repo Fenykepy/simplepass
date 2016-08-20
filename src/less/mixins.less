@@ -14,6 +14,13 @@
     border-bottom: @height solid transparent;
 }
 
+.arrow-up(@color: #444, @height: 9px, @width: 11px) {
+    .arrow;
+    border-bottom: @width solid @color;
+    border-right: @height solid transparent;
+    border-left: @height solid transparent;
+}
+
 .arrow-down(@color: #444, @height: 9px, @width: 11px) {
     .arrow;
     border-top: @width solid @color;
