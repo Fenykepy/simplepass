@@ -13,7 +13,7 @@ export default class Toolbar extends Component {
           type="text"
           onChange={this.props.filterChange}
           value={this.props.filter}
-          placeholder="Search..."
+          placeholder="Filter..."
         />
         <AddEntryButton>Add</AddEntryButton>
       </header>
