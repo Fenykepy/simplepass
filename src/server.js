@@ -15,6 +15,7 @@ import config from '../webpack.config'
 import home from './home/controllers' 
 import ejson from './ejson/controllers'
 import user from './user/controllers'
+import admin from './admin/controllers'
 import responseTime from './utils/response-time'
 
 import settings from '../config'
@@ -80,6 +81,7 @@ app.use(user.authenticate)
 app.use(route.post('/api/user/', user.create))
 app.use(route.post('/api/user/login/', user.login))
 
+// from here all users must be authenticated
 app.use(user.authenticationRequired)
 
 // private user api endpoints
@@ -90,6 +92,12 @@ app.use(route.get('/api/user/', user.retrieve))
 // ejson api endpoint
 app.use(route.get('/api/ejson/', ejson.retrieve))
 app.use(route.put('/api/ejson/', ejson.update))
+
+
+// from here all users must be admin
+app.use(admin.adminRequired)
+
+app.use(route.get('/api/admin/users/number/', admin.usersNumber))
 
 
 // compress
