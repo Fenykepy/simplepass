@@ -8,7 +8,8 @@
     "start": "node ./src/index.js",
     "start_prod": "NODE_ENV=production node ./src/index.js",
     "build": "NODE_ENV=production webpack -p --config webpack.prod.config.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "analyze": "NODE_ENV=production webpack -p --config webpack.prod.config.js --json | webpack-bundle-size-analyzer"
   },
   "repository": {
     "type": "git",
@@ -43,7 +44,6 @@
     "redux": "^3.5.2",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.3",
-    "text-encoder-lite": "^1.0.0",
     "text-encoding": "^0.6.0"
   },
   "devDependencies": {
@@ -69,6 +69,7 @@
     "style-loader": "^0.13.1",
     "svgo-loader": "^1.1.0",
     "webpack": "^1.13.1",
+    "webpack-bundle-size-analyzer": "^2.0.2",
     "webpack-dev-middleware": "^1.6.1",
     "webpack-hot-middleware": "^2.12.2"
   },
