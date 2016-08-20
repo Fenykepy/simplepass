@@ -31,11 +31,13 @@ On a debian like system, run as root:
 
  * Edit config as you wish (make sure to set a strong `SECRET_KEY` )
  * Edit `config.js` as follow:
- 
+
+
+```
     //import settings from './devel_config'
     import settings from './prod_config'
-
     export default settings
+```
 
  * Build then start node server
 
