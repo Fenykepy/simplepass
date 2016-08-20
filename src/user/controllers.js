@@ -263,14 +263,21 @@ user.create = function* (next) {
   let s = this.state.validated_data.username + this.state.validated_data.email
   let ejson_path = crypto.createHash('sha1').update(s).digest("hex") + '.ejson'
 
+  // get users number
+  let n_users = yield users.count()
+
   // create new user object
   let user = {
     username: this.state.validated_data.username,
     email: this.state.validated_data.email,
     email_validated: false,
     password: hash,
-    ejson_path: ejson_path
+    ejson_path: ejson_path,
+    admin: false
   }
+  
+  // first user in db is automatically admin
+  if (n_users == 0) user.admin = true
 
   // insert new user in db
   let new_user = yield users.insert(user)
