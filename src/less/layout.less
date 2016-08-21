@@ -148,6 +148,14 @@ sup {
         margin-left: 3px;
         margin-right: 3px;
     }
+    &.small {
+        text-align: center;
+        border-top: none;
+        padding-top: 0;
+        button {
+            min-width: 150px;
+        }
+    }
 }
 
 
@@ -287,7 +295,7 @@ article#column-form {
 }
 .dropdown-menu {
     z-index: 1000; // we place it upon overlay
-    padding: 0;
+    padding: 10px 0;
     position: absolute;
     top: 50px;
     right: 10px;
@@ -298,7 +306,7 @@ article#column-form {
     border-radius: 3px;
     text-align: left;
     li {
-        margin: 10px 0;
+        margin: 0;
         padding: 0;
         width: auto;
         white-space: nowrap;
@@ -307,7 +315,7 @@ article#column-form {
             text-decoration: none;
             color: @context-text;
             display: block;
-            padding: 5px 20px;
+            padding: 10px 20px;
             height: auto;
             &:hover, &:focus, &:active {
                 color: @context-item-hover;

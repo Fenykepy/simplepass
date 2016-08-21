@@ -108,7 +108,7 @@ export default class PasswordEditionForm extends Component {
   }
 }
 
-PasswordEditionForm.PropTypes = {
+PasswordEditionForm.propTypes = {
   id: PropTypes.string.isRequired,
   onSubmit: PropTypes.func.isRequired,
   title: PropTypes.string.isRequired,

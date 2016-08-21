@@ -117,3 +117,13 @@ export function loadKeychain(passphrase) {
     })
   }
 }
+
+/* Set a new passphrase */
+export function updatePassphrase(passphrase) {
+  return function(dispatch) {
+    // store new passphrase in state
+    dispatch(setPassphrase(passphrase))
+    // sync crypt ejson and sync it with state and server
+    dispatch(syncKeychain())
+  }
+}

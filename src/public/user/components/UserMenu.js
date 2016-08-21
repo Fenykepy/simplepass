@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Link from 'react-router/lib/Link'
+import PassphraseEditionButton from 'public/app/components/PassphraseEditionButton'
 
 export default class UserMenu extends Component {
 
@@ -11,6 +12,7 @@ export default class UserMenu extends Component {
           onClick={this.props.close}
         />
         <ul className="dropdown-menu">
+          <li><PassphraseEditionButton /></li>
           <li><a
               href=""
               onClick={this.props.logout}
