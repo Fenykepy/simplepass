@@ -2,6 +2,24 @@ import React, { Component, PropTypes } from 'react'
 
 import FormFieldErrors from 'public/app/components/FormFieldErrors'
 
+  const MONTHS = ['--']
+  const YEARS = ['--']
+
+  // we populate months
+  for (let i=0, l=12; i < l; i++) {
+    let month = (i + 1).toString()
+    MONTHS.push(month.length == 1 ?
+                "0" + month :
+                month
+    )
+  }
+  // we populate years
+  let year = new Date().getFullYear()
+  for (let i=0, l=5; i < l; i++) {
+    YEARS.push(year + i)
+  }
+
+
 export default class CardEditionForm extends Component {
 
   render() {
@@ -71,22 +89,34 @@ export default class CardEditionForm extends Component {
             errors_list={this.props.errors}
             field={'expires'}
           />
-          <input
+          <select
             id="id-expires-month"
             name="expires-month"
-            type="number"
             value={this.props.expires_month}
             onChange={this.props.handleExpiresMonthChange}
             required
-          />
-          <input
+          >
+            {MONTHS.map(month =>
+                <option
+                  key={month}
+                  value={month}
+                >{month}</option>
+            )}
+          </select>
+          <select
             id="id-expires-year"
             name="expires-year"
-            type="number"
             value={this.props.expires_year}
             onChange={this.props.handleExpiresYearChange}
             required
-          />
+          >
+            {YEARS.map(year =>
+                <option
+                  key={year}
+                  value={year}
+                >{year}</option>
+            )}
+          </select>
         </div>
         <div className="field-wrapper">
           <label htmlFor="id-cryptogram">Cryptogram:</label>
