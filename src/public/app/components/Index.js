@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 
+import { setDocumentTitle } from 'public/app/actions'
+
 import Link from 'react-router/lib/Link'
 
 import Header from 'public/app/components/Header'
 
 export default class Index extends Component {
+
+  componentDidMount() {
+    // we set title
+    setDocumentTitle()
+  }
 
   render() {
     return (

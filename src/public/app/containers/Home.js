@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import { logout } from 'public/user/actions'
 import { fetchEjsonIfNeeded } from 'public/ejson/actions'
+import { setDocumentTitle } from 'public/app/actions'
 
 import { homeSelector } from 'public/app/selectors'
 
@@ -18,6 +19,11 @@ class Home extends Component {
 
   componentWillMount() {
     this.props.dispatch(fetchEjsonIfNeeded())
+  }
+
+  componentDidMount() {
+    // we set title
+    setDocumentTitle()
   }
 
   logout(e) {

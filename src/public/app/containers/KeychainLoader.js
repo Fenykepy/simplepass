@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { loadKeychain } from 'public/app/actions'
+import { setDocumentTitle } from 'public/app/actions'
 
 import KeychainLoaderForm from 'public/app/components/KeychainLoaderForm'
 
@@ -17,6 +18,11 @@ class KeychainLoader extends Component {
       pass: '',
       errors: {}
     }
+  }
+
+  componentDidMount() {
+    // we set title
+    setDocumentTitle('Unlock keychain')
   }
 
   handlePassChange(e) {

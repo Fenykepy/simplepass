@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { keychainSelector } from 'public/keychain/selectors'
 
 import { setFilter } from 'public/keychain/actions'
+import { setDocumentTitle } from 'public/app/actions'
 
 import LeftPanel from 'public/keychain/components/LeftPanel'
 import Toolbar from 'public/keychain/components/Toolbar'
@@ -13,6 +14,11 @@ class Keychain extends Component {
 
   setFilter(e) {
     this.props.dispatch(setFilter(e.target.value))
+  }
+
+  componentDidMount() {
+    // we set title
+    setDocumentTitle('')
   }
 
   render() {

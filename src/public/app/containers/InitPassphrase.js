@@ -3,6 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 import { init } from 'public/app/actions'
+import { setDocumentTitle } from 'public/app/actions'
 
 import InitPassphraseForm from 'public/app/components/InitPassphraseForm'
 
@@ -27,6 +28,11 @@ class InitPassphrase extends Component {
       pass_confirm: '',
       errors: {}
     }
+  }
+
+  componentDidMount() {
+    // we set title
+    setDocumentTitle('Set master passphrase')
   }
 
   handlePassChange(e) {

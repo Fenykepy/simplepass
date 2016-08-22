@@ -13,7 +13,12 @@ import { updateEjson } from 'public/ejson/actions'
 
 // actions creators
 export function setDocumentTitle(title) {
-  document.title = title + ' - SimplePass'
+  let title_root = 'SimplePass'
+  if (title) {
+    document.title = `${title} - ${title_root}`
+  } else {
+    document.title = `${title_root} - A simple password manager`
+  }
 }
 
 function setPassphrase(passphrase) {
