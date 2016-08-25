@@ -89,34 +89,39 @@ export default class CardEditionForm extends Component {
             errors_list={this.props.errors}
             field={'expires'}
           />
-          <select
-            id="id-expires-month"
-            name="expires-month"
-            value={this.props.expires_month}
-            onChange={this.props.handleExpiresMonthChange}
-            required
-          >
-            {MONTHS.map(month =>
-                <option
-                  key={month}
-                  value={month}
-                >{month}</option>
-            )}
-          </select>
-          <select
-            id="id-expires-year"
-            name="expires-year"
-            value={this.props.expires_year}
-            onChange={this.props.handleExpiresYearChange}
-            required
-          >
-            {YEARS.map(year =>
-                <option
-                  key={year}
-                  value={year}
-                >{year}</option>
-            )}
-          </select>
+          <div className="group-field-inline">
+            <select
+              id="id-expires-month"
+              name="expires-month"
+              value={this.props.expires_month}
+              onChange={this.props.handleExpiresMonthChange}
+              required
+            >
+              {MONTHS.map(month =>
+                  <option
+                    key={month}
+                    value={month}
+                  >{month}</option>
+              )}
+            </select>
+            <div
+              className="input-separator"
+            >/</div>
+            <select
+              id="id-expires-year"
+              name="expires-year"
+              value={this.props.expires_year}
+              onChange={this.props.handleExpiresYearChange}
+              required
+            >
+              {YEARS.map(year =>
+                  <option
+                    key={year}
+                    value={year}
+                  >{year}</option>
+              )}
+            </select>
+          </div>
         </div>
         <div className="field-wrapper">
           <label htmlFor="id-cryptogram">Cryptogram:</label>
