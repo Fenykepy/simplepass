@@ -38,6 +38,7 @@ class UserMenuButton extends Component {
         <UserMenu
           close={this.closeMenu.bind(this)}
           logout={this.logout.bind(this)}
+          admin={this.props.user.admin}
         />
       )
     }
@@ -66,3 +67,10 @@ class UserMenuButton extends Component {
 
 // wrap the component to inject dispatch and state into it
 export default connect (userMenuSelector)(UserMenuButton)
+
+UserMenuButton.propTypes = {
+  user: PropTypes.shape({
+    username: PropTypes.string.isRequired,
+    admin: PropTypes.bool,
+  }).isRequired,
+}
