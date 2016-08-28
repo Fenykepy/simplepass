@@ -578,3 +578,31 @@ footer.adjoined-buttons-wrapper {
         flex: none; // for buttons to stay vertically aligned
     }
 }
+
+
+// Password strength indicator
+.password-strength-indicator {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    height: 8px;
+    border: 1px solid @meter-border;
+    border-radius: 4px;
+    overflow: hidden;
+    .bar {
+        height: 100%;
+        background: @meter-bar-bg;
+    }
+}
+.password-strength-legend {
+    display: flex;
+    align-items: left;
+    font-size: 0.8em;
+    padding: 0 10px;
+    margin-top: 3px;
+    font-style: italic;
+    span:last-child {
+        // we push it right
+        margin-left: auto;
+    }
+}

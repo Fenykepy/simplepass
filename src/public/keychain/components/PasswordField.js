@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import PasswordGeneratorButton from 'public/keychain/components/PasswordGeneratorButton'
+import PasswordStrengthIndicator from 'public/keychain/components/PasswordStrengthIndicator'
 
 export default class PasswordField extends Component {
 
@@ -27,25 +28,30 @@ export default class PasswordField extends Component {
 
   render() {
     return (
-      <div className="group-field-inline adjoined-inputs">
-        <input
-          className="joined"
-          id={this.props.id}
-          name={this.props.name}
-          type={this.state.hidden ? "password" : "text"}
-          value={this.props.value}
-          onChange={this.props.onChange}
-        />
-        <button
-          type="button"
-          className={this.state.hidden ? 'eye-hidden joined' : 'eye-visible joined'}
-          title="Toogle content visibility"
-          onClick={this.toogleVisibility.bind(this)}
-        >
-          <span className="accessibility">Toogle visibility</span>
-        </button>
-        <PasswordGeneratorButton
-          setPassword={this.setPassword.bind(this)}
+      <div>
+        <div className="group-field-inline adjoined-inputs">
+          <input
+            className="joined"
+            id={this.props.id}
+            name={this.props.name}
+            type={this.state.hidden ? "password" : "text"}
+            value={this.props.value}
+            onChange={this.props.onChange}
+          />
+          <button
+            type="button"
+            className={this.state.hidden ? 'eye-hidden joined' : 'eye-visible joined'}
+            title="Toogle content visibility"
+            onClick={this.toogleVisibility.bind(this)}
+          >
+            <span className="accessibility">Toogle visibility</span>
+          </button>
+          <PasswordGeneratorButton
+            setPassword={this.setPassword.bind(this)}
+          />
+        </div>
+        <PasswordStrengthIndicator
+          password={this.props.value}
         />
       </div>
     )
