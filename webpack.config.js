@@ -32,7 +32,7 @@ var config = {
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
-    new AssetsPlugin(),
+    new AssetsPlugin({filename: 'webpack-assets.dev.json'}),
     new ExtractTextPlugin("styles.css", {
       allChunks: true
     })
