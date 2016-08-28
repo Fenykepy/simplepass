@@ -21,7 +21,7 @@ var config = {
   },
   output: {
     path: path.join( __dirname, 'dist' ),
-    filename: 'bundle.js',
+    filename: 'bundle.[hash].js',
     publicPath: '/static/',
 
   },
@@ -30,7 +30,7 @@ var config = {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin(),
     new AssetsPlugin(),
-    new ExtractTextPlugin("styles.css", {
+    new ExtractTextPlugin("styles.[chunkhash].css", {
       allChunks: true
     }),
     new webpack.DefinePlugin({
