@@ -25,9 +25,9 @@ function setAuthCookies(context, token) {
   }
 
   // we set cookie secure in production
-  if (context.app.env === 'production') {
+  /*if (context.app.env === 'production') {
     options.secure = true
-  }
+    }*/
 
   // set JWT cookie
   context.cookies.set(AUTH_COOKIE, token, options)
