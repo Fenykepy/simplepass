@@ -63,6 +63,8 @@ input[type="checkbox"] {
     width: 13px;
     margin: 3px 8px 0 0;
     float: left;
+    -webkit-appearance: checkbox;
+    -moz-appearance: checkbox;
 }
 input[type="radio"], input[type="checkbox"] {
     margin: 6px 0 0;
@@ -89,6 +91,7 @@ input[type="radio"], input[type="checkbox"] {
         padding: 0 0 0 20px;
         cursor: pointer;
         margin-bottom: 0;
+        line-height: 24px;
     }
 }
 .radio-inline, .checkbox-inline {
@@ -228,22 +231,25 @@ button.small, a[role="button"].small, input[type="submit"].small {
 }
 
 .adjoined-inputs {
-    input, button, button.eye-hidden, button.eye-visible {
+    .joined {
         margin: 5px 0 0;
         height: 34px;
         border-radius: 0;
-        &:first-child {
+        > &:first-child {
             border-radius: 2px 0 0 2px;
         }
         &:last-child {
             border-radius: 0 2px 2px 0;
         }
+        &:hover, &:focus, &:active {
+            position: relative;
+            z-index: 5;
+        }
     }
-    button, button.eye-hidden, button.eye-visible {
+    .generator {
+        border-radius: 0 2px 2px 0;
+    }
+    button.joined {
         margin-left: -1px;
-    }
-    input:hover, input:focus {
-        position: relative;
-        z-index: 1;
     }
 }
