@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 
 import { connect } from 'react-redux'
 
-import { logout } from 'public/user/actions'
 import { fetchEjsonIfNeeded } from 'public/ejson/actions'
 import { setDocumentTitle } from 'public/app/actions'
 
@@ -24,11 +23,6 @@ class Home extends Component {
   componentDidMount() {
     // we set title
     setDocumentTitle()
-  }
-
-  logout(e) {
-    e.preventDefault()
-    this.props.dispatch(logout())
   }
 
   getChild() {

@@ -50,20 +50,16 @@ class App extends Component {
       return <Spinner message="Authenticating..." />
     }
 
-    // if user is not authenticated and we have no children component
-    if (! this.props.user.is_authenticated && ! this.props.children) {
+    // if we have no children component
+    if (! this.props.children) {
+      // go home if user is connected
+      if (this.props.user.is_authenticated) {
+        return <Home />
+      }
+      // else go to index page
       return <Index />
     }
 
-    // if user is authenticated return Home
-    if (this.props.user.is_authenticated) {
-      return  (
-        <Home
-          children={this.props.children}
-        />
-      )
-    }
-    
     return this.props.children
   }
 }

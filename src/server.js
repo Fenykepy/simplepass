@@ -70,6 +70,7 @@ app.use(route.get('/signup/', home))
 app.use(route.get('/passwords/', home))
 app.use(route.get('/notes/', home))
 app.use(route.get('/bank-cards/', home))
+app.use(route.get('/admin/*', home))
 
 
 // REST API
