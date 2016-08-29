@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import FormFieldErrors from 'public/app/components/FormFieldErrors'
+import PasswordField from 'public/keychain/components/PasswordField'
 
 export default class PasswordEditionForm extends Component {
 
@@ -67,10 +68,9 @@ export default class PasswordEditionForm extends Component {
             errors_list={this.props.errors}
             field={'password'}
           />
-          <input
+          <PasswordField
             id="id-password"
             name="password"
-            type="password"
             value={this.props.password}
             onChange={this.props.handlePasswordChange}
           />

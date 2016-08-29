@@ -14,6 +14,8 @@ import Keychain from 'public/keychain/containers/Keychain'
 import Header from 'public/app/components/Header'
 import Spinner from 'public/app/components/Spinner'
 
+import PasswordEdition from 'public/keychain/containers/PasswordEdition'
+
 class Home extends Component {
 
   componentWillMount() {
@@ -51,12 +53,21 @@ class Home extends Component {
       return <InitPassphrase />
     }
 
+
+    // for testing only
+    /*    return (
+      <div style={{
+        maxWidth: '680px',
+        margin: '0 auto',
+      }}>
+        <PasswordEdition />
+      </div>
+      )*/
+
     // we show unlocking form if keychain is locked
-    /* hide this to style easily keychain components */
     if (this.props.locked) {
       return <KeychainLoader />
     }
-    /**/
 
     // we show keychain
     return (

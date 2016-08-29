@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import favicon from 'graphics/svg/simplepass-favicon.svg'
+import favicon from 'graphics/favicon.png'
 
 import { connect } from 'react-redux'
 

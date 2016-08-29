@@ -168,5 +168,18 @@ crypto.ejson2string = function(ejson, key) {
   return this.decrypt(cipher, key, alg, vector)
 }
 
+crypto.randomString = function(charset, length) {
+  // we create a new buffer
+  let buf = new Uint32Array(length)
+  // we populate it with random values
+  window.crypto.getRandomValues(buf)
+  let randomStr = ''
+  for (let i=0; i < length; i++) {
+    randomStr += charset[buf[i] % charset.length]
+  }
+  
+  return randomStr
+}
+
 
 export default crypto

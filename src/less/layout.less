@@ -293,7 +293,7 @@ article#column-form {
         .arrow-down(@header-text, 6px, 6px)
     }
 }
-.dropdown-menu {
+.dropdown-menu, #password-generator {
     z-index: 1000; // we place it upon overlay
     padding: 10px 0;
     position: absolute;
@@ -305,6 +305,7 @@ article#column-form {
     border: 1px solid @context-border;
     border-radius: 3px;
     text-align: left;
+    margin-bottom: 30px;
     li {
         margin: 0;
         padding: 0;
@@ -335,6 +336,10 @@ article#column-form {
         top: -9px;
         right: 25px;
     }
+}
+#password-generator {
+    right: -20px;
+    padding: 30px;
 }
 .locked {
     background: url('../graphics/svg/lock.svg') center center no-repeat;
@@ -462,7 +467,7 @@ button.eye-hidden, button.eye-visible {
     margin: auto 5px;
 }
 button.eye-visible {
-    background: url('../graphics/svg/eye-visible.svg') no-repeat center center;
+    background: url('../graphics/svg/eye-ffffff.svg') no-repeat center center;
     background-color: @buttons-primary-bg;
     background-size: 24px auto;
     border: none;
@@ -472,11 +477,11 @@ button.eye-visible {
     }
 }
 button.eye-hidden {
-    background: url('../graphics/svg/eye-hidden.svg') no-repeat center center;
+    background: url('../graphics/svg/eye-cccccc.svg') no-repeat center center;
     border: 1px solid @buttons-border;
     background-size: 24px auto;
     &:hover {
-        background: url('../graphics/svg/eye-hidden-hover.svg') no-repeat center center;
+        background: url('../graphics/svg/eye-414141.svg') no-repeat center center;
         border-color: @buttons-border-hover;
         background-size: 24px auto;
     }
@@ -491,9 +496,19 @@ button.copy-to-clipboard {
     background-size: 14px auto;
     background-color: @buttons-primary-bg;
     &:hover {
-    background-color: @buttons-primary-bg-hover;
+        background-color: @buttons-primary-bg-hover;
     }
 
+}
+button.generator {
+    width: 35px;
+    padding: 0;
+    border: none;
+    background: url('../graphics/svg/dice.svg') no-repeat center center;
+    background-color: @buttons-primary-bg;
+    &:hover {
+        background-color: @buttons-primary-bg-hover;
+    }
 }
 footer.adjoined-buttons-wrapper {
     height: 150px;
@@ -561,5 +576,33 @@ footer.adjoined-buttons-wrapper {
     }
     button.eye-hidden, button.eye-visible, button.copy-to-clipboard {
         flex: none; // for buttons to stay vertically aligned
+    }
+}
+
+
+// Password strength indicator
+.password-strength-indicator {
+    display: block;
+    margin-top: 5px;
+    width: 100%;
+    height: 8px;
+    border: 1px solid @meter-border;
+    border-radius: 4px;
+    overflow: hidden;
+    .bar {
+        height: 100%;
+        background: @meter-bar-bg;
+    }
+}
+.password-strength-legend {
+    display: flex;
+    align-items: left;
+    font-size: 0.8em;
+    padding: 0 10px;
+    margin-top: 3px;
+    font-style: italic;
+    span:last-child {
+        // we push it right
+        margin-left: auto;
     }
 }

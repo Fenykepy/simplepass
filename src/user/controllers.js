@@ -20,9 +20,17 @@ const AUTH_FLAG_COOKIE = 'authenticated'
 
 function setAuthCookies(context, token) {
   let expires = new Date(timespan(settings.JWT_OPTIONS.expiresIn) * 1000)
+  let options = {
+    expires: expires
+  }
+
+  // we set cookie secure in production
+  /*if (context.app.env === 'production') {
+    options.secure = true
+    }*/
 
   // set JWT cookie
-  context.cookies.set(AUTH_COOKIE, token, {expires: expires})
+  context.cookies.set(AUTH_COOKIE, token, options)
   
   // set authenticated flag cookie to true :
   // as client js has no access to jwt cookie, it has no way
