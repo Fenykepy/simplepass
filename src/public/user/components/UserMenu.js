@@ -9,9 +9,9 @@ export default class UserMenu extends Component {
     if (! this.props.admin) return null
 
     return (
-      <li><a
-          href="/admin/"
-      >Admin</a></li>
+      <li><Link
+          to="/admin/"
+          >Admin</Link></li>
     )
   }
 
