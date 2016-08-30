@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+import FormRequiredFields from 'public/app/components/FormRequiredFields'
+import FormRequiredField from 'public/app/components/FormRequiredField'
 import FormFieldErrors from 'public/app/components/FormFieldErrors'
 
   const MONTHS = ['--']
@@ -29,6 +31,7 @@ export default class CardEditionForm extends Component {
         id={this.props.id}
         onSubmit={this.props.onSubmit}
       >
+        <FormRequiredFields />
         <div className="field-wrapper">
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -36,7 +39,7 @@ export default class CardEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-title">Title:</label>
+          <label htmlFor="id-title">Title:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'title'}
@@ -52,7 +55,7 @@ export default class CardEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-owner">Owner:</label>
+          <label htmlFor="id-owner">Owner:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'owner'}
@@ -68,7 +71,7 @@ export default class CardEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-number">Number:</label>
+          <label htmlFor="id-number">Number:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'number'}
@@ -84,7 +87,7 @@ export default class CardEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-expires">Expires at:</label>
+          <label htmlFor="id-expires">Expires at:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'expires'}
@@ -124,7 +127,7 @@ export default class CardEditionForm extends Component {
           </div>
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-cryptogram">Cryptogram:</label>
+          <label htmlFor="id-cryptogram">Cryptogram:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'cryptogram'}

@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 
 import FormFieldErrors from 'public/app/components/FormFieldErrors'
+import FormRequiredFields from 'public/app/components/FormRequiredFields'
+import FormRequiredField from 'public/app/components/FormRequiredField'
 import PasswordField from 'public/keychain/components/PasswordField'
 
 export default class PasswordEditionForm extends Component {
@@ -12,6 +14,7 @@ export default class PasswordEditionForm extends Component {
         id={this.props.id}
         onSubmit={this.props.onSubmit}
       >
+        <FormRequiredFields />
         <div className="field-wrapper">
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -19,7 +22,7 @@ export default class PasswordEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-title">Title:</label>
+          <label htmlFor="id-title">Title:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'title'}

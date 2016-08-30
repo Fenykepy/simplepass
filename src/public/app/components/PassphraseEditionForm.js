@@ -1,6 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 
 
+import FormRequiredFields from 'public/app/components/FormRequiredFields'
+import FormRequiredField from 'public/app/components/FormRequiredField'
 import FormFieldErrors from 'public/app/components/FormFieldErrors'
 
 
@@ -14,6 +16,7 @@ export default class PassphraseEditionForm extends Component {
         id={this.props.id}
         onSubmit={this.props.onSubmit}
       >
+        <FormRequiredFields />
         <div className="field-wrapper">
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -21,7 +24,7 @@ export default class PassphraseEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-old_pass">Current master passphrase:</label>
+          <label htmlFor="id-old_pass">Current master passphrase:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'old_pass'}
@@ -35,7 +38,7 @@ export default class PassphraseEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-pass">New master passphrase:</label>
+          <label htmlFor="id-pass">New master passphrase:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'pass'}
@@ -49,7 +52,7 @@ export default class PassphraseEditionForm extends Component {
           />
         </div>
         <div className="field-wrapper">
-          <label htmlFor="id-pass-confirm">New master passphrase confirmation:</label>
+          <label htmlFor="id-pass-confirm">New master passphrase confirmation:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'pass_confirm'}

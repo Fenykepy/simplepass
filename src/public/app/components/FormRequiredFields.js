@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 
+import FormRequiredField from './FormRequiredField'
+
 export default class FormRequiredFields extends Component {
 
   render() {
     return (
       <p
         className="required-fields"
-      ><span className="colored">*</span> : required fields.</p>
+        ><FormRequiredField /> : required fields.</p>
     )
   }
 }
