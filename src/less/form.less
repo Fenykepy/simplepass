@@ -9,7 +9,7 @@ input, textarea, select, option, :invalid, :valid {
 
 // space betwen form elements
 div.field-wrapper, p.required-fields{
-    margin-bottom: 1.5em;
+    margin-bottom: 2.4rem;
 }
 .group-field-inline {
     display: flex;
@@ -28,7 +28,8 @@ input, option, select, textarea, ul.error-list li, ul.warning-list li {
     border-radius: 2px;
     background: @inputs-bg;
     border: 1px solid @inputs-border;
-    font-size: 1em;
+    font-size: 16px;
+    font-size: 1.6rem;
     color: @inputs;
     text-align: left;
     padding: 6px 12px;
@@ -118,7 +119,7 @@ input:focus, textarea:focus, select:focus {
 
 textarea {
     resize: vertical;
-    line-height: 1.5em;
+    line-height: 2.4rem;
 }
 
 label {
@@ -228,6 +229,13 @@ button.max, a[role="button"].max, input[type="submit"].max {
 // small buttons
 button.small, a[role="button"].small, input[type="submit"].small {
     height: 25px;
+    font-size: 13px;
+    font-size: 1.3rem;
+}
+// shy buttons (font size smaller)
+button.shy, a[role="button"].shy, input[type="submit"].shy {
+    font-size: 14px;
+    font-size: 1.4rem;
 }
 
 .adjoined-inputs {

@@ -20,7 +20,7 @@ export default class ExportButton extends Component {
     return (
       <button
         disabled={this.getButtonState()}
-        className="secondary max"
+        className="secondary max shy" 
         title="Export encryted keychain to your harddrive"
         onClick={this.props.saveEjson}
       >Export Keychain</button>

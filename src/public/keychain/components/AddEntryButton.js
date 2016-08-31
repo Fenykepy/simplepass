@@ -30,7 +30,7 @@ export default class AddEntryButton extends Component {
     //console.log('AddEntryButton', this.props)
     return (
       <button
-        className={this.props.className || "secondary"}
+        className={this.props.className || "secondary shy"}
         onClick={this.setModal.bind(this)}
       >{this.props.children}</button>
     )
