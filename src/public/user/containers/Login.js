@@ -11,8 +11,6 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import LoginForm from 'public/user/components/LoginForm'
 import Spinner from 'public/app/components/Spinner'
-import Header from 'public/app/components/Header'
-
 
 const LOGIN_FORM = "login-form"
 
@@ -107,9 +105,6 @@ class Login extends Component {
 
     return (
       <section role="main">
-        <Header
-          authenticated={this.props.user.is_authenticated}
-        />
         {child}
       </section>
     )

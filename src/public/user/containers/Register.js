@@ -12,8 +12,6 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import RegisterForm from 'public/user/components/RegisterForm'
 import Spinner from 'public/app/components/Spinner'
-import Header from 'public/app/components/Header'
-
 
 const REGISTER_FORM = "register-form"
 
@@ -146,9 +144,6 @@ class Register extends Component {
 
     return (
       <section role="main">
-        <Header
-          authenticated={this.props.user.is_authenticated}
-        />
         {child}
       </section>
     )

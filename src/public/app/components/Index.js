@@ -4,8 +4,6 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import Link from 'react-router/lib/Link'
 
-import Header from 'public/app/components/Header'
-
 export default class Index extends Component {
 
   componentDidMount() {
@@ -17,7 +15,6 @@ export default class Index extends Component {
     return (
       <section id="index">
         <div id="main-title">
-          <Header />
           <div className="text-wrapper">
             <h1>SimplePass</h1>
             <h2>A simple password manager</h2>

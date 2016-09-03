@@ -53,7 +53,7 @@ var config = {
       {
         // less files, get extracted
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', '!css-loader!less-loader'),
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less-loader'),
         exclude: path.join( __dirname, '/node_modules/'),
       },
       { 
@@ -77,7 +77,8 @@ var config = {
         test: /\.(svg)$/, 
         loaders: [ 'file-loader?name=images/[hash].[ext]', 'svgo-loader?useConfig=svgoConfig'],
         exclude: path.join( __dirname, '/node_modules/'),
-      },    ],
+      },    
+    ],
   },
   svgoConfig: {
     plugins: [

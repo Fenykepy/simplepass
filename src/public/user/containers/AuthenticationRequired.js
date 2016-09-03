@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import { connect } from 'react-redux'
 
 
-export default function AuthenticationRequired(Child) {
+function AuthenticationRequired(Child) {
 
   class AuthenticationComponent extends Component {
 

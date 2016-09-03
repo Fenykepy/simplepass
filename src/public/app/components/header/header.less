@@ -1,0 +1,42 @@
+@import (reference) "~public/global-styles/palette.less";
+@import (reference) "~public/global-styles/sizes.less";
+@import (reference) "~public/global-styles/fonts.less";
+
+.header {
+   position: fixed;
+   top: 0;
+   right: 0;
+   left: 0;
+   height: @header-height;
+   display: flex;
+   color: @white;
+   background: @brand-blue;
+}
+
+.headerItem {
+    display: flex;
+    align-items: center;
+    width: auto;
+    height: 100%;
+    color: @white;
+    padding: 0 25px;
+}
+
+.title {
+    font-size: 28px;
+    font-size: 2.8rem;
+    font-weight: normal;
+    font-family: @simplepass;
+    margin: 0;
+    background: url('../header/round-lock.svg') no-repeat 25px center;
+}
+
+.link {
+    composes: headerItem;
+    padding-left: 70px;
+    &:hover, &:active, &:focus {
+        text-decoration: none;
+        color: @white;
+        background-color: @trans-white; 
+    }
+}

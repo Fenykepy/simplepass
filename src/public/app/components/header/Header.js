@@ -5,6 +5,8 @@ import Link from 'react-router/lib/Link'
 import AuthLinks from 'public/app/components/AuthLinks'
 import AdminLinks from 'public/app/components/AdminLinks'
 
+import styles from './header.less'
+
 export default class Header extends Component {
 
   render() {
@@ -16,10 +18,22 @@ export default class Header extends Component {
     } else {
       children = <AdminLinks />
     }
+
     return (
-      <header role="banner">
-        <h1><Link to={"/"}>SimplePass </Link><sup>beta</sup></h1>
-        {children}
+      <header
+        role="banner"
+        className={styles.header }
+      >
+        <h1
+          className={styles.title}
+        >
+          <Link 
+            to={"/"}
+            className={styles.link}
+          ><span>SimplePass <sup>beta</sup></span>
+          </Link>
+        </h1>
+            {children}
       </header>
     )
   }

@@ -11,7 +11,6 @@ import { homeSelector } from 'public/app/selectors'
 import InitPassphrase from 'public/app/containers/InitPassphrase'
 import KeychainLoader from 'public/app/containers/KeychainLoader'
 import Keychain from 'public/keychain/containers/Keychain'
-import Header from 'public/app/components/Header'
 import Spinner from 'public/app/components/Spinner'
 
 import PasswordEdition from 'public/keychain/containers/PasswordEdition'
@@ -92,9 +91,6 @@ class Home extends Component {
     return (
       <section role="main">
 
-        <Header
-          authenticated={this.props.authenticated}
-        />
         {this.getChild()}
         {this.props.modal}
       </section>

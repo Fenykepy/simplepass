@@ -5,7 +5,7 @@ import Route from 'react-router/lib/Route'
 
 import AuthenticationRequired from 'public/user/containers/AuthenticationRequired'
 import AdminRequired from 'public/user/containers/AdminRequired'
-import App from 'public/app/containers/App'
+import App from 'public/app/containers/app/App'
 import Home from 'public/app/containers/Home'
 import Login from 'public/user/containers/Login'
 import Register from 'public/user/containers/Register'
