@@ -6,6 +6,9 @@ import { statusSelector } from 'public/app/selectors'
 
 import { lockKeychain } from 'public/app/actions'
 
+import styles from './statusButton.less'
+import off from 'public/global-styles/offscreen.less'
+
 class StatusButton extends Component {
 
   getTitle() {
@@ -16,8 +19,8 @@ class StatusButton extends Component {
 
   getClassName() {
     return this.props.status.locked ?
-      'locked' :
-      'unlocked'
+      styles.locked :
+      styles.unlocked
   }
 
   handleClick() {
@@ -42,7 +45,9 @@ class StatusButton extends Component {
         onClick={this.handleClick.bind(this)}
       ><div
           className={this.getClassName()}
-        ><span>{this.props.status.locked ? 'locked' : 'unlocked'}</span></div></button>
+      ><span
+        className={off.offscreen}
+      >{this.props.status.locked ? 'locked' : 'unlocked'}</span></div></button>
     )
   }
 }

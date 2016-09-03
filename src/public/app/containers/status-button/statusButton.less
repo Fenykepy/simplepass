@@ -1,0 +1,15 @@
+.lock {
+    background-size: contain;
+    height: 25px;
+    width: 12px;
+}
+
+.locked {
+    composes: lock;
+    background: url('../status-button/lock.svg') center center no-repeat;
+}
+
+.unlocked {
+    composes: lock;
+    background: url('../status-button/lock-open.svg') center center no-repeat;
+}

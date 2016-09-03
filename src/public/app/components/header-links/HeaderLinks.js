@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import LoginLink from 'public/user/components/login-link/LoginLink'
 import SignupLink from 'public/user/components/signup-link/SignupLink'
 
-import StatusButton from 'public/app/containers/StatusButton'
+import StatusButton from 'public/app/containers/status-button/StatusButton'
 import UserMenuButton from 'public/user/containers/UserMenuButton'
 
 import styles from './headerLinks.less'
