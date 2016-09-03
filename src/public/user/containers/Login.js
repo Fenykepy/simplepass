@@ -4,12 +4,11 @@ import { connect } from 'react-redux'
 
 import { loginSelector } from '../selectors'
 
-import Link from 'react-router/lib/Link'
-
 import { login } from 'public/user/actions'
 import { setDocumentTitle } from 'public/app/actions'
 
 import LoginForm from 'public/user/components/LoginForm'
+import SignupLink from 'public/user/components/signup-link/SignupLink'
 import Spinner from 'public/app/components/Spinner'
 
 const LOGIN_FORM = "login-form"
@@ -97,7 +96,7 @@ class Login extends Component {
                 type="submit"
               />
             </div>
-            <div>No account yet? <Link to={"/signup/"}>Sign up</Link></div>
+            <div>No account yet? <SignupLink /></div>
           </footer>
         </article>
       )

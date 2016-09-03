@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import LoginLink from 'public/user/components/login-link/LoginLink'
+import SignupLink from 'public/user/components/signup-link/SignupLink'
 
 import StatusButton from 'public/app/containers/StatusButton'
 import UserMenuButton from 'public/user/containers/UserMenuButton'
@@ -26,11 +27,10 @@ export default class HeaderLinks extends Component {
           className={styles.link}
           activeClassName={styles.linkActive}
         /></li>
-    <li>{/*<Link
-          className="top-link"
-          activeClassName="selected"
-          to={'/signup/'}
-          >Sign up</Link>*/}</li>
+        <li><SignupLink
+          className={styles.link}
+          activeClassName={styles.linkActive}
+        /></li>
       </ul>
     )
   }
