@@ -4,13 +4,13 @@ import { connect } from 'react-redux'
 
 import { registerSelector } from '../selectors'
 
-import Link from 'react-router/lib/Link'
 
 import { register } from 'public/user/actions'
 
 import { setDocumentTitle } from 'public/app/actions'
 
 import RegisterForm from 'public/user/components/RegisterForm'
+import LoginLink from 'public/user/components/login-link/LoginLink'
 import Spinner from 'public/app/components/Spinner'
 
 const REGISTER_FORM = "register-form"
@@ -136,7 +136,7 @@ class Register extends Component {
                 type="submit"
               />
             </div>
-            <div>Already have an account? <Link to={'/login/'}>Log in</Link></div>
+            <div>Already have an account? <LoginLink /></div>
           </footer>
         </article>
       )

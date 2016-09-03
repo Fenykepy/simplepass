@@ -13,13 +13,22 @@
    background: @brand-blue;
 }
 
-.headerItem {
+.headerLinkActive {
+    text-decoration: none;
+    color: @white;
+    background-color: @trans-white; 
+}
+
+.headerLink {
     display: flex;
     align-items: center;
     width: auto;
     height: 100%;
     color: @white;
     padding: 0 25px;
+    &:hover, &:active, &:focus {
+        .headerLinkActive;
+    }
 }
 
 .title {
@@ -32,11 +41,6 @@
 }
 
 .link {
-    composes: headerItem;
+    composes: headerLink;
     padding-left: 70px;
-    &:hover, &:active, &:focus {
-        text-decoration: none;
-        color: @white;
-        background-color: @trans-white; 
-    }
 }

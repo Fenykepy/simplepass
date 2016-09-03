@@ -2,22 +2,13 @@ import React, { Component, PropTypes } from 'react'
 
 import Link from 'react-router/lib/Link'
 
-import AuthLinks from 'public/app/components/AuthLinks'
-import AdminLinks from 'public/app/components/AdminLinks'
+import HeaderLinks from 'public/app/components/header-links/HeaderLinks'
 
 import styles from './header.less'
 
 export default class Header extends Component {
 
   render() {
-
-    let children = null
-    if (! this.props.authenticated) {
-      // we show authentication links if user is not authenticated
-      children = <AuthLinks />
-    } else {
-      children = <AdminLinks />
-    }
 
     return (
       <header
@@ -33,8 +24,14 @@ export default class Header extends Component {
           ><span>SimplePass <sup>beta</sup></span>
           </Link>
         </h1>
-            {children}
+        <HeaderLinks
+          authenticated={this.props.authenticated}
+        />
       </header>
     )
   }
+}
+
+Header.propTypes = {
+  authenticated: PropTypes.bool,
 }
