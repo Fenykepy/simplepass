@@ -23,7 +23,8 @@
     display: flex;
     align-items: center;
     width: auto;
-    height: 100%;
+    // % height doesn't work with safari on flex children
+    height: @header-height;
     color: @white;
     padding: 0 25px;
     &:hover, &:active, &:focus {

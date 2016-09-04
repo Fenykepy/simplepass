@@ -4,7 +4,7 @@ import LoginLink from 'public/user/components/login-link/LoginLink'
 import SignupLink from 'public/user/components/signup-link/SignupLink'
 
 import StatusButton from 'public/app/containers/status-button/StatusButton'
-import UserMenuButton from 'public/user/containers/UserMenuButton'
+import UserMenuButton from 'public/user/containers/user-menu-button/UserMenuButton'
 
 import styles from './headerLinks.less'
 

@@ -1,0 +1,60 @@
+@import (reference) "palette.less";
+@import (reference) "fonts.less";
+
+.nostyle {
+}
+
+.btn {
+    height: 38px;
+    width: auto;
+    padding: 3px 23px;
+    margin: 5px 0 0 0;
+    text-align: center;
+    text-decoration: none;
+    border: 1px solid;
+    font-family: @sans;
+    font-weight: bold;
+    border-radius: 2px;
+    box-shadow: none;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        color: @grey8;
+        border-color: @grey8;
+    }
+}
+
+.default {
+    composes: btn;
+    color: @grey7;
+    border-color: @grey3;
+    background: @white; 
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        color: @grey8;
+        border-color: @grey8;
+    }
+}
+
+.primary {
+}
+
+.secondary {
+}
+
+.reversed {
+}
+
+// 
+.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    // nothing happens on hover, active, focus
+    &:hover, &:focus, &:active {
+        color: @grey7;
+        border-color:  @grey3;
+    }
+}
+
+.max {
+    width: 100%;
+}

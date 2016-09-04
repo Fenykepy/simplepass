@@ -6,7 +6,9 @@ import { userMenuSelector } from 'public/user/selectors'
 
 import { logout } from 'public/user/actions'
 
-import UserMenu from 'public/user/components/UserMenu'
+import UserMenu from 'public/user/components/user-menu/UserMenu'
+
+import styles from './userMenuButton.less'
 
 class UserMenuButton extends Component {
 
@@ -53,9 +55,11 @@ class UserMenuButton extends Component {
     } = this.props
 
     return (
-      <div>
+      <div
+        className={styles.wrapper}
+      >
         <button
-          className="top-link dropdown-link"
+          className={styles.userMenu}
           onClick={this.toogleMenu.bind(this)}
         ><div>{this.props.user.username}</div>
         </button>
