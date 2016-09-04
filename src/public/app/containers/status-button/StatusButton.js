@@ -41,13 +41,11 @@ class StatusButton extends Component {
     return (
       <button
         title={this.getTitle()}
-        className="top-link"
+        className={this.getClassName()}
         onClick={this.handleClick.bind(this)}
-      ><div
-          className={this.getClassName()}
       ><span
         className={off.offscreen}
-      >{this.props.status.locked ? 'locked' : 'unlocked'}</span></div></button>
+      >{this.props.status.locked ? 'locked' : 'unlocked'}</span></button>
     )
   }
 }
