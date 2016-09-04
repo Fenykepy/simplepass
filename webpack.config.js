@@ -7,9 +7,10 @@
 
 var path = require('path');
 var webpack = require('webpack');
-var ExtractTextPlugin = require("extract-text-webpack-plugin")
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 var AssetsPlugin = require('assets-webpack-plugin');
 var BabelPolyfill = require("babel-polyfill");
+var autoprefixer = require('autoprefixer');
 
 var config = {
   // sourceMaps simplified to a single mapping per line
@@ -53,7 +54,14 @@ var config = {
       {
         // less files, get extracted
         test: /\.less$/,
-        loader: ExtractTextPlugin.extract('style-loader', 'css-loader?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!less-loader'),
+        loader: ExtractTextPlugin.extract(
+          'style-loader',
+          [
+            'css-loader?modules&importLoaders=2&localIdentName=[name]__[local]___[hash:base64:5]',
+            'postcss-loader',
+            'less-loader',
+          ]
+        ),
         exclude: path.join( __dirname, '/node_modules/'),
       },
       { 
@@ -79,6 +87,9 @@ var config = {
         exclude: path.join( __dirname, '/node_modules/'),
       },    
     ],
+  },
+  postcss: function () {
+      return [autoprefixer];
   },
   svgoConfig: {
     plugins: [

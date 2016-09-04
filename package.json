@@ -48,6 +48,7 @@
   },
   "devDependencies": {
     "assets-webpack-plugin": "^3.4.0",
+    "autoprefixer": "^6.4.1",
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.2",
@@ -65,6 +66,7 @@
     "koa-webpack-hot-middleware": "^1.0.3",
     "less": "^2.7.1",
     "less-loader": "^2.2.3",
+    "postcss-loader": "^0.11.1",
     "react-transform-hmr": "^1.0.4",
     "style-loader": "^0.13.1",
     "svgo-loader": "^1.1.0",
