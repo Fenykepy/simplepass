@@ -1,0 +1,166 @@
+@import (reference) "~public/global-styles/palette.less";
+
+
+.about {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    height: 100vh;
+    min-height: 400px;
+    color: @white;
+    background: @brand-blue url('../index/arrow-down.svg') no-repeat center bottom;
+}
+
+.textWrapper {
+    position: relative;
+    margin: auto;
+    text-align: center;
+    z-index: 6;
+}
+
+.textWrapper > h1 {
+    font-weight: normal;
+    font-size: 48px;
+    font-size: 4.8rem;
+    margin-bottom: 2rem;
+}
+
+.textWrapper > h2 {
+    font-weight: normal;
+    font-size: 24px;
+    font-size: 2.4rem;
+    margin-bottom: 4rem;
+}
+
+.section {
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid @grey3;
+}
+
+.title {
+    margin: auto auto 0px;
+    font-weight: normal;
+    color: @black;
+    text-align: center;
+}
+
+.paragraph {
+    max-width: 900px;
+    margin: 2.4rem auto auto auto;
+    text-align: center;
+    line-height: 1.5;
+
+}
+
+.intro {
+    composes: section;
+    height: 100vh;
+}
+
+.intro > h1 {
+    .title;
+    font-size: 48px;
+    font-size: 4.8rem;
+}
+
+.intro > p {
+    .paragraph;
+    font-size: 24px;
+    font-size: 2.4rem;
+}
+
+.features {
+    composes: section;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+    padding: 0 10% 100px;
+}
+
+.features h1 {
+    .title;
+    font-size: 28px;
+    font-size: 2.8rem;
+}
+
+.features p {
+    .paragraph;
+    font-size: 19px;
+    font-size: 1.9rem;
+}
+
+.item {
+    padding-top: 100px; // for background
+    flex: 1;
+    min-width: 250px;
+    margin: 100px 15px 0;
+}
+
+.secure {
+    composes: item;
+    background: url('../index/round-lock-blue.svg') no-repeat top center;
+    background-size: auto 80px;
+}
+
+.devices {
+    composes: item;
+    background: url('../index/devices-blue.svg') no-repeat top center;
+    background-size: auto 80px;
+}
+
+.open {
+    composes: item;
+    background: url('../index/open-source.svg') no-repeat top center;
+    background-size: auto 80px;
+}
+
+.start {
+    composes: section;
+    border: none;
+    min-height: 0;
+}
+
+.start p {
+    .paragraph;
+    font-size: 24px;
+    font-size: 2.4rem;
+    margin: 3.6rem auto;
+}
+
+.footer {
+    padding: 50px 0;
+    margin: 100px auto 0;
+    background: @grey8;
+    color: @grey3;
+    font-size: 18px;
+    font-size: 1.8rem;
+}
+
+.footer a {
+    color: @white;
+    line-height: 32rem;
+    line-height: 3.2rem;
+}
+
+.github {
+    padding-left: 40px;
+    background: url('../index/GitHub-Mark-Light-32px.png') no-repeat left center;
+}
+
+.footerWrapper {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.footerLinks {
+    margin-bottom: 20px;
+}
+
+.footerLinks li {
+    min-height: 32px;
+}
+

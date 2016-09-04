@@ -11,7 +11,7 @@ import {
   setModal,
 } from 'public/modal/actions'
 
-import Index from 'public/app/components/Index'
+import Index from 'public/app/components/index/Index'
 import Home from 'public/app/containers/Home'
 import Spinner from 'public/app/components/Spinner'
 import Header from 'public/app/components/header/Header'
@@ -41,15 +41,12 @@ class App extends Component {
     /*
      * Returns children if any
      * else returns Home if user is authenticated 
-     * or Index if user isn't
      */
     if (this.props.children) { 
       return this.props.children
     }
-    if (this.props.user.is_authenticated) {
-      return <Home />
-    }
-    return <Index />
+    
+    return <Home />
   }
 
   render () {
@@ -65,6 +62,13 @@ class App extends Component {
     // if user is authenticating, show spinner
     if (this.props.user.is_fetching) {
       return <Spinner message="Authenticating..." />
+    }
+
+    // if user isn't authenticated, and no children, show index
+    // (we put it here and not in getChild() because it already includes
+    // header
+    if (! this.props.children && ! this.props.user.is_authenticated) {
+      return <Index />
     }
 
     return (
