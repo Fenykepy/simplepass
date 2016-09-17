@@ -5,6 +5,8 @@ import { setDocumentTitle } from 'public/app/actions'
 import Link from 'react-router/lib/Link'
 import Header from 'public/app/components/header/Header'
 
+import Button from 'public/form/buttons/Button'
+
 import styles from './index.less'
 
 export default class Index extends Component {
@@ -77,6 +79,7 @@ export default class Index extends Component {
             to={'/signup/'}
             role="button"
           >Get started</Link>
+        <Button>Mon beau button</Button>
         </div>
         <footer
           role="content-info"

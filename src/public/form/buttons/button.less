@@ -1,33 +1,33 @@
-@import (reference) "palette.less";
-@import (reference) "fonts.less";
+@import (reference) "~public/global-styles/palette.less";
 
-.nostyle {
-}
-
+// base class for buttons, inputs type=submit
 .btn {
-    height: 38px;
+    height: 46px;
     width: auto;
     padding: 3px 23px;
     margin: 5px 0 0 0;
     text-align: center;
     text-decoration: none;
     border: 1px solid;
-    font-family: @sans;
+    box-sizing: border-box;
+    display: inline-block;
     font-weight: bold;
     border-radius: 2px;
     box-shadow: none;
-    &:hover, &:focus, &:active {
-        text-decoration: none;
-        color: @grey8;
-        border-color: @grey8;
-    }
 }
 
+.disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+
+// default buttons
 .default {
     composes: btn;
     color: @grey7;
     border-color: @grey3;
-    background: @white; 
+    background: none; 
     &:hover, &:focus, &:active {
         text-decoration: none;
         color: @grey8;
@@ -35,19 +35,9 @@
     }
 }
 
-.primary {
-}
-
-.secondary {
-}
-
-.reversed {
-}
-
-// 
-.disabled {
-    opacity: 0.7;
-    cursor: not-allowed;
+.disabledDefault {
+    composes: default;
+    composes: disabled;
     // nothing happens on hover, active, focus
     &:hover, &:focus, &:active {
         color: @grey7;
@@ -58,3 +48,4 @@
 .max {
     width: 100%;
 }
+
