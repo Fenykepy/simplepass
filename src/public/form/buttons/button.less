@@ -3,6 +3,8 @@
 // base class for buttons, inputs type=submit
 .btn {
     height: 46px;
+    line-height: 38px;
+    vertical-align: middle;
     width: auto;
     padding: 3px 23px;
     margin: 5px 0 0 0;
@@ -14,11 +16,19 @@
     font-weight: bold;
     border-radius: 2px;
     box-shadow: none;
+    text-decoration: none;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+    }
 }
 
 .disabled {
     opacity: 0.7;
     cursor: not-allowed;
+}
+
+.max {
+    width: 100%;
 }
 
 
@@ -45,7 +55,62 @@
     }
 }
 
-.max {
-    width: 100%;
+// primary buttons
+.primary {
+    composes: btn;
+    color: @white;
+    border-color: @brand-blue;
+    background: @brand-blue;
+    &:hover, &:focus, &:active {
+        color: @white;
+        border-color: @blue1;
+        background: @blue1;
+    }
 }
+
+.disabledPrimary {
+    composes: primary;
+    composes: disabled;
+    // nothing happens on hover, active, focus
+    &:hover, &:focus, &:active {
+        border-color:  @blue1;
+        background: @blue1;
+    }
+}
+
+// secondary buttons
+.secondary {
+    composes: btn;
+    color: @brand-blue;
+    border-color: @brand-blue;
+    background: none;
+    &:hover, &:focus, &:active {
+        color: @white;
+        background: @brand-blue;
+    }
+}
+
+.disabledSecondary {
+    composes: secondary;
+    composes: disabled;
+    &:hover, &:focus, &:active {
+        color: @brand-blue;
+        background: none;
+    }
+}
+
+
+// reversed button (color mirrored secondary)
+.reversed {
+    composes: btn;
+    color: @white;
+    border-color: @white;
+    background: @brand-blue;
+    &:hover, &:focus, &:active {
+        color: @brand-blue;
+        background: @white;
+    }
+}
+
+
 

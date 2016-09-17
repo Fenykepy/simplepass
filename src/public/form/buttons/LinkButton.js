@@ -1,12 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 
+import Link from 'react-router/lib/Link'
+
 import styles from './button.less'
 
-export default class Button extends Component {
+export default class LinkButton extends Component {
 
   getClassNames() {
     let classes = []
-  
+    
     // we add extra classes
     if (this.props.className) { classes.push(this.props.className) }
 
@@ -27,20 +29,19 @@ export default class Button extends Component {
 
   render() {
     return (
-      <button
+      <Link
         className={this.getClassNames()}
+        to={this.props.to}
         onClick={this.props.onClick}
-        type="button"
-      >{this.props.children}</button>
+        role="button"
+      >{this.props.children}</Link>
     )
   }
 }
 
-Button.propTypes = {
+LinkButton.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
-  primary: PropTypes.bool,
-  reversed: PropTypes.bool,
-  secondary: PropTypes.bool,
   max: PropTypes.bool,
+  to: PropTypes.string.isRequired,
 }

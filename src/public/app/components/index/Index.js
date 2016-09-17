@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 
 import { setDocumentTitle } from 'public/app/actions'
 
-import Link from 'react-router/lib/Link'
 import Header from 'public/app/components/header/Header'
 
 import Button from 'public/form/buttons/Button'
+import LinkButton from 'public/form/buttons/LinkButton'
 
 import styles from './index.less'
 
@@ -29,11 +29,10 @@ export default class Index extends Component {
           >
             <h1>SimplePass</h1>
             <h2>A simple password manager</h2>
-            <Link
-              className="reversed"
+            <LinkButton
+              reversed={true}
               to={'/signup/'}
-              role="button"
-            >Get started</Link>
+            >Get started</LinkButton>
           </div>
         </div>
         <section
@@ -74,12 +73,10 @@ export default class Index extends Component {
           className={styles.start}
         >
           <p>Create an account and set your masterpassphrase</p>
-          <Link
-            className="primary"
+          <LinkButton
             to={'/signup/'}
-            role="button"
-          >Get started</Link>
-        <Button>Mon beau button</Button>
+            primary={true}
+          >Get started</LinkButton>
         </div>
         <footer
           role="content-info"
