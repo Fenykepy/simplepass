@@ -6,7 +6,7 @@ import { adminSelector } from 'public/admin/selectors'
 
 import { fetchUsersNumber } from 'public/admin/actions'
 
-import Spinner from 'public/app/components/Spinner'
+import Spinner from 'public/app/components/spinner/Spinner'
 
 class Admin extends Component {
   

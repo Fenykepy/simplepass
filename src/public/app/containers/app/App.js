@@ -13,7 +13,7 @@ import {
 
 import Index from 'public/app/components/index/Index'
 import Home from 'public/app/containers/Home'
-import Spinner from 'public/app/components/Spinner'
+import Spinner from 'public/app/components/spinner/Spinner'
 import Header from 'public/app/components/header/Header'
 
 import styles from './app.less'

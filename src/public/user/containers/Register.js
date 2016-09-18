@@ -11,7 +11,7 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import RegisterForm from 'public/user/components/RegisterForm'
 import LoginLink from 'public/user/components/login-link/LoginLink'
-import Spinner from 'public/app/components/Spinner'
+import Spinner from 'public/app/components/spinner/Spinner'
 import FormWrapper from 'public/form/form-wrapper/FormWrapper'
 import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
 import Submit from 'public/form/buttons/Submit'

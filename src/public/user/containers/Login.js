@@ -9,7 +9,7 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import LoginForm from 'public/user/components/LoginForm'
 import SignupLink from 'public/user/components/signup-link/SignupLink'
-import Spinner from 'public/app/components/Spinner'
+import Spinner from 'public/app/components/spinner/Spinner'
 import FormWrapper from 'public/form/form-wrapper/FormWrapper'
 import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
 import Submit from 'public/form/buttons/Submit'

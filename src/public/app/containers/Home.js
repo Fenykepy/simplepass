@@ -11,7 +11,7 @@ import { homeSelector } from 'public/app/selectors'
 import InitPassphrase from 'public/app/containers/InitPassphrase'
 import KeychainLoader from 'public/app/containers/KeychainLoader'
 import Keychain from 'public/keychain/containers/Keychain'
-import Spinner from 'public/app/components/Spinner'
+import Spinner from 'public/app/components/spinner/Spinner'
 
 import PasswordEdition from 'public/keychain/containers/PasswordEdition'
 
