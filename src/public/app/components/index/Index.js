@@ -32,6 +32,7 @@ export default class Index extends Component {
             <LinkButton
               reversed={true}
               to={'/signup/'}
+              big={true}
             >Get started</LinkButton>
           </div>
         </div>
@@ -76,6 +77,7 @@ export default class Index extends Component {
           <LinkButton
             to={'/signup/'}
             primary={true}
+            big={true}
           >Get started</LinkButton>
         </div>
         <footer

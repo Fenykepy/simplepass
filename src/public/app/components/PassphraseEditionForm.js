@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import FormRequiredFields from 'public/app/components/FormRequiredFields'
-import FormRequiredField from 'public/app/components/FormRequiredField'
-import FormFieldErrors from 'public/app/components/FormFieldErrors'
+import FormRequiredFields from 'public/form/form-required-fields/FormRequiredFields'
+import FormRequiredField from 'public/form/form-required-field/FormRequiredField'
+import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
 
 
 export default class PassphraseEditionForm extends Component {

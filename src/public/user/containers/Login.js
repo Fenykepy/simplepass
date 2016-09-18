@@ -10,6 +10,9 @@ import { setDocumentTitle } from 'public/app/actions'
 import LoginForm from 'public/user/components/LoginForm'
 import SignupLink from 'public/user/components/signup-link/SignupLink'
 import Spinner from 'public/app/components/Spinner'
+import FormWrapper from 'public/form/form-wrapper/FormWrapper'
+import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import Submit from 'public/form/buttons/Submit'
 
 const LOGIN_FORM = "login-form"
 
@@ -76,7 +79,7 @@ class Login extends Component {
       child = <Spinner message="Logging in..." />
     } else  {
       child = (
-        <article id="column-form">
+        <FormWrapper>
           <h1>Log In to SimplePass</h1>
           <LoginForm
             id={LOGIN_FORM}
@@ -88,17 +91,17 @@ class Login extends Component {
             errors={this.props.user.login_errors}
           />
           <footer>
-            <div className="field-wrapper">
-              <input
-                className="primary max"
+            <FieldWrapper>
+              <Submit
+                primary={true}
+                max={true}
                 form={LOGIN_FORM}
                 value="Log in"
-                type="submit"
               />
-            </div>
+            </FieldWrapper>
             <div>No account yet? <SignupLink /></div>
           </footer>
-        </article>
+        </FormWrapper>
       )
     }
 

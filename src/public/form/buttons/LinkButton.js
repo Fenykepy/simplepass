@@ -22,6 +22,8 @@ export default class LinkButton extends Component {
       classes.push(styles.default)
     }
 
+    if (this.props.big) classes.push(styles.big)
+
     if (this.props.max) classes.push(styles.max)
 
     return classes.join(" ")
@@ -42,6 +44,7 @@ export default class LinkButton extends Component {
 LinkButton.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
+  big: PropTypes.bool,
   max: PropTypes.bool,
   to: PropTypes.string.isRequired,
 }

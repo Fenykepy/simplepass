@@ -2,11 +2,11 @@
 
 // base class for buttons, inputs type=submit
 .btn {
-    height: 46px;
-    line-height: 38px;
+    height: 38px;
+    line-height: 36px;
     vertical-align: middle;
     width: auto;
-    padding: 3px 23px;
+    padding: 0px 23px;
     margin: 5px 0 0 0;
     text-align: center;
     text-decoration: none;
@@ -25,6 +25,11 @@
 .disabled {
     opacity: 0.7;
     cursor: not-allowed;
+}
+
+.big {
+    height: 46px;
+    line-height: 44px;
 }
 
 .max {
@@ -57,6 +62,7 @@
 
 // primary buttons
 .primary {
+    border-radius: 3px;
     composes: btn;
     color: @white;
     border-color: @brand-blue;

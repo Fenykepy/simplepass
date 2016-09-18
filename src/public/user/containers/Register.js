@@ -12,6 +12,9 @@ import { setDocumentTitle } from 'public/app/actions'
 import RegisterForm from 'public/user/components/RegisterForm'
 import LoginLink from 'public/user/components/login-link/LoginLink'
 import Spinner from 'public/app/components/Spinner'
+import FormWrapper from 'public/form/form-wrapper/FormWrapper'
+import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import Submit from 'public/form/buttons/Submit'
 
 const REGISTER_FORM = "register-form"
 
@@ -112,7 +115,7 @@ class Register extends Component {
       child = <Spinner message="Signing up..." />
     } else {
       child = (
-        <article id="column-form">
+        <FormWrapper>
           <h1>Join SimplePass</h1>
           <RegisterForm
             id={REGISTER_FORM}
@@ -128,17 +131,17 @@ class Register extends Component {
             errors={this.getErrors()}
           />
           <footer>
-            <div className="field-wrapper">
-              <input
-                className="primary max"
+            <FieldWrapper>
+              <Submit
+                primary={true}
+                max={true}
                 form={REGISTER_FORM}
                 value="Sign up"
-                type="submit"
               />
-            </div>
+            </FieldWrapper>
             <div>Already have an account? <LoginLink /></div>
           </footer>
-        </article>
+        </FormWrapper>
       )
     }
 

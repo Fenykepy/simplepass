@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import styles from './button.less'
 
-export default class Button extends Component {
+export default class Submit extends Component {
 
   getClassNames() {
     let classes = []
@@ -29,18 +29,20 @@ export default class Button extends Component {
 
   render() {
     return (
-      <button
+      <input
         className={this.getClassNames()}
-        onClick={this.props.onClick}
-        type="button"
-      >{this.props.children}</button>
+        type="submit"
+        value={this.props.value}
+        form={this.props.form}
+      />
     )
   }
 }
 
-Button.propTypes = {
+Submit.propTypes = {
   className: PropTypes.string,
-  onClick: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  form: PropTypes.string,
   primary: PropTypes.bool,
   reversed: PropTypes.bool,
   secondary: PropTypes.bool,

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import FormFieldErrors from 'public/app/components/FormFieldErrors'
+import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
 
 
 export default class InitPassphraseForm extends Component {

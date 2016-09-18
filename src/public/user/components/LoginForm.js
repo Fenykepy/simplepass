@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import FormRequiredFields from 'public/app/components/FormRequiredFields'
-import FormRequiredField from 'public/app/components/FormRequiredField'
-import FormFieldErrors from 'public/app/components/FormFieldErrors'
+import FormRequiredFields from 'public/form/form-required-fields/FormRequiredFields'
+import FormRequiredField from 'public/form/form-required-field/FormRequiredField'
+import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
+import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
 
 export default class LoginForm extends Component {
 
@@ -14,13 +15,13 @@ export default class LoginForm extends Component {
         id={this.props.id}
         onSubmit={this.props.onSubmit}
       >
-        <div className="field-wrapper">
+        <FieldWrapper>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'non_field_errors'}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-username">Username:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -34,8 +35,8 @@ export default class LoginForm extends Component {
             onChange={this.props.handleUsernameChange.bind(this)}
             required
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-password">Password:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -49,7 +50,7 @@ export default class LoginForm extends Component {
             onChange={this.props.handlePasswordChange.bind(this)}
             required
           />
-        </div>
+        </FieldWrapper>
       </form>
     )
   }

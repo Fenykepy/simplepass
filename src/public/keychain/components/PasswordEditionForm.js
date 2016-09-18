@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 
-import FormFieldErrors from 'public/app/components/FormFieldErrors'
-import FormRequiredFields from 'public/app/components/FormRequiredFields'
-import FormRequiredField from 'public/app/components/FormRequiredField'
+import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
+import FormRequiredFields from 'public/form/form-required-fields/FormRequiredFields'
+import FormRequiredField from 'public/form/form-required-field/FormRequiredField'
 import PasswordField from 'public/keychain/components/PasswordField'
 
 export default class PasswordEditionForm extends Component {
