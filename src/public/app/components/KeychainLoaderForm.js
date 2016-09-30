@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 
 import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
+import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
 
 
 export default class KeychainLoaderForm extends Component {
@@ -15,13 +16,13 @@ export default class KeychainLoaderForm extends Component {
         id={this.props.id}
         onSubmit={this.props.onSubmit}
       >
-        <div className="field-wrapper">
+        <FieldWrapper>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'non_field_errors'}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-pass">Master passphrase:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -34,7 +35,7 @@ export default class KeychainLoaderForm extends Component {
             onChange={this.props.handlePassChange.bind(this)}
             required
           />
-        </div>
+        </FieldWrapper>
       </form>
     )
   }

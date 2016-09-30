@@ -7,6 +7,10 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import KeychainLoaderForm from 'public/app/components/KeychainLoaderForm'
 
+import FormWrapper from 'public/form/form-wrapper/FormWrapper'
+import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import Submit from 'public/form/buttons/Submit'
+
 const KEYCHAIN_LOADER_FORM = 'keychain-loader-form'
 
 class KeychainLoader extends Component {
@@ -51,7 +55,7 @@ class KeychainLoader extends Component {
     
     //console.log('KeychainLoader', this.props)
     return (
-      <article id="column-form">
+      <FormWrapper>
         <h1>Unlock keychain</h1>
         <KeychainLoaderForm
           id={KEYCHAIN_LOADER_FORM}
@@ -61,17 +65,18 @@ class KeychainLoader extends Component {
           errors={this.state.errors}
         />
         <footer>
-          <div className="field-wrapper">
-            <input
-              className="primary max"
+          <FieldWrapper>
+            <Submit
+              primary={true}
+              max={true}
+              value="Unlock"
               form={KEYCHAIN_LOADER_FORM}
               value="Unlock"
-              type="submit"
             />
-          </div>
+          </FieldWrapper>
         </footer>
 
-      </article>
+      </FormWrapper>
     )
   }
 }
