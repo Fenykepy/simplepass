@@ -1,0 +1,40 @@
+@import (reference) "~public/global-styles/palette.less";
+@import (reference) "~public/global-styles/sizes.less";
+
+.leftPanel {
+    width: @panel-width;
+    position: fixed;
+    top: @header-height;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0;
+    background: @grey0;
+    border-right: 1px solid @grey3;
+    h6 {
+        margin: 0;
+    }
+}
+
+.number {
+    margin-left: auto;
+    font-weight: bold;
+}
+
+.link {
+    display: flex;
+    padding: 10px 25px;
+    color: @grey5;
+    &:hover, &:focus, &:active {
+        text-decoration: none;
+        color: @brand-blue;
+    }
+    &.selected {
+        background: @brand-blue;
+        color: @white;
+    }
+}
+

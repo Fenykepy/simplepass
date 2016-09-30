@@ -7,7 +7,7 @@ import { keychainSelector } from 'public/keychain/selectors'
 import { setFilter } from 'public/keychain/actions'
 import { setDocumentTitle } from 'public/app/actions'
 
-import LeftPanel from 'public/keychain/components/LeftPanel'
+import LeftPanel from 'public/keychain/components/leftPanel/LeftPanel'
 import Toolbar from 'public/keychain/components/Toolbar'
 
 class Keychain extends Component {
