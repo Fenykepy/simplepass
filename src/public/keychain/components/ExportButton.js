@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+import Button from 'public/form/buttons/Button'
+
 export default class ExportButton extends Component {
   
   
@@ -18,12 +20,13 @@ export default class ExportButton extends Component {
     //console.log('ExportButton', this.props)
 
     return (
-      <button
+      <Button
         disabled={this.getButtonState()}
-        className="secondary max shy" 
+        secondary={true}
+        max={true}
         title="Export encryted keychain to your harddrive"
         onClick={this.props.saveEjson}
-      >Export Keychain</button>
+      >Export Keychain</Button>
     )
   }
 }

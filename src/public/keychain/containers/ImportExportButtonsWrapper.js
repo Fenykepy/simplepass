@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 
 import { saveEjson } from 'public/ejson/actions'
 
+import ButtonsWrapper from 'public/form/buttons-wrapper/ButtonsWrapper'
 import ExportButton from 'public/keychain/components/ExportButton'
 //import ImportButton from '../components/ImportButton'
 
@@ -20,11 +21,11 @@ class ImportExportButtonsWrapper extends Component {
     } = this.props
 
     return (
-        <div className="buttons-wrapper">
+        <ButtonsWrapper>
           <ExportButton
             saveEjson={this.saveEjson.bind(this)}
           />
-        </div>
+        </ButtonsWrapper>
     )
   }
 }
