@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
+import styles from './toolbar.less'
+
 import AddEntryButton from 'public/keychain/components/AddEntryButton'
 
 export default class Toolbar extends Component {
@@ -7,7 +9,9 @@ export default class Toolbar extends Component {
   render() {
     //console.log('toolbar', this.props)
     return (
-      <header id="toolbar">
+      <header
+        className={styles.toolbar}
+      >
         <input
           id="filter"
           type="text"

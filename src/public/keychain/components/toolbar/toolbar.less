@@ -1,0 +1,15 @@
+@import (reference) "~public/global-styles/palette.less";
+@import (reference) "~public/global-styles/sizes.less";
+
+.toolbar {
+    position: fixed;
+    left: @panel-width;
+    top: @header-height;
+    right: 0;
+    height: @toolbar-height;
+    background: @grey0;
+    border-bottom: 1px solid @grey3;
+    display: flex;
+    padding: 0 25px;
+    z-index: 1; // for list entries to stay under
+}
