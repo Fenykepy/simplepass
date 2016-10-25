@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import styles from './toolbar.less'
 
-import AddEntryButton from 'public/keychain/components/AddEntryButton'
+import AddEntryButton from 'public/keychain/components/addEntryButton/AddEntryButton'
 
 export default class Toolbar extends Component {
 

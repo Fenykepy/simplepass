@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import Modal from 'public/modal/components/Modal'
+import Button from 'public/form/buttons/Button'
 import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
 import AddNoteButton from 'public/keychain/components/AddNoteButton'
 import AddCardButton from 'public/keychain/components/AddCardButton'
@@ -29,10 +30,11 @@ export default class AddEntryButton extends Component {
   render() {
     //console.log('AddEntryButton', this.props)
     return (
-      <button
-        className={this.props.className || "secondary shy"}
+      <Button
+        secondary={true}
+        shy={true}
         onClick={this.setModal.bind(this)}
-      >{this.props.children}</button>
+      >{this.props.children}</Button>
     )
   }
 }

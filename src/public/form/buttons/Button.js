@@ -22,6 +22,8 @@ export default class Button extends Component {
 
     if (this.props.big) classes.push(styles.big)
 
+    if (this.props.shy) classes.push(styles.shy)
+
     if (this.props.max) classes.push(styles.max)
 
     return classes.join(" ")
