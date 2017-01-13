@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import Modal from 'public/modal/components/Modal'
+import Modal from 'public/modal/components/modal/Modal'
 import PassphraseEdition from 'public/app/containers/PassphraseEdition'
 
 export default class PassphraseEditionButton extends Component {

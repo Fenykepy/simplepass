@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
-import ModalContent from 'public/modal/components/ModalContent'
-import ModalFooter from 'public/modal/components/ModalFooter'
+import ModalContent from 'public/modal/components/modalContent/ModalContent'
+import ModalFooter from 'public/modal/components/modalFooter/ModalFooter'
 
 
 export default class DeleteConfirm extends Component {

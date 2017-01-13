@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import Modal from 'public/modal/components/Modal'
+import Modal from 'public/modal/components/modal/Modal'
 import NoteEdition from 'public/keychain/containers/NoteEdition'
 
 export default class AddNoteButton extends Component {

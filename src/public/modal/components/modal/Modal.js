@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import ModalHeader from 'public/modal/components/ModalHeader'
+import ModalHeader from '../modalHeader/ModalHeader'
+
+import styles from './modal.less'
 
 export default class Modal extends Component {
 
@@ -11,24 +13,37 @@ export default class Modal extends Component {
     }
   }
 
-  render() {
+  getModalClassNames() {
+    let classes = [styles.modal]
 
-    let modal_classes = []
-    this.props.modal_max ? modal_classes.push("max") : ""
-    this.props.modal_small ? modal_classes.push("small") : ""
-    
-    let overlay_classes = []
-    this.props.modal_opaque ? overlay_classes.push("opaque") : ""
-    this.props.modal_transparent ? overlay_classes.push("transparent") : ""
+    // we add extra classes
+    if (this.props.modal_max) { classes.push(styles.max) }
+    if (this.props.modal_small) { classes.push(styles.small) }
+
+    return classes.join(" ")
+  }
+
+  getOverlayClassNames() {
+    let classes = [styles.overlay]
+
+    // we add extra classes
+    if (this.props.modal_opaque) { classes.push(styles.opaque) }
+    else if (this.props.modal_transparent) {
+      classes.push(styles.transparent)
+    }
+
+    return classes.join(" ")
+  }
+
+  render() {
     
     return (
-      <div id="modal-overlay"
-        className={overlay_classes.join(' ')}
+      <div
+        className={this.getOverlayClassNames()}
         onClick={this.closeModal.bind(this)}
       >
         <section
-          id="modal"
-          className={modal_classes.join(' ')}
+          className={this.getModalClassNames()}
           onClick={e => e.stopPropagation()}
         >
           <ModalHeader

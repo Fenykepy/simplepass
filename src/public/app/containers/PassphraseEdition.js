@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 
 import { updatePassphrase } from 'public/app/actions'
 
-import ModalContent from 'public/modal/components/ModalContent'
-import ModalFooter from 'public/modal/components/ModalFooter'
+import ModalContent from 'public/modal/components/modalContent/ModalContent'
+import ModalFooter from 'public/modal/components/modalFooter/ModalFooter'
 import PassphraseEditionForm from 'public/app/components/PassphraseEditionForm'
 
 

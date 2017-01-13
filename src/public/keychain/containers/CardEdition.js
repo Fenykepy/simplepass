@@ -9,9 +9,9 @@ import {
 } from 'public/keychain/actions'
 
 
-import Modal from 'public/modal/components/Modal'
-import ModalContent from 'public/modal/components/ModalContent'
-import ModalFooter from 'public/modal/components/ModalFooter'
+import Modal from 'public/modal/components/modal/Modal'
+import ModalContent from 'public/modal/components/modalContent/ModalContent'
+import ModalFooter from 'public/modal/components/modalFooter/ModalFooter'
 import CardEditionForm from 'public/keychain/components/CardEditionForm'
 import DeleteConfirm from 'public/keychain/components/DeleteConfirm'
 

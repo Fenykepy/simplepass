@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 
-import Modal from 'public/modal/components/Modal'
+import Modal from 'public/modal/components/modal/Modal'
 import CardEdition from 'public/keychain/containers/CardEdition'
 
 export default class AddCardButton extends Component {
