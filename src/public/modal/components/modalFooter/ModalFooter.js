@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react'
 
+import styles from './modalFooter.less'
+
 export default class ModalFooter extends Component {
 
   render() {
 
     return (
       <footer
-        id="modal-footer"
-        className={this.props.className || ""}
+        className={styles.modalFooter}
       >
         {this.props.children}
       </footer>
