@@ -6,6 +6,8 @@ import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
 import AddNoteButton from 'public/keychain/components/AddNoteButton'
 import AddCardButton from 'public/keychain/components/AddCardButton'
 
+import styles from './addEntryButton.less'
+
 export default class AddEntryButton extends Component {
 
   setModal() {
@@ -15,7 +17,7 @@ export default class AddEntryButton extends Component {
         title="Add a new"
       >
         <footer
-          className="adjoined-buttons-wrapper"
+          className={styles.adjoinedButtonsWrapper}
         >
           <AddPasswordButton>Password</AddPasswordButton>
           <AddNoteButton>Note</AddNoteButton>

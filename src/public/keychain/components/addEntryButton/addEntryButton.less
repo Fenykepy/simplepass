@@ -1,0 +1,24 @@
+@import (reference) "~public/global-styles/palette.less";
+
+.adjoinedButtonsWrapper {
+    height: 150px;
+    display: flex;
+    button {
+        border: none;
+        flex: 1;
+        height: 100%;
+        background: @grey0;
+        border-right: 1px solid @grey3;
+        border-radius: 0;
+        margin: 0;
+        font-size: 16px;
+        font-size: 1.6rem;
+        &:hover {
+            color: @black;
+            background: @white;
+        }
+        &:last-child {
+            border: none;
+        }
+    }
+}
