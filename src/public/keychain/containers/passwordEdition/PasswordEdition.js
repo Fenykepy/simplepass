@@ -11,7 +11,9 @@ import {
 import Modal from 'public/modal/components/modal/Modal'
 import ModalContent from 'public/modal/components/modalContent/ModalContent'
 import ModalFooter from 'public/modal/components/modalFooter/ModalFooter'
-import PasswordEditionForm from 'public/keychain/components/PasswordEditionForm'
+import Submit from 'public/form/buttons/Submit'
+import Button from 'public/form/buttons/Button'
+import PasswordEditionForm from '../..//components/passwordEditionForm/PasswordEditionForm'
 import DeleteConfirm from 'public/keychain/components/DeleteConfirm'
 
 const PASSWORD_FORM = "password-form"
@@ -111,9 +113,9 @@ class PasswordEdition extends Component {
     // we update existing password, show delete button
     return (
       <div className="delete">
-        <button
+        <Button
           onClick={this.confirmDeletePassword.bind(this)}
-        >Delete</button>
+        >Delete</Button>
       </div>
     )
   }
@@ -178,12 +180,11 @@ class PasswordEdition extends Component {
           />
         </ModalContent>
         <ModalFooter>
-          <button
+          <Button
             onClick={this.context.closeModal}
-          >Cancel</button>
-          <input
-            type="submit"
-            className="primary"
+          >Cancel</Button>
+          <Submit
+            primary={true}
             form={PASSWORD_FORM}
             value={value}
           />

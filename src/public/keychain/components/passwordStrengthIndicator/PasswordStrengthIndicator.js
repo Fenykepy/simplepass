@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-
+import styles from './passwordStrengthIndicator.less'
 const MAX = 320
 
 export default class PasswordStrengthIndicator extends Component {
@@ -23,17 +23,17 @@ export default class PasswordStrengthIndicator extends Component {
     return (
       <div>
         <div
-          className="password-strength-indicator"
+          className={styles.indicator}
           title={strength + ' bits'}
         >
           <div
-            className="bar"
+            className={styles.bar}
             style={{
               width: bar_length + '%',
             }}
           />
         </div>
-        <div className="password-strength-legend">
+        <div className={styles.legend}>
           <span>Weak</span>
           <span>Strong</span>
         </div>

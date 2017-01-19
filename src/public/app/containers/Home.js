@@ -13,8 +13,6 @@ import KeychainLoader from 'public/app/containers/KeychainLoader'
 import Keychain from 'public/keychain/containers/Keychain'
 import Spinner from 'public/app/components/spinner/Spinner'
 
-import PasswordEdition from 'public/keychain/containers/PasswordEdition'
-
 class Home extends Component {
 
   componentWillMount() {
@@ -52,16 +50,6 @@ class Home extends Component {
       return <InitPassphrase />
     }
 
-
-    // for testing only
-    /*    return (
-      <div style={{
-        maxWidth: '680px',
-        margin: '0 auto',
-      }}>
-        <PasswordEdition />
-      </div>
-      )*/
 
     // we show unlocking form if keychain is locked
     if (this.props.locked) {

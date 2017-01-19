@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import Modal from 'public/modal/components/modal/Modal'
-import PasswordEdition from 'public/keychain/containers/PasswordEdition'
+import PasswordEdition from '../..//containers/passwordEdition/PasswordEdition'
 
 export default class AddPasswordButton extends Component {
 

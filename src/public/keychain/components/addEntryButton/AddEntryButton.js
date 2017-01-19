@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Modal from 'public/modal/components/modal/Modal'
 import Button from 'public/form/buttons/Button'
-import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
+import AddPasswordButton from '../addPasswordButton/AddPasswordButton'
 import AddNoteButton from 'public/keychain/components/AddNoteButton'
 import AddCardButton from 'public/keychain/components/AddCardButton'
 

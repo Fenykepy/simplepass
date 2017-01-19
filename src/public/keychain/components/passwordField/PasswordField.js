@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
+import styles from './passwordField.less'
+
 import PasswordGeneratorButton from 'public/keychain/components/PasswordGeneratorButton'
-import PasswordStrengthIndicator from 'public/keychain/components/PasswordStrengthIndicator'
+import PasswordStrengthIndicator from '../passwordStrengthIndicator/PasswordStrengthIndicator'
 
 export default class PasswordField extends Component {
 
@@ -29,7 +31,7 @@ export default class PasswordField extends Component {
   render() {
     return (
       <div>
-        <div className="group-field-inline adjoined-inputs">
+        <div className={styles.wrapper}>
           <input
             className="joined"
             id={this.props.id}
@@ -37,6 +39,7 @@ export default class PasswordField extends Component {
             type={this.state.hidden ? "password" : "text"}
             value={this.props.value}
             onChange={this.props.onChange}
+            autoComplete="new-password"
           />
           <button
             type="button"

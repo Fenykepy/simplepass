@@ -3,7 +3,7 @@ import React, { Component, PropTypes } from 'react'
 import HiddenCopyField from 'public/keychain/components/HiddenCopyField'
 import UrlField from 'public/keychain/components/UrlField'
 import DescriptionField from 'public/keychain/components/DescriptionField'
-import AddPasswordButton from 'public/keychain/components/AddPasswordButton'
+import AddPasswordButton from './addPasswordButton/AddPasswordButton'
 
 
 export default class PasswordDetail extends Component {

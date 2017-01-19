@@ -3,7 +3,8 @@ import React, { Component, PropTypes } from 'react'
 import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
 import FormRequiredFields from 'public/form/form-required-fields/FormRequiredFields'
 import FormRequiredField from 'public/form/form-required-field/FormRequiredField'
-import PasswordField from 'public/keychain/components/PasswordField'
+import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import PasswordField from '../passwordField/PasswordField'
 
 export default class PasswordEditionForm extends Component {
 
@@ -13,15 +14,16 @@ export default class PasswordEditionForm extends Component {
       <form
         id={this.props.id}
         onSubmit={this.props.onSubmit}
+        autoComplete="off"
       >
         <FormRequiredFields />
-        <div className="field-wrapper">
+        <FieldWrapper>
           <FormFieldErrors
             errors_list={this.props.errors}
             field={'non_field_errors'}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-title">Title:<FormRequiredField /></label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -36,8 +38,8 @@ export default class PasswordEditionForm extends Component {
             onChange={this.props.handleTitleChange}
             required
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-username">Username:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -50,8 +52,8 @@ export default class PasswordEditionForm extends Component {
             value={this.props.username}
             onChange={this.props.handleUsernameChange}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-email">Email:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -64,8 +66,8 @@ export default class PasswordEditionForm extends Component {
             value={this.props.email}
             onChange={this.props.handleEmailChange}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-password">Password:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -77,8 +79,8 @@ export default class PasswordEditionForm extends Component {
             value={this.props.password}
             onChange={this.props.handlePasswordChange}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-url">Related url:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -91,8 +93,8 @@ export default class PasswordEditionForm extends Component {
             value={this.props.url}
             onChange={this.props.handleUrlChange}
           />
-        </div>
-        <div className="field-wrapper">
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-description">Description:</label>
           <FormFieldErrors
             errors_list={this.props.errors}
@@ -105,7 +107,7 @@ export default class PasswordEditionForm extends Component {
             value={this.props.description}
             onChange={this.props.handleDescriptionChange}
           />
-        </div>
+        </FieldWrapper>
       </form>
     )
   }
