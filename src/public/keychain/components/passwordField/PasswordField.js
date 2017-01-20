@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import styles from './passwordField.less'
 
-import PasswordGeneratorButton from 'public/keychain/components/PasswordGeneratorButton'
+import PasswordGeneratorButton from '../passwordGeneratorButton/PasswordGeneratorButton'
 import PasswordStrengthIndicator from '../passwordStrengthIndicator/PasswordStrengthIndicator'
 
 export default class PasswordField extends Component {

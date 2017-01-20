@@ -1,6 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
-import PasswordGenerator from 'public/keychain/components/PasswordGenerator'
+import styles from './passwordGeneratorButton.less'
+
+import AccessibilityText from 'public/app/components/accessibilityText/AccessibilityText'
+import PasswordGenerator from '../passwordGenerator/PasswordGenerator'
 
 export default class PasswordGeneratorButton extends Component {
   
@@ -32,12 +35,14 @@ export default class PasswordGeneratorButton extends Component {
         style={{position: 'relative'}}
       >
         <button
-          className="joined generator"
+          className={styles.generator}
           onClick={this.toggleGenerator.bind(this)}
           type="button"
           title="Generate a password automatically"
         >
-          <span className="accessibility">Generate a password automatically</span>
+          <AccessibilityText
+            text="Generate a password automatically"
+          />
         </button>
         {this.getGenerator()}
       </div>

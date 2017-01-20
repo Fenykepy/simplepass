@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import crypto from 'public/crypto'
-import PasswordGeneratorForm from 'public/keychain/components/PasswordGeneratorForm'
+import PasswordGeneratorForm from '../passwordGeneratorForm/PasswordGeneratorForm'
 
 const LOWER = 'abcdefghijklmnopqrstuvwxyz'
 const UPPER = LOWER.toUpperCase()
