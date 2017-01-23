@@ -1,0 +1,24 @@
+@import (reference) "~public/global-styles/palette.less";
+
+.visibility {
+    height: 30px;
+    width: 36px;
+    padding: 0;
+    margin: auto 5px;
+}
+
+.hidden {
+    composes: visibility;
+    background: url('../visibilityButton/eye-ffffff.svg') no-repeat center center;
+    background-color: @brand-blue;
+    background-size: 24px auto;
+    border: none;
+    &:hover {
+        background-color: @blue1;
+        background-size: 24px auto;
+    }
+}
+
+.visible {
+    composes: visibility;
+}

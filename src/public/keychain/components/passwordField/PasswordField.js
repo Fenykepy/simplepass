@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import styles from './passwordField.less'
 
+import VisibilityButton from '../visibilityButton/VisibilityButton'
 import PasswordGeneratorButton from '../passwordGeneratorButton/PasswordGeneratorButton'
 import PasswordStrengthIndicator from '../passwordStrengthIndicator/PasswordStrengthIndicator'
 
@@ -41,14 +42,10 @@ export default class PasswordField extends Component {
             onChange={this.props.onChange}
             autoComplete="new-password"
           />
-          <button
-            type="button"
-            className={this.state.hidden ? 'eye-hidden joined' : 'eye-visible joined'}
-            title="Toogle content visibility"
-            onClick={this.toogleVisibility.bind(this)}
-          >
-            <span className="accessibility">Toogle visibility</span>
-          </button>
+          <VisibilityButton
+            hidden={this.state.hidden}
+            toogleVisibility={this.toogleVisibility.bind(this)}
+          />
           <PasswordGeneratorButton
             setPassword={this.setPassword.bind(this)}
           />
