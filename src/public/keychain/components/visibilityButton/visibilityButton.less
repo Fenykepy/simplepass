@@ -7,11 +7,10 @@
     margin: auto 5px;
 }
 
-.hidden {
+.visible {
     composes: visibility;
     background: url('../visibilityButton/eye-ffffff.svg') no-repeat center center;
     background-color: @brand-blue;
-    background-size: 24px auto;
     border: none;
     &:hover {
         background-color: @blue1;
@@ -19,6 +18,16 @@
     }
 }
 
-.visible {
+.hidden {
     composes: visibility;
+    background: url('../visibilityButton/eye-cccccc.svg') no-repeat center center;
+    border: 1px solid @grey3;
+    background-size: 24px auto;
+    &:hover {
+        background: url('../visibilityButton/eye-414141.svg') no-repeat center center;
+        border-color: @grey8;
+        background-size: 24px auto;
+    }
 }
+
+
