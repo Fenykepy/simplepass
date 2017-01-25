@@ -32,7 +32,7 @@ export default class PasswordGeneratorButton extends Component {
   render() {
     return (
       <div
-        style={{position: 'relative'}}
+        className={styles.generatorWrapper}
       >
         <button
           className={styles.generator}

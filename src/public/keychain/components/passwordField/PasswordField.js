@@ -34,7 +34,6 @@ export default class PasswordField extends Component {
       <div>
         <div className={styles.wrapper}>
           <input
-            className="joined"
             id={this.props.id}
             name={this.props.name}
             type={this.state.hidden ? "password" : "text"}
