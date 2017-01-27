@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
-import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import FormFieldErrors from 'public/form/formFieldErrors/FormFieldErrors'
+import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
 
 
 export default class KeychainLoaderForm extends Component {

@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 
+import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
+
+
 export default class PasswordGeneratorForm extends Component {
 
   render() {

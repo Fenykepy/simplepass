@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import { saveEjson } from 'public/ejson/actions'
 
-import ButtonsWrapper from 'public/form/buttons-wrapper/ButtonsWrapper'
+import ButtonsWrapper from 'public/form/buttonsWrapper/ButtonsWrapper'
 import ExportButton from 'public/keychain/components/ExportButton'
 //import ImportButton from '../components/ImportButton'
 

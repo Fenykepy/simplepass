@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 
 
-import FormRequiredFields from 'public/form/form-required-fields/FormRequiredFields'
-import FormRequiredField from 'public/form/form-required-field/FormRequiredField'
-import FormFieldErrors from 'public/form/form-field-errors/FormFieldErrors'
-import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import FormRequiredFields from 'public/form/formRequiredFields/FormRequiredFields'
+import FormRequiredField from 'public/form/formRequiredField/FormRequiredField'
+import FormFieldErrors from 'public/form/formFieldErrors/FormFieldErrors'
+import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
 
 export default class RegisterForm extends Component {
 

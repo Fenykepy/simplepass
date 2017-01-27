@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
-import FormRequiredField from 'public/form/form-required-field/FormRequiredField'
-import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import FormRequiredField from '../formRequiredField/FormRequiredField'
+import FieldWrapper from '../fieldWrapper/FieldWrapper'
 
 export default class FormRequiredFields extends Component {
 

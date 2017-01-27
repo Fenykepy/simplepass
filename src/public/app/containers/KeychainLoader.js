@@ -7,8 +7,8 @@ import { setDocumentTitle } from 'public/app/actions'
 
 import KeychainLoaderForm from 'public/app/components/KeychainLoaderForm'
 
-import FormWrapper from 'public/form/form-wrapper/FormWrapper'
-import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import FormWrapper from 'public/form/formWrapper/FormWrapper'
+import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
 import Submit from 'public/form/buttons/Submit'
 
 const KEYCHAIN_LOADER_FORM = 'keychain-loader-form'

@@ -8,10 +8,10 @@ import { login } from 'public/user/actions'
 import { setDocumentTitle } from 'public/app/actions'
 
 import LoginForm from 'public/user/components/LoginForm'
-import SignupLink from 'public/user/components/signup-link/SignupLink'
+import SignupLink from 'public/user/components/signupLink/SignupLink'
 import Spinner from 'public/app/components/spinner/Spinner'
-import FormWrapper from 'public/form/form-wrapper/FormWrapper'
-import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import FormWrapper from 'public/form/formWrapper/FormWrapper'
+import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
 import Submit from 'public/form/buttons/Submit'
 
 const LOGIN_FORM = "login-form"

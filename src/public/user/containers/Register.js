@@ -10,10 +10,10 @@ import { register } from 'public/user/actions'
 import { setDocumentTitle } from 'public/app/actions'
 
 import RegisterForm from 'public/user/components/RegisterForm'
-import LoginLink from 'public/user/components/login-link/LoginLink'
+import LoginLink from 'public/user/components/loginLink/LoginLink'
 import Spinner from 'public/app/components/spinner/Spinner'
-import FormWrapper from 'public/form/form-wrapper/FormWrapper'
-import FieldWrapper from 'public/form/field-wrapper/FieldWrapper'
+import FormWrapper from 'public/form/formWrapper/FormWrapper'
+import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
 import Submit from 'public/form/buttons/Submit'
 
 const REGISTER_FORM = "register-form"

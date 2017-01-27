@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
 import PassphraseEditionButton from 'public/app/components/PassphraseEditionButton'
-import AdminLink from 'public/app/components/admin-link/AdminLink'
-import DropdownMenu from 'public/app/components/dropdown-menu/DropdownMenu'
-import DropdownList from 'public/app/components/dropdown-list/DropdownList'
+import AdminLink from 'public/app/components/adminLink/AdminLink'
+import DropdownMenu from 'public/app/components/dropdownMenu/DropdownMenu'
+import DropdownList from 'public/app/components/dropdownList/DropdownList'
 
 export default class UserMenu extends Component {
 

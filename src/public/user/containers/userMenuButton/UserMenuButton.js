@@ -6,7 +6,7 @@ import { userMenuSelector } from 'public/user/selectors'
 
 import { logout } from 'public/user/actions'
 
-import UserMenu from 'public/user/components/user-menu/UserMenu'
+import UserMenu from 'public/user/components/userMenu/UserMenu'
 
 import styles from './userMenuButton.less'
 

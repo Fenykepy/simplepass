@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 
 import Link from 'react-router/lib/Link'
 
-import HeaderLinks from 'public/app/components/header-links/HeaderLinks'
+import HeaderLinks from 'public/app/components/headerLinks/HeaderLinks'
 
 import styles from './header.less'
 
