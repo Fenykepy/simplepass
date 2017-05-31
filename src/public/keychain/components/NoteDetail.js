@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import HiddenCopyField from 'public/keychain/components/HiddenCopyField'
-import AddNoteButton from 'public/keychain/components/AddNoteButton'
+import AddNoteButton from 'public/keychain/components/addNoteButton/AddNoteButton'
 
 
 export default class NoteDetail extends Component {

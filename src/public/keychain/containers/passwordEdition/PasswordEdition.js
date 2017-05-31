@@ -13,7 +13,7 @@ import ModalContent from 'public/modal/components/modalContent/ModalContent'
 import ModalFooter from 'public/modal/components/modalFooter/ModalFooter'
 import Submit from 'public/form/buttons/Submit'
 import Button from 'public/form/buttons/Button'
-import PasswordEditionForm from '../..//components/passwordEditionForm/PasswordEditionForm'
+import PasswordEditionForm from '../../components/passwordEditionForm/PasswordEditionForm'
 import DeleteConfirm from 'public/keychain/components/DeleteConfirm'
 
 const PASSWORD_FORM = "password-form"

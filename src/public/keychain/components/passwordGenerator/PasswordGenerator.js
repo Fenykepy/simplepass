@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import crypto from 'public/crypto'
+import Button from 'public/form/buttons/Button'
 import PasswordGeneratorForm from '../passwordGeneratorForm/PasswordGeneratorForm'
 
 const LOWER = 'abcdefghijklmnopqrstuvwxyz'
@@ -84,11 +85,11 @@ export default class PasswordGenerator extends Component {
           special={this.state.special}
           spaces={this.state.spaces}
         />
-        <button
-          type="button"
-          className="primary max"
+        <Button
+          primary={true}
+          max={true}
           onClick={this.generatePassword.bind(this)}
-        >Generate password</button>
+        >Generate password</Button>
       </div>
     )
   }

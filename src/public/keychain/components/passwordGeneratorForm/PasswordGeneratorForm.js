@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 
 import FieldWrapper from 'public/form/fieldWrapper/FieldWrapper'
+import CheckboxField from 'public/form/checkboxField/CheckboxField'
 
 
 export default class PasswordGeneratorForm extends Component {
@@ -10,62 +11,47 @@ export default class PasswordGeneratorForm extends Component {
 
     return (
       <div>
-        <div className="field-wrapper">
-          <div className="checkbox">
-            <label htmlFor="id-lower"><input
-              id="id-lower"
-              name="lower"
-              type="checkbox"
-              checked={this.props.lower}
-              onChange={this.props.handleLowerChange}
-            />Allow lower case letters</label>
-          </div>
-        </div>
-        <div className="field-wrapper">
-          <div className="checkbox">
-            <label htmlFor="id-upper"><input
-              id="id-upper"
-              name="upper"
-              type="checkbox"
-              checked={this.props.upper}
-              onChange={this.props.handleUpperChange}
-            />Allow upper case letters</label>
-          </div>
-        </div>
-        <div className="field-wrapper">
-          <div className="checkbox">
-            <label htmlFor="id-number"><input
-              id="id-number"
-              name="number"
-              type="checkbox"
-              checked={this.props.number}
-              onChange={this.props.handleNumberChange}
-            />Allow numbers</label>
-          </div>
-        </div>
-        <div className="field-wrapper">
-          <div className="checkbox">
-            <label htmlFor="id-special"><input
-              id="id-special"
-              name="special"
-              type="checkbox"
-              checked={this.props.special}
-              onChange={this.props.handleSpecialChange}
-            />Allow special characters</label>
-          </div>
-        </div>
-        <div className="field-wrapper">
-          <div className="checkbox">
-            <label htmlFor="id-spaces"><input
-              id="id-spaces"
-              name="spaces"
-              type="checkbox"
-              checked={this.props.spaces}
-              onChange={this.props.handleSpacesChange}
-            />Allow white spaces " "</label>
-          </div>
-        </div>
-        <div className="field-wrapper">
+        <FieldWrapper>
+          <CheckboxField
+            checked={this.props.lower}
+            name="lower"
+            onChange={this.props.handleLowerChange}
+            label="Allow lower case letters"
+          />
+        </FieldWrapper>
+        <FieldWrapper>
+          <CheckboxField
+            checked={this.props.upper}
+            name="upper"
+            onChange={this.props.handleUpperChange}
+            label="Allow upper case letters"
+          />
+        </FieldWrapper>
+        <FieldWrapper>
+          <CheckboxField
+            checked={this.props.number}
+            name="number"
+            onChange={this.props.handleNumberChange}
+            label="Allow numbers"
+          />
+        </FieldWrapper>
+        <FieldWrapper>
+          <CheckboxField
+            name="special"
+            checked={this.props.special}
+            onChange={this.props.handleSpecialChange}
+            label="Allow special characters"
+          />
+        </FieldWrapper>
+        <FieldWrapper>
+          <CheckboxField
+            name="spaces"
+            checked={this.props.spaces}
+            onChange={this.props.handleSpacesChange}
+            label={'Allow white spaces " "'}
+          />
+        </FieldWrapper>
+        <FieldWrapper>
           <label htmlFor="id-length">Password length:</label>
           <input
             id="id-length"
@@ -75,7 +61,7 @@ export default class PasswordGeneratorForm extends Component {
             value={this.props.length}
             onChange={this.props.handleLengthChange}
           />
-        </div>
+        </FieldWrapper>
       </div>
     )
   }
