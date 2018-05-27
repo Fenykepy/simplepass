@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 
+import styles from './passwordGenerator.less'
 import crypto from 'public/crypto'
 import Button from 'public/form/buttons/Button'
+import DropdownMenu from 'public/app/components/dropdownMenu/DropdownMenu'
 import PasswordGeneratorForm from '../passwordGeneratorForm/PasswordGeneratorForm'
 
 const LOWER = 'abcdefghijklmnopqrstuvwxyz'
@@ -69,7 +71,7 @@ export default class PasswordGenerator extends Component {
   render() {
     return (
       <div
-        id="password-generator"
+        className={styles.passwordGenerator}
       >
         <PasswordGeneratorForm
           handleLengthChange={this.handleLengthChange.bind(this)}

@@ -6,11 +6,22 @@ import AccessibilityText from 'public/app/components/accessibilityText/Accessibi
 
 
 export default class VisibilityButton extends Component {
+
+  getClasses() {
+    let classes = this.props.hidden ? styles.hidden : styles.visible
+
+    // add extra classes
+    if (this.props.styles) {
+      classes = classes + " " + this.props.styles
+    }
+    return classes
+  }
+
   render () {
     return (
       <button
         type="button"
-        className={this.props.hidden ? styles.hidden : styles.visible}
+        className={this.getClasses()}
         title="Toogle content visibility"
         onClick={this.props.toogleVisibility.bind(this)}
       >

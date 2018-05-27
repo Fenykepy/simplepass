@@ -34,6 +34,7 @@ export default class PasswordField extends Component {
       <div>
         <div className={styles.wrapper}>
           <input
+            className={styles.adjoined_button}
             id={this.props.id}
             name={this.props.name}
             type={this.state.hidden ? "password" : "text"}
@@ -42,6 +43,7 @@ export default class PasswordField extends Component {
             autoComplete="new-password"
           />
           <VisibilityButton
+            styles={styles.adjoined_button}
             hidden={this.state.hidden}
             toogleVisibility={this.toogleVisibility.bind(this)}
           />

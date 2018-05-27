@@ -7,7 +7,7 @@ export default class CheckboxField extends Component {
   render() {
     let id = "id-" + this.props.name
     return (
-      <div className={styles.checkboxWrapper}>
+      <div className={styles.checkbox}>
         <label htmlFor={id}><input
             id={id}
             type="checkbox"
